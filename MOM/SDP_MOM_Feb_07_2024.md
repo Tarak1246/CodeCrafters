@@ -18,3 +18,4 @@ SDP document review and committing to repository
 
 ## Contributors
 * Group Member 1: S S Eswara Satyanarayana Aneesh Dangeti
+* Group Member 2: Taraka Sai Reddy Seelam
