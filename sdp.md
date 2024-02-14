@@ -25,3 +25,4 @@ The project will follow an Agile methodology with elements of Scrum. This approa
 
 ## Contributors:
 1. S S Eswara Satyanarayana Aneesh Dangeti
+2. Taraka Sai Reddy Seelam
