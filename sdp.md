@@ -7,26 +7,21 @@ Additional tasks: Creation & modification of meetings as needed for the project.
 ## Development Methodology
 The project will follow an Agile methodology with elements of Scrum. This approach allows for iterative development and adaptability to changing requirements. 
 ## Milestones
-1. Requirements Gathering (Week 1)(JAN 29-FEB 02):  
+1. Requirements Gathering & Design Phase (Week 1-3)(JAN 29-FEB 16):  
     - Conduct meetings with team members to gather requirements.
     - Document functional and non-functional requirements.
-2. Design Phase (Week 2)(FEB 05-FEB 09): 
     - Create system architecture and design documents based on gathered requirements.
     - Review and finalize design.
-3. Development Sprints (Week 3-8)(FEB 12-MAR 22): 
-    - Divide the development into bi-weekly sprints.
+2. Development Sprints (Week 4-8)(FEB 19-MAR 22): 
+    - Divide the development into weekly sprints.
     - Implement features according to prioritized user stories.
     - Conduct sprint reviews and retrospectives to gather feedback and make adjustments.
-4. Testing and Quality Assurance (Week 9)(MAR 25-MAR 29): 
+3. Testing and Quality Assurance (Week 9)(MAR 25-MAR 29): 
     - Perform comprehensive testing including unit tests, integration tests, and user acceptance testing.
     - Address any bugs or issues identified during testing.
-5. Deployment and Rollout (Week 10)(APR 01-APR 05): 
+4. Deployment and Rollout (Week 10)(APR 01-APR 05):
     - Prepare for deployment.
     - Roll out the software.
 
 ## Contributors:
-1. Taraka Sai Reddy Seelam
-2. S S Eswara Satyanarayana Aneesh Dangeti
-3. Akshay Reddy
-4. Yekkaladevi Lakshmi Prasanna
-5. Pavan Teja Jukanti
+1. S S Eswara Satyanarayana Aneesh Dangeti
