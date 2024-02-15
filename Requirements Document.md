@@ -74,3 +74,4 @@ REQUIREMENTS
 
 ## Contributors
 1. Taraka Sai Reddy Seelam
+2. Akshay Reddy Yalla
