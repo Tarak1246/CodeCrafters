@@ -28,3 +28,4 @@ The project will follow an Agile methodology with elements of Scrum. This approa
 2. Taraka Sai Reddy Seelam
 3. Akshay Reddy Yalla
 4. Lakshmi Prasanna Yekkaladevi
+5. Pavan Teja Jukanti
