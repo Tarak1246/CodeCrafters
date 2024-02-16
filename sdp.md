@@ -23,6 +23,8 @@ The project will follow an Agile methodology with elements of Scrum. This approa
     - Prepare for deployment.
     - Roll out the software.
 
+* Minimum viable product available date - Mar 15
+
 ## Contributors:
 1. S S Eswara Satyanarayana Aneesh Dangeti
 2. Taraka Sai Reddy Seelam
