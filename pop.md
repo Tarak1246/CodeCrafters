@@ -37,3 +37,8 @@ The intellectual merit of this is to provide ourselves with a thorough understan
 Developers & Testers: All team members will take both roles and be part of tasks to achieve final outcome. We have come up with this plan as we will gain knowledge on all parts, help each other out and gain a complete overview of SDP.
 
 Scrum Master: Every member of our team will take up this role every alternate week, so they will be aware of the agile methodology.
+
+## Contributors:
+1. S S Eswara Satyanarayana Aneesh Dangeti
+
+
