@@ -11,7 +11,7 @@
 
 **Architecture Plan**
     All the database, server and client will be hosted on the same local machine using the listed ports.
-![alt text](image.png)
+   ![alt text](<Architectural Plan.png>)
 
 
 **Architectural Strategies:**
@@ -21,23 +21,23 @@
 
 **Components Interface Design:**
     **1.Register Screen:** Contains a form with required fields to register a user to the platform
-        D1.1 ![alt text](image-1.png)
-        D1.2 ![alt text](image-2.png)![alt text](image-3.png) ![alt text](image-6.png) ![alt text](image-7.png)
-        D1.3 ![alt text](image-4.png)
+        D1.1 ![alt text](<Register Form.png>)
+        D1.2 ![alt text](<Regiter Form Validation-3.png>) ![alt text](<Regiter Form Validation-1.png>) ![alt text](<Regiter Form Validation-2.png>)
+        D1.3 ![alt text](<Register Form Security.png>)
     **2.Login Page:** Contains a form with required fields to login a user into the platform
-        D2.1 ![alt text](image-5.png)
-        D2.2 ![alt text](image-8.png)
+        D2.1 ![alt text](<Login Form.png>)
+        D2.2 ![alt text](<Login Form Validation-1.png>) ![alt text](<Login Form Validation-2.png>)
     **3.Dashboard:** Contains real-time data of projects, contracts and employee details
-        D3 ![alt text](image-9.png)
+        D3 ![alt text](dashboard.png)
     **4.Projects** Contains the project details as listed above. The data can be changed dynamically, and respective changes will be affected in the database accordingly
-        D4 ![alt text](image-10.png)
+        D4 ![alt text](projects.png)
     **5.Contracts** Lists the contracts being worked on by the organization. Data can be modified dynamically, and changes get reflected in the DB
-        D5 ![alt text](image-11.png)
+        D5 ![alt text](contracts.png)
     **6.Employees** Provides the employee details and their roles in the projects. Data can be modified dynamically, and changes get reflected in the DB
-        D6 ![alt text](image-12.png)
+        D6 ![alt text](employees.png)
     **7.Settings** This component allows users to view and manage their personal information, edit it, and log out of their account
-        D7.1 ![alt text](image-13.png)
-        D7.2 ![alt text](image-14.png)
+        D7.1 ![alt text](<user settings.png>)
+        D7.2 ![alt text](<edit user.png>)
 
 **Team Members:**
 1.	S S Eswara Satyanarayana Aneesh Dangeti
