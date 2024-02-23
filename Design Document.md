@@ -1,7 +1,11 @@
 ## Design Documentation
+
 **Project Name:** Project Tracker (Organizational project management platform)
+
 **Date:** 02/15/2024 
+
 **Team Name:** Code Crafters
+
 
 **Introduction:**
     The upcoming paper outlines the design factors for an online platform, including the UI design, functionality requirements for each component and their complexities, and the technology tools used. It includes architectural plans and development process-related procedures.
@@ -26,74 +30,78 @@
     
 **1.Register Screen:** Contains a form with required fields to register a user to the platform.
 
-        D1.1 
 
-            ![alt text](<Register Form.png>)
+**D1.1** 
 
-        D1.2 
+![alt text](<Register Form.png>)
 
-            ![alt text](<Regiter Form Validation-1.png>) 
 
-            ![alt text](<Regiter Form Validation-2.png>)
+**D1.2** 
 
-            ![alt text](<Regiter Form Validation-3.png>)
+![alt text](<Regiter Form Validation-1.png>) 
 
-        D1.3 
+![alt text](<Regiter Form Validation-2.png>)
 
-            ![alt text](<Register Form Security.png>)
+![alt text](<Regiter Form Validation-3.png>)
+
+
+**D1.3**
+
+![alt text](<Register Form Security.png>)
 
 
 **2.Login Page:** Contains a form with required fields to login a user into the platform.
 
-        D2.1 
+**D2.1** 
 
-            ![alt text](<Login Form.png>)
+![alt text](<Login Form.png>)
 
-        D2.2 
 
-            ![alt text](<Login Form Validation-1.png>) 
+**D2.2**
 
-            ![alt text](<Login Form Validation-2.png>)
+![alt text](<Login Form Validation-1.png>) 
+
+![alt text](<Login Form Validation-2.png>)
 
 
 **3.Dashboard:** Contains real-time data of projects, contracts and employee details.
 
-        D3 
+**D3**
 
-            ![alt text](dashboard.png)
+![alt text](dashboard.png)
 
 
 **4.Projects** Contains the project details as listed above. The data can be changed dynamically, and respective changes will be affected in the database accordingly.
 
-        D4 
+**D4**
 
-            ![alt text](projects.png)
+![alt text](projects.png)
 
 
 **5.Contracts** Lists the contracts being worked on by the organization. Data can be modified dynamically, and changes get reflected in the DB.
 
-        D5 
+**D5**
 
-            ![alt text](contracts.png)
+![alt text](contracts.png)
 
 
 **6.Employees** Provides the employee details and their roles in the projects. Data can be modified dynamically, and changes get reflected in the DB.
 
 
-        D6 
+**D6**
 
-            ![alt text](employees.png)
+![alt text](employees.png)
 
 
 **7.Settings** This component allows users to view and manage their personal information, edit it, and log out of their account.
 
-        D7.1 
+**D7.1**
 
-            ![alt text](<user settings.png>)
+![alt text](<user settings.png>)
 
-        D7.2 
+**D7.2**
 
-            ![alt text](<edit user.png>)
+![alt text](<edit user.png>)
 
 
 **Team Members:**
