@@ -1,0 +1,25 @@
+aside h2, div{
+  flex: 1;
+  /* border-bottom: 1px solid black;  */
+  padding: 5px;
+  cursor: pointer;
+  /* float: left; */
+}
+
+
+
+
+/* .sidebar{
+  width: 200px;
+  background: '#f0f0f0';
+  padding: '10px';
+  position: 'fixed';
+  top: '50px';
+  bottom: '50px';
+  overflow-y: 'auto'
+}
+
+li{
+  cursor: 'pointer';
+  padding: '5px'
+} */
