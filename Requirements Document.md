@@ -63,10 +63,25 @@
                * Display an error message if the username or password is invalid
                * Form should clear after submission
 
-     R3. Dashboard Page
-          * Should display projects details in pie chart.
-          * Should display contracts details in bar chart.
-          * Should display employees details in donut chart.
+     R3. Dashboard Page: The Dashboard module aims to provide users with a graphical representation of key    metrics related to employees, contractors, and projects within the organization.
+          R3.1 Visualize Project Data:
+               *The dashboard shall visualize project data to provide insights into project status and progress.
+               *It shall include a pie chart representing metrics such as project timelines.
+               *The dashboard shall update these statistics dynamically based on changes to the project database.
+
+          R3.2 Employee Statistics:
+               *The dashboard shall display the total number of employees registered in the system.
+               *It shall provide a breakdown of employee demographics, including department-wise distribution.
+               *The dashboard shall update these statistics dynamically based on changes to the employee database.
+               *The data for employees will be seen in donut chart
+
+          R3.3 Contractor Information:
+               *The dashboard will feature a component that displays information about the organization's contractors.
+               *The data for the contractors is seen in bar chart
+
+          Responsive Design:
+               *The dashboard interface shall be responsive and compatible with various devices and screen sizes.
+               *It shall adapt its layout and elements dynamically to provide an optimal viewing experience on desktops, tablets, and mobile devices.
 
      R4. Projects
           * List all the projects in table format.
@@ -137,3 +152,4 @@
 
 ## Contributors
 1. Taraka Sai Reddy Seelam
+2. Lakshmi Prasanna Yekkaladevi
