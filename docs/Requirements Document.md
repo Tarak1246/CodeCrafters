@@ -63,7 +63,8 @@
                * Display an error message if the username or password is invalid
                * Form should clear after submission
 
-     R3. Dashboard Page: The Dashboard module aims to provide users with a graphical representation of key    metrics related to employees, contractors, and projects within the organization.
+     R3. Dashboard Page: The Dashboard module aims to provide users with a graphical representation of key metrics related to employees, 
+                         contractors, and projects within the organization.
           R3.1 Visualize Project Data:
                *The dashboard shall visualize project data to provide insights into project status and progress.
                *It shall include a pie chart representing metrics such as project timelines.
