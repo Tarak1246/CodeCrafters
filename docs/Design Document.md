@@ -71,7 +71,7 @@
 ![alt text](dashboard.png)
 
 
-**4.Projects** Contains the project details as listed above. The data can be changed dynamically, and respective changes will be affected in the database accordingly.
+**D4.Projects** Contains the project details as listed above. The data can be changed dynamically, and respective changes will be affected in the database accordingly.
 
 **D4.1** Lists all the project details in below tabular format as per requirement R4.1
 
