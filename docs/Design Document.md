@@ -28,15 +28,15 @@
 **Components Interface Design:**
 
     
-**1.Register Screen:** Contains a form with required fields to register a user to the platform.
+**D1.Register Screen:** Contains a form with required fields to register a user to the platform.
 
 
-**D1.1** 
+**D1.1** Form Fields
 
 ![alt text](<Register Form.png>)
 
 
-**D1.2** 
+**D1.2** Form Validation
 
 ![alt text](<Regiter Form Validation-1.png>) 
 
@@ -45,26 +45,26 @@
 ![alt text](<Regiter Form Validation-3.png>)
 
 
-**D1.3**
+**D1.3** Security(password stored in hash format)
 
 ![alt text](<Register Form Security.png>)
 
 
-**2.Login Page:** Contains a form with required fields to login a user into the platform.
+**D2.Login Page:** Contains a form with required fields to login a user into the platform.
 
-**D2.1** 
+**D2.1** Form Fields
 
 ![alt text](<Login Form.png>)
 
 
-**D2.2**
+**D2.2** Form Validation
 
 ![alt text](<Login Form Validation-1.png>) 
 
 ![alt text](<Login Form Validation-2.png>)
 
 
-**3.Dashboard:** Contains real-time data of projects, contracts and employee details.
+**D3.Dashboard:** Contains real-time data of projects, contracts and employee details.
 
 **D3**
 
@@ -92,14 +92,14 @@
 
 ![alt text](<item deleted.jpg>)
 
-**5.Contracts** Lists the contracts being worked on by the organization. Data can be modified dynamically, and changes get reflected in the DB.
+**D5.Contracts** Lists the contracts being worked on by the organization. Data can be modified dynamically, and changes get reflected in the DB.
 
 **D5**
 
 ![alt text](contracts.png)
 
 
-**6.Employees** Provides the employee details and their roles in the projects. Data can be modified dynamically, and changes get reflected in the DB.
+**D6.Employees** Provides the employee details and their roles in the projects. Data can be modified dynamically, and changes get reflected in the DB.
 
 
 **D6**
@@ -107,13 +107,13 @@
 ![alt text](employees.png)
 
 
-**7.Settings** This component allows users to view and manage their personal information, edit it, and log out of their account.
+**D7.Settings** This component allows users to view and manage their personal information, edit it, and log out of their account.
 
-**D7.1**
+**D7.1** User Information
 
 ![alt text](<user settings.png>)
 
-**D7.2**
+**D7.2** Edit User Settings
 
 ![alt text](<edit user.png>)
 
