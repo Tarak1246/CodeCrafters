@@ -124,7 +124,9 @@
                     Status:
                          * Lists the project status i.e, Completed or in progress or incomplete.
                     Save:
-                         * Upon clicking save, the data will be saved and updated.
+                         * Upon clicking save, the data will be saved.
+                    Update:
+                         * Updated information will be saved in the edit action.
                     Cancel:
                          * Clears the form in the edit/add action.
 
@@ -133,7 +135,7 @@
 
           R4.4 Delete:
                * It will delete the project record from this UI and it will trigger the database query and delete the data entries from table completely.
-               * Provides the cancel or undo of delete action for few seconds before sending the query to the database for record deletion.
+               * Cancel delete action for few seconds before sending the query to the database for record deletion.
 
      R5. Contracts
           * List all the contracts in table format.

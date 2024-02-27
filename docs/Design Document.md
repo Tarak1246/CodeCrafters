@@ -73,10 +73,24 @@
 
 **4.Projects** Contains the project details as listed above. The data can be changed dynamically, and respective changes will be affected in the database accordingly.
 
-**D4**
+**D4.1** Lists all the project details in below tabular format as per requirement R4.1
 
 ![alt text](projects.png)
 
+**D4.2** Edit and add project information.
+
+![alt text](<Add project information.png>)
+![alt text](<Edit Project Information.png>)
+
+**D4.3** Lists the search critetria if there are any matches
+
+![alt text](search.jpg)
+
+**D4.4** Prompts the user to confirm the delete.
+
+![alt text](Delete.jpg)
+
+![alt text](<item deleted.jpg>)
 
 **5.Contracts** Lists the contracts being worked on by the organization. Data can be modified dynamically, and changes get reflected in the DB.
 
