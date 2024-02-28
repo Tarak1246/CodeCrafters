@@ -145,13 +145,90 @@
           * Able to delete the existing contracts.
           * Contracts in the table should be update after edit/delete operations.
 
+    
      R6. Employees
-          * List all the employees in table format.
-          * Able to search with employees name in search box field.
-          * Able to add a new employee.
-          * Able to edit the exiting employees.
-          * Able to delete the existing employees.
-          * Employees in the table should be update after edit/delete operations.
+
+        R6.1. List all Employees in Table Format:
+            
+            *Table Format:
+            Display a table on the main page to list all employees with the following columns:
+
+            ID	Name	Type	Project Name	Location	Allocation Start Date	Allocation End Date	Email	Designation	Role	Actions
+
+
+        R6.2. Search with Employee Name:
+            
+            *Search Box:
+            Provide a search box at the top of the page to search for employees by name.
+            
+            *Search Functionality:
+            As the user types in the search box, dynamically filter and display employees whose names match the entered text.
+       
+       
+        R6.3. Add New Employee:
+            
+            *Add Employee Button:
+            Include a button (e.g., "Add Employee") to initiate the process of adding a new employee.
+            
+            *Add Employee Form:
+            *Display a form with fields for entering employee details:
+            Name
+            Type
+            Project Name
+            Location
+            Allocation Start Date
+            Allocation End Date
+            Email
+            Designation
+            Role
+            
+            *Validation:
+            Ensure that required fields (e.g., Name, Email) are filled out before allowing the addition.
+            
+            *Confirmation:
+            Provide a confirmation message after successfully adding a new employee.
+
+
+        R6.4. Edit Existing Employee:
+
+            *Edit Button:
+            Include an "Edit" button in the "Actions" column next to each employee in the table.
+            
+            *Edit Employee Form:
+            When the "Edit" button is clicked, open a form pre-filled with the existing employee details.
+            
+            *Save Changes:
+            Allow the user to make changes and save them, updating the employee record.
+            
+            
+        R6.5. Delete Existing Employee:
+           
+            *Delete Button:
+            Include a "Delete" button in the "Actions" column next to each employee in the table.
+            
+            *Confirmation:
+            Prompt the user with a confirmation dialog before proceeding with the deletion.
+            
+            *Deletion Process:
+            After confirmation, delete the employee record and update the table.
+           
+        R6.6. Table Update after Edit/Delete:
+            
+            *Real-time Update:
+            After an edit or delete operation, reflect the changes immediately in the displayed employee table without requiring a page refresh.
+            Additional Considerations:
+            
+            *User Feedback:
+            Provide feedback messages (success, error) to keep users informed about the outcome of their actions.
+            
+            *Security:
+            Implement proper authentication to control access to employee management features.
+            
+            *Error Handling:
+            Handle errors gracefully and provide clear error messages to users.
+            
+            *Data Validation:
+            Implement data validation on the server-side to ensure data integrity.
 
      R7. Settings 
           R7.1 User Information
@@ -200,3 +277,4 @@
 1. Taraka Sai Reddy Seelam
 2. Lakshmi Prasanna Yekkaladevi
 3. S S Eswara Satyanarayana Aneesh Dangeti
+4. Akshay Reddy Yalla
