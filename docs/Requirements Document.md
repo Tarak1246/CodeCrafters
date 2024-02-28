@@ -5,32 +5,33 @@
      R1. Register page: Contains a form with required fields to register a user to the platform
           R1.1  Form Fields:
                     Username
-                         * Mandatory field
+                         * Mandatory text field
                          * It needs to be distinct and unoccupied by another user
                          * Show an error message exists if the username is already taken
                          * No suggestions( should not suggest previously entered values)
                     Email Address
-                         * Mandatory field
+                         * Mandatory text field
                          * Must accept valid email addresses only (e.g., [@gmail])
                          * Must be unaffected by case
                          * Should look for email addresses already in use to avoid duplication
                          * Display an error message if the email address is invalid or already exists
                          * No suggestions( should not suggest previously entered values)
                     password
-                         * Mandatory field
+                         * Mandatory text field
                          * Minimum length of 8 characters
                          * Should contain at least one uppercase letter, lowercase letter, digit, and special symbol
                          * Password field should be masked for security
                          * Display an error message if the password is invalid
                          * No suggestions( should not suggest previously stored values)
                     Confirm Password
-                         * Mandatory field
+                         * Mandatory text field
                          * Must match the Password field exactly
                          * Display an error message if the passwords don't match
                     Login link
                          * Navigate to user login form to login into the platform
                          * Form should clear when login link is clicked
-                    Register Button
+                    Register 
+                         * Button field
                          * After submitting, it deactivates itself to avoid repeated registrations
                          * When processing, a loading indication is displayed
                          * Form should clear after submission
@@ -44,10 +45,10 @@
      R2. Login Page: Contains a form with required fields to login a user into the platform.
           R2.1  Form Fields:
                     Username
-                         * Mandatory field
+                         * Mandatory text field
                          * No suggestions( should not suggest previously entered values)
                     password
-                         * Mandatory field
+                         * Mandatory text field
                          * Minimum length of 8 characters
                          * Should contain at least one uppercase letter, lowercase letter, digit, and special symbol
                          * Password field should be masked for security
@@ -55,7 +56,8 @@
                     Register link
                          * Navigate to user register form to register to the platform
                          * Form should clear when register link is clicked
-                    Login Button:
+                    Login 
+                         * Button field
                          * Submits the form data for processing.
                          * Disables itself after submission to prevent multiple login attempts.
                          * Displays a loading indicator while processing.
@@ -240,7 +242,7 @@
           R7.2 Edit Option
                * Make sure there is a button for editing the user's data
                * Click on an edit button to see fields for every piece of information that is shown
-               * Permit users to edit their personal data (username, email format, etc.) within certain bounds
+               * Permit users to edit their personal data (firstname, lastname, and email format only) within certain bounds
                * Include a save button so that modifications may be made and the information shown is updated
                * Provide clear error messages for invalid input
                * Provide a way to undo edits and return to the original data
