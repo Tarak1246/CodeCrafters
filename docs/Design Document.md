@@ -66,7 +66,7 @@
 
 **D3.Dashboard:** Contains real-time data of projects, contracts and employee details.
 
-**D3**
+**D3.1 D3.2 D3.3**
 
 ![alt text](dashboard.png)
 
