@@ -59,6 +59,7 @@
 - **D3.Dashboard:**
     - Contains real-time data of projects, contracts, and employee details.
     - **Mockup Images**
+    - **D3.1 D3.2 D3.3**
         ![Dashboard](dashboard.png)
 
 
