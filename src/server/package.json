@@ -2,12 +2,12 @@
   "name": "project-tracker-server",
   "version": "1.0.0",
   "description": "Node.js with Express.js. Node.js is efficient for handling asynchronous operations and is often used with JavaScript. Mongoose for MongoDB interactions.",
-  "main": "app.js",
+  "main": "server.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node server.js",
     "test": "mocha"
   },
   "repository": {

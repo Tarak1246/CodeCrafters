@@ -1,5 +1,11 @@
 const registerUserService = require('../../services/registerUserService');
 
+// get users
+const getUsers = async (req, res) => {
+  const getUsersResponse = await registerUserService.getUsers();
+  res.json(getUsersResponse);
+};
+
 // register user
 const registerUser = async (req, res) => {
   const userData = req?.body;
@@ -45,6 +51,7 @@ const deleteItem = (req, res) => {
 };
 
 module.exports = {
+  getUsers,
   registerUser,
   loginUser,
   createItem,
