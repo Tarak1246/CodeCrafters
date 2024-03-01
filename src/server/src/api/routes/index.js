@@ -6,7 +6,7 @@ const loggingMiddleware = require('../middlewares/loggingMiddleware');
 const registerRouter = require('./registerUser');
 // Main route
 router.get('/', loggingMiddleware, (req, res) => {
-  res.send('Hello, this is your API!');
+  res.send('Hello, this is project tracker API!');
 });
 
 // register route

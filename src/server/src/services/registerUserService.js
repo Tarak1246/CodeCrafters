@@ -2,6 +2,17 @@ const User = require('../database/schemas/userSchema');
 const jwt = require('../utils/jwtUtils');
 const bcrypt = require('bcrypt');
 
+//get users
+const getUsers = async () => {
+  try {
+    const users = await User.find({},{"username":1,"email":1,"_id":0});
+    return { "status": 200, "data": users };
+  } catch (error) {
+    console.log(error)
+    return { "status": 500, "data": "Error while fetching users!" };
+  }
+};
+
 // Create a new user
 const createUser = async (userData) => {
   try {
@@ -62,6 +73,7 @@ const findUserByEmail = async (email) => {
 };
 
 module.exports = {
+  getUsers,
   createUser,
   loginUser,
   findUserByEmail,
