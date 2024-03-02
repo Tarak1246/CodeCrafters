@@ -63,7 +63,7 @@
             ![Dashboard](dashboard.png)
     - **Data Flow Diagram**
         - Data flow diagram for entire Dashboard component
-        ![alt text](<Dashboard dataflow-diagram.png>)
+        ![alt text](<Dashboard dataflow-diagram.png.png>)
 
 
 - **D4.Projects:**
@@ -111,5 +111,3 @@
 3. Lakshmi Prasanna Yekkaladevi
 4. Pavan Teja Jukanti
 5. Akshay Reddy Yalla
-
-[def]: <Dashboard dataflow-diagram.png.png>
