@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
+    required: false,
   },
   firstname: {
     type: String,
@@ -28,6 +28,18 @@ const userSchema = new mongoose.Schema({
     required: false,
     default:""
   },
+  role: {
+    type: String,
+    required: true,
+    enum: ['admin', 'manager', 'team_leader', 'employee'], // Enumerated list of allowed roles
+    default: 'employee' // Default role for new users
+  },
+  status: {
+    type: String,
+    required: true,
+    enum: ['active','inactive'],
+    default:'inactive'
+  }
 });
 
 // Hash the password before saving to the database

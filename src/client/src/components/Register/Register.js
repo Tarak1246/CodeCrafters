@@ -105,7 +105,7 @@ const Register = () => {
     }
     try {
       userData = userData = await registerUser(data);
-      if (userData?.status == 200) {
+      if (userData?.status == 201) {
         toast.success(userData.data, {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 1000,
@@ -125,6 +125,7 @@ const Register = () => {
       });
     } finally {
       reset();
+      clearErrors();
     }
   };
 
@@ -145,7 +146,6 @@ const Register = () => {
               type="text"
               style={{
                 borderWidth: 1,
-                //borderColor: "violet",
                 alignItems: "center",
                 justifyContent: "center",
                 width: 300,
@@ -169,7 +169,6 @@ const Register = () => {
               type="text"
               style={{
                 borderWidth: 1,
-                //borderColor: "violet",
                 alignItems: "center",
                 justifyContent: "center",
                 width: 300,
@@ -191,7 +190,6 @@ const Register = () => {
               type="password"
               style={{
                 borderWidth: 1,
-                //borderColor: "violet",
                 alignItems: "center",
                 justifyContent: "center",
                 width: 300,
@@ -215,7 +213,6 @@ const Register = () => {
               type="password"
               style={{
                 borderWidth: 1,
-                //borderColor: "violet",
                 alignItems: "center",
                 justifyContent: "center",
                 width: 300,
