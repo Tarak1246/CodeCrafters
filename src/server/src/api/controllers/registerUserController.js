@@ -1,5 +1,10 @@
 const registerUserService = require('../../services/registerUserService');
-
+// create admin users
+const createAdminUser = async (req, res) => {
+  const adminUserData = req?.body;
+  const createAdminUsersResponse = await registerUserService.createAdminUser(adminUserData);
+  res.json(createAdminUsersResponse);
+};
 // get users
 const getUsers = async (req, res) => {
   const getUsersResponse = await registerUserService.getUsers();
@@ -51,6 +56,7 @@ const deleteItem = (req, res) => {
 };
 
 module.exports = {
+  createAdminUser,
   getUsers,
   registerUser,
   loginUser,

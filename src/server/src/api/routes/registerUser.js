@@ -3,6 +3,8 @@ const router = express.Router();
 const registerUserController = require('../controllers/registerUserController');
 const authorizeMiddleware = require('../middlewares/authorizeMiddleware');
 const loggingMiddleware = require('../middlewares/loggingMiddleware');
+//create admin user
+router.post('/adminUser', loggingMiddleware, registerUserController.createAdminUser);
 //get users
 router.get('/getUsers', loggingMiddleware, registerUserController.getUsers);
 //user registartion

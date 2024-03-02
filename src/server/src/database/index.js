@@ -16,6 +16,5 @@ const connectDB = async () => {
 
 // Export the connected Mongoose instance
 module.exports = {
-  connectDB,
-  mongoose,
+  connectDB
 };

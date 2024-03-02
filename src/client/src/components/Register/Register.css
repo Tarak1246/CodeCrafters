@@ -17,6 +17,7 @@ img{
     flex-direction: row;
     float: right;
     width: 30%;
+    margin-left: 0;
 }
 
 body {
