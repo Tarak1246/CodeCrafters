@@ -9,10 +9,14 @@ import projectTrackerImage from "../../images/project-tracker.png";
 
 const Register = () => {
   toast.configure();
+  const navigate = useNavigate();
+  let userData = "";
+
   const {
     reset,
     register,
     handleSubmit,
+    setError,
     clearErrors,
     formState: { errors },
     watch,
@@ -24,8 +28,6 @@ const Register = () => {
 
   const [existingUsernames, setExistingUsernames] = useState([]);
   const [existingEmails, setExistingEmails] = useState([]);
-  const [usernameError, setUsernameError] = useState('');
-  const [emailError, setEmailError] = useState('');
 
   const fetchExistingUsers = async () => {
     try {
@@ -44,52 +46,82 @@ const Register = () => {
 
   const handleUsernameChange = (event) => {
     const usernameValue = event.target.value;
-    if (existingUsernames.includes(usernameValue)) {
-      setUsernameError('Username already exist!');
+    if (!usernameValue) {
+      setError("username", { type: "manual", message: "Username is required" });
+    } else if (existingUsernames.includes(usernameValue)) {
+      setError("username", { type: "manual", message: "Username already exists" });
     } else {
-      setUsernameError('');
+      clearErrors("username");
     }
   };
 
   const handleEmailChange = (event) => {
     const emailValue = event.target.value;
-     // Regular expression for email validation
-     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;///^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/
-
-     if (!emailRegex.test(emailValue)) {
-      setEmailError('Email is not valid');
-     } else if (existingEmails.includes(emailValue)) {
-      setEmailError('Email already exist!');
+    // Regular expression for email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+    if (!emailValue) {
+      setError("email", { type: "manual", message: "Email is required" });
+    } else if (!emailRegex.test(emailValue)) {
+      setError("email", { type: "manual", message: "Email is not valid" });
+    } else if (existingEmails.includes(emailValue)) {
+      setError("email", { type: "manual", message: "Email already exists" });
     } else {
-      setEmailError('');
+      clearErrors("email"); // Clear errors for the "email" field
     }
   };
 
-  const navigate = useNavigate();
-  let password = watch("password");
-  const [login, setlogin] = useState(true);
-  let userData = "";
+  const handlePasswordChange = (event) => {
+    const passwordValue = event.target.value;    
+    // Regular expression for password validation 
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$*]).{8,}$/;
+  
+    if (!passwordValue) {
+      setError("password", { type: "manual", message: "Password is required" });
+    } else if (!passwordRegex.test(passwordValue)) {
+      setError("password", { type: "manual", message: "Password should contain at least one uppercase letter, lowercase letter, digit, and special symbol, and be at least 8 characters long" });
+    } else {
+      clearErrors("password"); // Clear errors for the "password" field
+    }
+  };
 
-  const userRegistration = async (data) => {
- 
+  let password = watch("password");
+
+  const handleConfirmPasswordChange = (event) => {
+    const confirmPasswordValue = event.target.value;
+    
+    if (!confirmPasswordValue) {
+      setError("confirm_password", { type: "manual", message: "Confirm password is required" });
+    } else if (confirmPasswordValue !== password) {
+      setError("confirm_password", { type: "manual", message: "Passwords do not match" });
+    } else {
+      clearErrors("confirm_password"); // Clear errors for the "confirm_password" field
+    }
+  };
+  
+  const userRegistration = async (data) => { 
+    if (Object.keys(errors).length > 0) {
+      return; // Prevent form submission if there are errors
+    }
     try {
       userData = userData = await registerUser(data);
       if (userData?.status == 200) {
         toast.success(userData.data, {
           position: toast.POSITION.TOP_RIGHT,
-          autoClose: 10000,
+          autoClose: 1000,
         });
+        navigate("/login");
       } else {
         toast.error(userData.data, {
           position: toast.POSITION.TOP_RIGHT,
-          autoClose: 10000,
+          autoClose: 1000,
         });
       }
     } catch (error) {
       console.log(error);
       toast.error(`Request failed. Please try again.`, {
         position: toast.POSITION.TOP_RIGHT,
-        autoClose: 20000,
+        autoClose: 2000,
       });
     } finally {
       reset();
@@ -97,7 +129,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="main">
       <div className="rowAB">
         <h1>Project Tracker</h1>
       </div>
@@ -108,12 +140,12 @@ const Register = () => {
         <h2 className="LRTitle">Register</h2>
         <form onSubmit={handleSubmit(userRegistration)}>
           <div className="form-control f-c1">
-            <label>Username</label>
+            <label>Username<span id="requiredField">*</span></label>
             <input
               type="text"
               style={{
                 borderWidth: 1,
-                borderColor: "violet",
+                //borderColor: "violet",
                 alignItems: "center",
                 justifyContent: "center",
                 width: 300,
@@ -123,23 +155,21 @@ const Register = () => {
               }}
               name="username"
               {...register("username", {
-                required: "username is required.",
+                required: true,
               })}
               onChange={handleUsernameChange}
               autoComplete="off"
+              required
             />
-            {errors.username && (
-              <p className="errorMsg">{errors.username.message}</p>
-            )}
-            {usernameError && <p className="errorMsg">{usernameError}</p>}
+            {errors.username && (<p className="errorMsg">{errors.username.message}</p>)}
           </div>
           <div className="form-control f-c1">
-            <label>Email</label>
+            <label>Email<span id="requiredField">*</span></label>
             <input
               type="text"
               style={{
                 borderWidth: 1,
-                borderColor: "violet",
+                //borderColor: "violet",
                 alignItems: "center",
                 justifyContent: "center",
                 width: 300,
@@ -151,18 +181,17 @@ const Register = () => {
               {...register("email", {required: "Email is required."})}
               onChange={handleEmailChange}
               autoComplete="off"
+              required
             />
-            {errors.email && <p className="errorMsg">{errors.email.message}</p>}
-            {emailError && <p className="errorMsg">{emailError}</p>}
-
+            {errors.email && (<p className="errorMsg">{errors.email.message}</p>)}
           </div>
           <div className="form-control">
-            <label>Password</label>
+            <label>Password<span id="requiredField">*</span></label>
             <input
               type="password"
               style={{
                 borderWidth: 1,
-                borderColor: "violet",
+                //borderColor: "violet",
                 alignItems: "center",
                 justifyContent: "center",
                 width: 300,
@@ -172,38 +201,21 @@ const Register = () => {
               }}
               name="password"
               {...register("password", {
-                required: true,
-                validate: {
-                  checkLength: (value) => value.length >= 6,
-                  matchPattern: (value) =>
-                    /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)(?=.*[!@#$*])/.test(
-                      value
-                    ),
-                },
+                required: "Password is required."
               })}
+              onChange={handlePasswordChange}
+              autoComplete="off"
+              required
             />
-            {errors.password?.type === "required" && (
-              <p className="errorMsg">Password is required.</p>
-            )}
-            {errors.password?.type === "checkLength" && (
-              <p className="errorMsg">
-                Password should be at-least 6 characters.
-              </p>
-            )}
-            {errors.password?.type === "matchPattern" && (
-              <p className="errorMsg">
-                Password should contain at least one uppercase letter, lowercase
-                letter, digit, and special symbol.
-              </p>
-            )}
+            {errors.password && (<p className="errorMsg">{errors.password.message}</p>)}
           </div>
           <div className="form-control">
-            <label>Confirm Password</label>
+            <label>Confirm Password<span id="requiredField">*</span></label>
             <input
               type="password"
               style={{
                 borderWidth: 1,
-                borderColor: "violet",
+                //borderColor: "violet",
                 alignItems: "center",
                 justifyContent: "center",
                 width: 300,
@@ -214,21 +226,19 @@ const Register = () => {
               name="confirm_password"
               {...register("confirm_password", {
                 required: true,
-                validate: (value) =>
-                  value === password || "The passwords do not match",
+                validate: value => value === password || "The passwords do not match"
               })}
+              onChange={handleConfirmPasswordChange}
+              autoComplete="off"
+              required
             />
-            {errors.confirm_password && (
-              <p className="errorMsg">{errors.confirm_password.message}</p>
-            )}
+            {errors.confirm_password && (<p className="errorMsg">{errors.confirm_password.message}</p>)}
           </div>
-          {errors.apiError && <p>{errors.apiError.message}</p>}
           <p id="registertxt">
             Already have an Account , Want to{" "}
-            <Link>
+            <Link to="/login">
               <span
                 onClick={() => {
-                  setlogin(true);
                   clearErrors([
                     "username",
                     "email",
@@ -242,14 +252,17 @@ const Register = () => {
               </span>
             </Link>
           </p>
-          <div className="form-control">
-            <button
-              className="LRBtn"
-              type="submit"
-              disabled={Object.keys(errors).length > 0}
-            >
-              Register
-            </button>
+          <div className="form-control button-container">
+            <button className="LRBtn" type="submit" disabled={Object.keys(errors).length > 0}>Register</button>
+            <button className="LRBtn" type="submit" onClick={() => {
+                  clearErrors([
+                    "username",
+                    "email",
+                    "password",
+                    "confirm_password",
+                  ]);
+                  reset();
+                }}>Clear</button>
           </div>
         </form>
       </div>
