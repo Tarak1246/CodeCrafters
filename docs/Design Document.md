@@ -59,8 +59,11 @@
 - **D3.Dashboard:**
     - Contains real-time data of projects, contracts, and employee details.
     - **Mockup Images**
-    - **D3.1 D3.2 D3.3**
-        ![Dashboard](dashboard.png)
+        - **D3.1 D3.2 D3.3**
+            ![Dashboard](dashboard.png)
+    - **Data Flow Diagram**
+        - Data flow diagram for entire Dashboard component
+        ![alt text](<Dashboard dataflow-diagram.png>)
 
 
 - **D4.Projects:**
@@ -108,3 +111,5 @@
 3. Lakshmi Prasanna Yekkaladevi
 4. Pavan Teja Jukanti
 5. Akshay Reddy Yalla
+
+[def]: <Dashboard dataflow-diagram.png.png>
