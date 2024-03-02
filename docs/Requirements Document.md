@@ -140,12 +140,39 @@
                * Cancel delete action for few seconds before sending the query to the database for record deletion.
 
      R5. Contracts
-          * List all the contracts in table format.
-          * Able to search with contract name in search box field.
-          * Able to add a new contract.
-          * Able to edit the exiting contracts.
-          * Able to delete the existing contracts.
-          * Contracts in the table should be update after edit/delete operations.
+          R5.1. List Contracts in Table Format:
+               *The information in the contracts table must be presented in an understandable tabular format. 
+               *A distinct contract will be represented by each row in the table, and pertinent contract properties will be shown in the columns. 
+               *Users will be able to easily navigate through a potentially huge number of contracts with the table's functionality for scrolling. 
+
+          R5.2. Search Functionality:
+               *On the "Contracts" page, a clear search box will be shown. 
+               *For searching, users will be able to input partial or whole contract names. 
+               *As the user types, the search results will dynamically refresh, giving them instant feedback. 
+               *The user may get the relevant contract data in the table by clicking on a search result.
+
+          R5.3 Add New Contract:
+               *The page must have an obvious "Add New Contract" button or link.
+               *After selecting the "Add New Contract" option, a form including the parties, start and end dates, contract name, and other necessary information is              shown.
+               *The entered data must be validated by the system to guarantee correctness and completeness.
+               *The new entry will be added to the contracts table upon the new contract's successful submission.
+
+          R5.4. Edit Current Contracts:
+               *Every contract row in the table has to include an editable field or an "Edit" button that lets users start modifying.
+               *When the "Edit" button is clicked, a form containing the most recent contract details will pop up.
+               *Users will have the ability to edit and submit modifications to the contract's details. 
+               *The updated data will be included in the contracts table following a successful submission.
+
+          R5.5. Delete Existing Contracts:
+               *A "Delete" button or a selection checkbox should be included in each contract row in the table.
+               *In order to prevent unintentional deletions, users must be asked to confirm their purpose before deleting a contract.
+               *The chosen contract will be updated in the contracts table and deleted from the system upon confirmation.
+
+          R5.6. Table Update Following Edit/Delete Operations: 
+               *Immediately following the editing of an existing contract, the modifications will be reflected in the contract table.
+               *Once a contract is removed, its information will no longer be visible in the contracts table.
+               *Users will receive real-time feedback on the state of their operations through a smooth updating procedure.
+
 
     
      R6. Employees
