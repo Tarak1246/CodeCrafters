@@ -1,6 +1,9 @@
 // Main.js
 import React, { useState, useEffect } from 'react';
 import './Main.css';
+import Dashboard from '../Dashboard/Dashboard';
+import Settings from '../Settings/Settings';
+
 const Main = ({ selectedTab }) => {
   let content;
   useEffect(() => {
@@ -9,7 +12,7 @@ const Main = ({ selectedTab }) => {
 
   switch (selectedTab) {
     case 'dashboard':
-      content = <div className="my-component-container">This is {selectedTab} </div>
+      content = <div className="my-component-container"><Dashboard /></div>
       break;
     case 'projects':
       content = <div className="my-component-container">This is {selectedTab} </div>
@@ -20,7 +23,7 @@ const Main = ({ selectedTab }) => {
       content = <div className="my-component-container">This is {selectedTab} </div>
       break;
     case 'settings':
-      content = <div className="my-component-container">This is {selectedTab} </div>
+      content = <div><Settings /></div>
       break;
   }
 

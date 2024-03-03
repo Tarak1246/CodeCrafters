@@ -1,16 +1,19 @@
 import React, {useEffect} from 'react';
-import './Dashboard.css'; // Import or create a stylesheet
+import { Bar, Doughnut } from 'react-chartjs-2';
+import {CategoryScale} from 'chart.js'; 
+import Chart from 'chart.js/auto';
+import './Dashboard.css';
+import {getDashboardData} from '../../services/api';
 
 const Dashboard = () => {
   useEffect(() => {
-    //call an api here and get projects, contracts, employees data and shown in charts 
-    {/* write your code here */}
-   // Call the function on component mount
-  }, []); // The empty dependency array ensures it runs only once on mount
+
+  }, []);
 
   return (
     <div className="dashboard-container">
-      {/* write your code here */}
+      This is dashboard
+    {/* write code here */} 
     </div>
   );
 };

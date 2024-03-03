@@ -4,14 +4,9 @@ const mailingMiddleware = async (adminUser) => {
   try {
     // Create a transporter object using the provided SMTP server details
     const transporter = nodemailer.createTransport({
-      host: "smtp.freesmtpservers.com", //"smtp-relay.brevo.com",
-      port: 25, //587,
+      host: "sample server details",
+      port: 25,//your smtp port
       auth: null
-      // secure: false, // true for 465, false for other ports
-      // auth: {
-      //   user: 'tarak1246@gmail.com',
-      //   pass: 'GQLtfKXVEA23CJd'
-      // }
     });
 
     const mailOptions = {

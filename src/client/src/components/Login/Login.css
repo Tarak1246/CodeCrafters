@@ -99,13 +99,15 @@ button {
     font-size: small;
 }
 
-a {
-    color: violet;
+#requiredField{
+    color: red;
 }
 
-#registertxt{
-    float: right;
-    margin-left: 0;
-    margin-right: 30%;
-    font-size: small;
+.button-container{
+    display: inline-block;
+    margin-left: 2%;
+}
+#logintxt span, .button-container button{
+    color: cadetblue;
+    margin-left: 2%;
 }

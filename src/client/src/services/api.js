@@ -1,5 +1,6 @@
 // api.js
 import axios from 'axios';
+import axiosInstance from './interceptor';
 
 const BASE_URL = 'http://localhost:3001';
 
@@ -30,9 +31,18 @@ export const registerUser = async (userData) => {
   }
 };
 
-export const getContracts = async () => {
+export const getDashboardData = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/v2/getContracts`);
+    const response = await axiosInstance.get(`/v2/getDashboardData`);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error user register: ${error.message}`);
+  }
+};
+
+export const getLoggedinUserData = async () => {
+  try {
+    const response = await axiosInstance.get(`/v2/getLoggedinUserData`);
     return response.data;
   } catch (error) {
     throw new Error(`Error user register: ${error.message}`);
