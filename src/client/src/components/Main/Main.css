@@ -9,7 +9,7 @@
   margin: 0 auto;
   margin-left: 0;
   table-layout: auto;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 .search-input {

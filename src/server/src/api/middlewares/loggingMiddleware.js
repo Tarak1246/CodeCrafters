@@ -1,6 +1,7 @@
 const pino = require('pino');
 
 const loggingMiddleware = (req, res, next) => {
+  console.log("hiiiiiiiiiiiiiiiiiiiiiiiiii")
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   // // Create a writable stream to the log file
   // const logFile = fs.createWriteStream('../../../logs/logfile.log', { flags: 'a' });

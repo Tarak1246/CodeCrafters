@@ -6,7 +6,6 @@ import { loginUser, getUsers } from "../../services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import projectTrackerImage from "../../images/project-tracker.png";
-import setupInterceptors from "../../services/interceptor";
 
 const Login = () => {
   toast.configure();
@@ -90,14 +89,13 @@ const Login = () => {
         console.log(userData)
         setToken(userData?.token);
         setIsLoggedIn(true);
-        setupInterceptors(true,userData?.token);
         toast.success(userData.data, {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 10000,
         });
-        localStorage.setItem("loginUser", userData?.username);
-        localStorage.setItem("loginUserType", userData?.role);
-        localStorage.setItem("token",userData?.token);
+        localStorage.setItem("loginUser", userData?.user?.username);
+        localStorage.setItem("loginUserType", userData?.user?.role);
+        localStorage.setItem("jwtToken",userData?.token);
         navigate("/home");
       } else {
         toast.error(userData.data, {

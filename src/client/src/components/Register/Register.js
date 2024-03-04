@@ -104,7 +104,7 @@ const Register = () => {
       return; // Prevent form submission if there are errors
     }
     try {
-      userData = userData = await registerUser(data);
+      userData = await registerUser(data);
       if (userData?.status == 201) {
         toast.success(userData.data, {
           position: toast.POSITION.TOP_RIGHT,

@@ -67,7 +67,7 @@ body {
     margin-left: 1%;
 }
 
-.userEditBtn, .clearBtn{
+.userEditBtn, .clearBtn, .editBtn{
     padding: 10px 20px;
     /* background-color: #007bff; */
     color: #fff;
@@ -76,7 +76,11 @@ body {
     cursor: pointer;
 }
 
-.button-container{
+.editBtn{
+    margin-left: 3%;
+    color: cadetblue;
+}
+
+.main h1{
     display: inline-block;
-    margin-left: 2%;
 }

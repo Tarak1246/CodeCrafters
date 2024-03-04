@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const app = express();
 const itemsRouter = require('./items');
 const authorizeMiddleware = require('../middlewares/authorizeMiddleware');
 const loggingMiddleware = require('../middlewares/loggingMiddleware');
@@ -8,17 +8,17 @@ const loginRouter = require("./loginUser");
 const settingsRouter = require("./userSettings");
 
 // Main route
-router.get('/', loggingMiddleware, (req, res) => {
+app.get('/', loggingMiddleware, (req, res) => {
   res.send('Hello, this is project tracker API!');
 });
 
 // register route
-router.use('/v', loggingMiddleware, registerRouter);
+app.use('/v', loggingMiddleware, registerRouter);
 
 // login route
-router.use('/v1', loggingMiddleware, loginRouter);
+app.use('/v1', loggingMiddleware, loginRouter);
 
 //user settings route
-router.use('/v2', loggingMiddleware, authorizeMiddleware, settingsRouter);
+app.use('/v2', authorizeMiddleware, loggingMiddleware, settingsRouter );
 
-module.exports = router;
+module.exports = app;
