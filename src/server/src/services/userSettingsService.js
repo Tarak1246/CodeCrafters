@@ -4,17 +4,12 @@ const bcrypt = require("bcrypt");
 const mailingServer = require("../api/middlewares/mailingMiddleware");
 
 //get logged in user data
-const getLoggedinUserData = async (userData) => {
-  const { username } = userData;
-
-  // Find the user by username
-  const user = await User.findOne({ username });
-  if (!user) {
-    return { status: 401, data: "Invalid user!" };
-  }
-
+const getLoggedinUserData = async (username) => {
   try {
-    const loggedinUserData = await User.findOne({ username }, { username: 1, email: 1, firstname: 1, lastname: 1, status: 0, role: 1, _id: 0 });
+    const loggedinUserData = await User.findOne({ username }, { username: 1, email: 1, firstname: 1, lastname: 1, status: 1, role: 1, _id: 0 });
+    if (!loggedinUserData) {
+      return { status: 401, data: "Invalid user!" };
+    }
     return { status: 200, data: loggedinUserData };
   } catch (error) {
     console.log(error);
@@ -22,6 +17,29 @@ const getLoggedinUserData = async (userData) => {
   }
 };
 
+//update user data
+const updateUserData = async (userDta) => {
+  try {
+    const user = await User.findOneAndUpdate(
+      { username: userDta.username },
+      { $set: userDta },
+      { new: true } // Return the updated document
+    );
+
+    if (user) {
+      console.log("User updated successfully:", user);
+      return { status: 200, data: "User updated successfully" };
+    } else {
+      console.error("User not found with username:", username);
+      throw new Error("User not found");
+    }
+  } catch (error) {
+    console.error("Error updating user:", error);
+    return { status: 500, data: "Error updating user!" };
+  }
+};
+
 module.exports = {
-    getLoggedinUserData
+    getLoggedinUserData,
+    updateUserData
 };

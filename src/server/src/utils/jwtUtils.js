@@ -8,6 +8,7 @@ const generateToken = async (user) => {
 
 // Verify a JWT token
 const verifyToken = async (token) => {
+  console.log(jwt.verify(token, jwtSecret))
   return jwt.verify(token, jwtSecret);
 };
 

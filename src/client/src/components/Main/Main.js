@@ -23,7 +23,7 @@ const Main = ({ selectedTab }) => {
       content = <div className="my-component-container">This is {selectedTab} </div>
       break;
     case 'settings':
-      content = <div><Settings /></div>
+      content = <div className="my-component-container"><Settings /></div>
       break;
   }
 
