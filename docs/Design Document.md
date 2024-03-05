@@ -79,6 +79,8 @@
         - **D4.4:** Prompts the user to confirm the delete.
             ![Delete](Delete.jpg)
             ![Item deleted](item%20deleted.jpg)
+        - **Data Flow Diagram for the project's component**
+            ![Data Flow Diagram - Projects](projects_data_flow_diagram.png)
 
 
 - **D5.Contracts:**
