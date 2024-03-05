@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './Main.css';
 import Dashboard from '../Dashboard/Dashboard';
 import Settings from '../Settings/Settings';
+import Projects from '../Projects/Projects';
 
 const Main = ({ selectedTab }) => {
   let content;
@@ -15,7 +16,8 @@ const Main = ({ selectedTab }) => {
       content = <div className="my-component-container"><Dashboard /></div>
       break;
     case 'projects':
-      content = <div className="my-component-container">This is {selectedTab} </div>
+      content = <div className="my-component-container"><Projects /></div>
+      break;
     case 'contracts':
       content = <div className="my-component-container">This is {selectedTab} </div>
       break;
