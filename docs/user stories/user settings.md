@@ -1,8 +1,8 @@
-## User Story
+# User Story
 
 **Title:** User Settings
 
-**Description:** 
+**Description:**
 
 As a registered user, I want to view my current profile information, including username, email address, first name, and last name, so that I can easily see and manage my account details.
 
