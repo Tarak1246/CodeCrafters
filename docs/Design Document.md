@@ -116,7 +116,7 @@
     * D9.1 List users
       * ![alt text](Users.png)
     * D9.2 Edit user
-      * ![alt text](<Edit user.png>)
+      * ![Edit user](https://github.com/TeamCodeCrafterss/CodeCrafters/assets/36734811/8d3af64d-51dc-413e-9852-19a5ff9ee49a)
   * Data Flow Diagram
     * Data flow diagram for users component(D9.1,D9.2).
     * ![alt text](<users data flow diagram.png>)
