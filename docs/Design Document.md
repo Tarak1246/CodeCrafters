@@ -93,10 +93,24 @@
   * Mockup Images
     * ![Contracts](contracts.png)
 
-* D7.Employees
-  * Provides the employee details and their roles in the projects. Data can be modified dynamically, and changes get reflected in the DB.
-  * Mockup Images
-    * ![Employees](employees.png)
+
+ **D7.Employees** Provides the employee details and their roles in the projects. Data can be modified dynamically, and changes get reflected in the DB.
+
+**D7.1** List all Employees in Table Format:
+![alt text](Employee table.png)
+
+**D7.2** Search with Employee Name:
+![alt text](Employee search.png)
+
+**D7.3** Add New Employee:
+![alt text](Employee Add.png)
+
+**D7.4** Edit Existing Employee:
+![alt text](Employee Edit.png)
+
+**D7.5** & **D7.6** Delete Existing Employee/Table Update after Edit/Delete:
+![alt text](Employee Delete.png)
+
 
 * D8.Settings
   * This component allows users to view and manage their personal information, edit it, and log out of their account.
