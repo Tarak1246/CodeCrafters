@@ -102,9 +102,9 @@
   * This component allows users to view and manage their personal information, edit it, and log out of their account.
   * Mockup Images
     * D8.1 User Information
-      * ![alt text](<User Settings.png>)
+      * ![alt text](<user information.png>)
     * D8.2 Edit User Settings
-      * ![alt text](<User Settings Edit.png>)
+      * ![alt text](<user information edit.png>)
       * ![alt text](<User Settings Validation.png>)
   * Data Flow Diagram
     * Data flow diagram for user settings component(D8.1,D8.2).
