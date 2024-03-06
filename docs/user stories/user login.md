@@ -1,12 +1,12 @@
-## User Story
+# User Story
 
 **Title:** User Login
 
-**Description:** 
+**Description:**
 
 As a registered user, I want to log in to the application using my username and password so that I can access its features and functionalities.
 
-## Acceptance Criteria:
+## Acceptance Criteria
 
 1. A username and password are needed to access the login form.
 2. The username field shouldn't display values that have already been input.

@@ -1,12 +1,12 @@
-## User Story
+# User Story
 
 **Title:** User Registration
 
-**Description:** 
+**Description:**
 
 I want to sign up for a new user account on the platform so that I can access its features and functionalities. I will need to provide a distinct username, email address, and password.
 
-**Acceptance Criteria:** 
+**Acceptance Criteria:**
 
 1. The registration form requires a username, email address, password, and password confirmation.
 2. The username must be unique and cannot already be in use by another user.
