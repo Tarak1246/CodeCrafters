@@ -92,6 +92,8 @@
   * Lists the contracts being worked on by the organization. Data can be modified dynamically, and changes get reflected in the DB.
   * Mockup Images
     * ![Contracts](contracts.png)
+  * Data Flow Diagram for the contracts component
+    * ![Data Flow Diagram - Contracts](Contracts_dataFlowDiagram.jpg)
 
 * D7.Employees
   * Provides the employee details and their roles in the projects. Data can be modified dynamically, and changes get reflected in the DB.
