@@ -85,8 +85,8 @@
     * D5.4 Prompts the user to confirm the delete.
       * ![Delete](Delete.jpg)
       * ![Item deleted](item%20deleted.jpg)
-    * Data Flow Diagram for the project's component
-      * ![Data Flow Diagram - Projects](projects_data_flow_diagram.png)
+    * Data Flow Diagram for the project's component (D5.1, D5.2, D5.3, D5.4)
+      * ![Data Flow Diagram - Projects](projects_data_flow_diagram_Updated.png)
 
 * D6.Contracts
   * Lists the contracts being worked on by the organization. Data can be modified dynamically, and changes get reflected in the DB.
