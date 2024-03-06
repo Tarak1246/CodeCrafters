@@ -101,10 +101,23 @@
 
 **D6.Employees** Provides the employee details and their roles in the projects. Data can be modified dynamically, and changes get reflected in the DB.
 
+D6.1. List all Employees in Table Format:
+**D6.1**
+![alt text](Employee table.png)
 
-**D6**
+**D6.2** Search with Employee Name:
+![alt text](Employee search.png)
+
+**D6.3** Add New Employee:
+![alt text](Employee Add.png)
+
+**D6.4** Edit Existing Employee:
+![alt text](Employee Edit.png)
 
 ![alt text](employees.png)
+
+**D6.5** & **D6.6** Delete Existing Employee/Table Update after Edit/Delete:
+![alt text](Employee Delete.png)
 
 
 **D7.Settings** This component allows users to view and manage their personal information, edit it, and log out of their account.
