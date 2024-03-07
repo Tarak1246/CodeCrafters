@@ -4,6 +4,7 @@ import './Main.css';
 import Dashboard from '../Dashboard/Dashboard';
 import Settings from '../Settings/Settings';
 import Projects from '../Projects/Projects';
+import Users from '../Users/Users';
 
 const Main = ({ selectedTab }) => {
   let content;
@@ -28,7 +29,7 @@ const Main = ({ selectedTab }) => {
       content = <div className="my-component-container"><Settings /></div>
       break;
     case 'users':
-      content = <div className="my-component-container">This is {selectedTab}</div>
+      content = <div className="my-component-container"><Users /></div>
       break;
   }
 

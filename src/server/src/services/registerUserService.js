@@ -29,7 +29,22 @@ const createAdminUser = async (adminUserData) => {
 //get users
 const getUsers = async () => {
   try {
-    const users = await User.find({}, { username: 1, email: 1, status: 1, role: 1, adminPrivilege: 1, _id: 0 });
+    const users = await User.aggregate([
+      {
+        $match: { _id: { $exists: true } }
+      },
+      {
+        $project: {
+          "admin privilege" : { $toString:"$adminPrivilege"}, 
+          "username" : 1,
+          "email" : 1,
+          "role" : 1,
+          "status" : 1,
+          "_id":0          
+        }
+      }
+    ]);
+    // const users = await User.find({}, { username: 1, email: 1, status: 1, role: 1, adminPrivilege: 1, _id: 0 });
     return { status: 200, data: users };
   } catch (error) {
     console.log(error);
