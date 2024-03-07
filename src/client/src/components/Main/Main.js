@@ -27,6 +27,9 @@ const Main = ({ selectedTab }) => {
     case 'settings':
       content = <div className="my-component-container"><Settings /></div>
       break;
+    case 'users':
+      content = <div className="my-component-container">This is {selectedTab}</div>
+      break;
   }
 
   return (
