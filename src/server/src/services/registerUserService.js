@@ -2,6 +2,7 @@ const User = require("../database/schemas/userSchema");
 const jwt = require("../utils/jwtUtils");
 const bcrypt = require("bcrypt");
 const mailingServer = require("../api/middlewares/mailingMiddleware");
+
 //create admin user
 const createAdminUser = async (adminUserData) => {
   try {
@@ -11,6 +12,7 @@ const createAdminUser = async (adminUserData) => {
       return { status: 400, data: { error: "Admin user already exists" } };
     }
     adminUserData.status = 'active';
+    adminUserData.adminPrivilege = 'true';
     // Create admin user
     const adminUser = new User(adminUserData);
     await adminUser.save();
@@ -35,11 +37,12 @@ const getUsers = async () => {
       },
       {
         $project: {
-          "admin privilege" : { $toString:"$adminPrivilege"}, 
+          "admin privilege" : "$adminPrivilege", //{ $toString:"$adminPrivilege"}
           "username" : 1,
           "email" : 1,
           "role" : 1,
           "status" : 1,
+          "id" : "$_id",
           "_id":0          
         }
       }

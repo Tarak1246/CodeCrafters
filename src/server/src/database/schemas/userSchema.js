@@ -41,8 +41,9 @@ const userSchema = new mongoose.Schema({
     default:'inactive'
   },
   adminPrivilege: {
-    type: Boolean,
+    type: String,
     required: false,
+    enum: ['true','false'],
     default: false
   }
 });

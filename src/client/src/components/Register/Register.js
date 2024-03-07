@@ -32,7 +32,6 @@ const Register = () => {
   const fetchExistingUsers = async () => {
     try {
       const response = await getUsers();
-      console.log(response.data)
       setExistingUsernames(response.data.map((user) => user.username));
       setExistingEmails(response.data.map((user) => user.email));
     } catch (error) {

@@ -61,8 +61,7 @@ function startServer() {
 
   // Routes
   app.use("/", routes);
-
-  // app.use("/v2/*", authorizeMiddleware);
+  
   // Error handling middleware
   app.use(errorHandlerMiddleware);
 

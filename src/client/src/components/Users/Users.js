@@ -16,15 +16,16 @@ const Users = () => {
   const navigate = useNavigate();
   const { state, setDataa } = useData();
 
+  const fetchData = async () => {
+    try {
+      const response = await getUsers();
+      setData(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getUsers();
-        setData(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
     fetchData();
   }, []);
 
@@ -40,7 +41,8 @@ const Users = () => {
   );
 
   // Dynamic headers based on keys of the first item in data
-  const tableHeaders = data.length > 0 ? Object.keys(data[0]) : [];
+  let tableHeaders = data.length > 0 ? Object.keys(data[0]) : [];
+  tableHeaders = tableHeaders.filter((item) => item !== 'id');
 
   const handleEditClick = (item) => {
     console.log(item);
@@ -48,7 +50,11 @@ const Users = () => {
     // onEditButtonClick();
     setDataa(item);
     // Navigate to the edit page
-    navigate(`/home/editUser/${item.id}`);
+    navigate(`/home/users/editUser/${item.id}`);
+  };
+
+  const handleRefresh = () => {
+    fetchData();
   };
 
   return (
@@ -62,11 +68,12 @@ const Users = () => {
         className="search-input"
         style={{ float: "left" }}
       />
+      <button className="refreshBtn" onClick={handleRefresh}>Refresh</button>
       <table className="data-table">
         <thead>
           <tr>
             {tableHeaders.map((header) => (
-              <th key={header}>{header}</th>
+              <th key={header}>{(header).replace(/\b\w/g, (match) => match.toUpperCase())}</th>
             ))}
             <th>Actions</th>
           </tr>

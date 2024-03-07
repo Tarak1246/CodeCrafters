@@ -1,7 +1,6 @@
 const userSettingsService = require('../../services/userSettingsService');
 // get logged in user data
 const getLoggedinUserData = async (req, res) => {
-  console.log("ins erviceeeeeeeeeeeeeeeeeeeee")
   const getLoggedinUser = req?.params?.username;
   const getLoggedinUserDataResponse = await userSettingsService.getLoggedinUserData(getLoggedinUser);
   res.json(getLoggedinUserDataResponse);
@@ -13,6 +12,7 @@ const updateUserData = async(req, res) => {
   const updateUserDataResponse = await userSettingsService.updateUserData(userData);
   res.json(updateUserDataResponse);
 };
+
 
 module.exports = {
     getLoggedinUserData,

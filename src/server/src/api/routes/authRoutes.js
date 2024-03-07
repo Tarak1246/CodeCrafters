@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const settingsController = require('../controllers/userSettingsController');
-
+const usersController = require('../controllers/usersController');
 //user settings
 app.get('/getLoggedinUserData/:username', settingsController.getLoggedinUserData);
 
@@ -14,8 +14,8 @@ app.post('/updateUserData',settingsController.updateUserData);
 // // Create a new item
 // router.post('/', authorizeMiddleware, loggingMiddleware, itemsController.createItem);
 
-// // Update item by ID
-// router.put('/:id', authorizeMiddleware, loggingMiddleware, itemsController.updateItem);
+// Update user privileges
+app.put('/updateUserPrivileges/:id', usersController.updateUserPrivileges);
 
 // // Delete item by ID
 // router.delete('/:id', authorizeMiddleware, loggingMiddleware, itemsController.deleteItem);
