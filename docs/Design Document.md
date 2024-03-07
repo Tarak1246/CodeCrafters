@@ -105,6 +105,8 @@
   ![alt text](<Employee search.png>)
 
 *D7.3 Add New Employee:
+
+
   ![alt text](<Employee Add.png>)
 
 *D7.4 Edit Existing Employee:
@@ -113,6 +115,8 @@
 *D7.5 & *D7.6 Delete Existing Employee/Table Update after Edit/Delete:
   ![alt text](<Employee Delete.png>)
 
+* Data Flow Diagram for the Employee component
+   ![alt text](<Employee Dataflow.png>)
 
 * D8.Settings
   * This component allows users to view and manage their personal information, edit it, and log out of their account.
