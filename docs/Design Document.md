@@ -113,6 +113,8 @@
 *D7.5 & *D7.6 Delete Existing Employee/Table Update after Edit/Delete:
   ![alt text](<Employee Delete.png>)
 
+* Data Flow Diagram for the Employee component
+   ![alt text](<Employee Dataflow.png>)
 
 * D8.Settings
   * This component allows users to view and manage their personal information, edit it, and log out of their account.
