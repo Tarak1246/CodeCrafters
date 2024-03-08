@@ -21,7 +21,7 @@ const Sidebar = ({ onTabClick }) => {
       const clickedTab = event.target.closest('.sidebar-tab');
       if (clickedTab && clickedTab.dataset.tab) {
         const newTab = clickedTab.dataset.tab;
-        if (newTab !== activeTab && (newTab !== 'users' || localStorage.getItem('loginUserType') === 'admin')) {
+        if (newTab !== activeTab && (newTab !== 'users' || localStorage.getItem('loginUserType') === 'admin' || localStorage.getItem('adminPrivilege') === 'true')) {
           handleTabChange(newTab);
         }
       }
@@ -45,7 +45,7 @@ const Sidebar = ({ onTabClick }) => {
       <div data-tab="employees" className={`sidebar-tab ${activeTab === 'employees' ? 'active' : ''}`} onClick={() => handleTabChange('employees')}>
         Employees
       </div>
-      {localStorage.getItem('loginUserType') === 'admin' && (
+      {(localStorage.getItem('loginUserType') === 'admin' || localStorage.getItem('adminPrivilege') === 'true')&& (
         <div data-tab="users" className={`sidebar-tab ${activeTab === 'users' ? 'active' : ''}`} onClick={() => handleTabChange('users')}>
           Users
         </div>

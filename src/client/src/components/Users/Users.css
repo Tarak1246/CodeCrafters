@@ -40,13 +40,13 @@
   padding: auto;
 }
 .refreshBtn{
-  color: #fff;
+  color: #0f0e0e;
   padding: 10px 15px;
   float: right;
   margin-right: 2%;
-  border: none;
+  /* border: none; */
   border-radius: 4px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 .btn-primary {
   background-color: #007bff;
@@ -57,4 +57,29 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+/* styles for the loader container */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* Ensures loader stays centered even when content resizes */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+  z-index: 10; /* Ensure loader is on top of content */
+}
+
+/* Hide the loader container initially */
+.loader-container {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; /* Smooth fade-in/out animation */
+}
+
+/* Show the loader container when the loading state is true */
+.usersComponent.loading .loader-container {
+  opacity: 1;
 }

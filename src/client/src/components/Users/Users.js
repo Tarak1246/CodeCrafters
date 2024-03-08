@@ -42,10 +42,9 @@ const Users = () => {
 
   // Dynamic headers based on keys of the first item in data
   let tableHeaders = data.length > 0 ? Object.keys(data[0]) : [];
-  tableHeaders = tableHeaders.filter((item) => item !== 'id');
+  tableHeaders = tableHeaders.filter((item) => item !== "id");
 
   const handleEditClick = (item) => {
-    console.log(item);
     // Call the provided callback to handle the edit button click
     // onEditButtonClick();
     setDataa(item);
@@ -53,12 +52,12 @@ const Users = () => {
     navigate(`/home/users/editUser/${item.id}`);
   };
 
-  const handleRefresh = () => {
+  const handleRefresh = async () => {
     fetchData();
   };
 
   return (
-    <div>
+    <div className="usersComponent">
       <h1>Users</h1>
       <input
         type="text"
@@ -68,12 +67,16 @@ const Users = () => {
         className="search-input"
         style={{ float: "left" }}
       />
-      <button className="refreshBtn" onClick={handleRefresh}>Refresh</button>
+      <button title="refresh" className="refreshBtn" onClick={handleRefresh}>
+        <i className="fa fa-refresh" aria-hidden="true"></i>
+      </button>
       <table className="data-table">
         <thead>
           <tr>
             {tableHeaders.map((header) => (
-              <th key={header}>{(header).replace(/\b\w/g, (match) => match.toUpperCase())}</th>
+              <th key={header}>
+                {header.replace(/\b\w/g, (match) => match.toUpperCase())}
+              </th>
             ))}
             <th>Actions</th>
           </tr>

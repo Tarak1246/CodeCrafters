@@ -6,7 +6,7 @@
 ../server/logs/logfile.log
 /.pnp
 .pnp.js
-
+/logs/logfile.log
 # testing
 /coverage
 

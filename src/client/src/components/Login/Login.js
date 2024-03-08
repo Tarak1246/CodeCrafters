@@ -84,6 +84,7 @@ const Login = () => {
     }
     try {
       userData = await loginUser(data);
+      console.log(userData);
       if (userData?.status == 200) {        
         setToken(userData?.token);
         setIsLoggedIn(true);
@@ -94,6 +95,7 @@ const Login = () => {
         localStorage.setItem("loginUser", userData?.user?.username);
         localStorage.setItem("loginUserType", userData?.user?.role);
         localStorage.setItem("jwtToken",userData?.token);
+        localStorage.setItem("adminPrivilege",userData?.user?.adminPrivilege);
         navigate("/home");
       } else {
         toast.error(userData.data, {
