@@ -4,6 +4,7 @@ import './Main.css';
 import Dashboard from '../Dashboard/Dashboard';
 import Settings from '../Settings/Settings';
 import Projects from '../Projects/Projects';
+import Employees from '../Employees/Employees';
 import Users from '../Users/Users';
 
 const Main = ({ selectedTab }) => {
@@ -23,7 +24,7 @@ const Main = ({ selectedTab }) => {
       content = <div className="my-component-container">This is {selectedTab} </div>
       break;
     case 'employees':
-      content = <div className="my-component-container">This is {selectedTab} </div>
+      content = <div className="my-component-container"><Employees/></div>
       break;
     case 'settings':
       content = <div className="my-component-container"><Settings /></div>
@@ -34,7 +35,7 @@ const Main = ({ selectedTab }) => {
   }
 
   return (
-    <main style={{ paddingLeft: '209px', flex: '1', backgroundColor: '#fff' }}>
+    <main style={{ paddingLeft: '203px', flex: '1', backgroundColor: '#fff' }}>
       {content}
     </main>
   );

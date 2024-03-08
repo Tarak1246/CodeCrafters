@@ -32,7 +32,8 @@ const Sidebar = ({ onTabClick }) => {
   }, [activeTab, onTabClick, navigate]);
 
   return (
-    <aside style={{ position: 'fixed', overflowY: 'hidden', top: '52px', bottom: 0 }}>
+    <nav id="sidebarMenu" class=" d-lg-block sidebar  bg-white">
+    <aside className='d-lg-block sidebar bg-white' style={{ position: 'fixed', overflowY: 'hidden', top: '95px', bottom: 0 }}>
       <div data-tab="dashboard" className={`sidebar-tab ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => handleTabChange('dashboard')}>
         Dashboard
       </div>
@@ -54,6 +55,7 @@ const Sidebar = ({ onTabClick }) => {
         Settings
       </div>
     </aside>
+    </nav>
   );
 };
 

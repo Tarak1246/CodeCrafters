@@ -1,7 +1,6 @@
 aside h2, div{
   flex: 1;
   /* border-bottom: 1px solid black;  */
-  padding: 5px;
   cursor: pointer;
   /* float: left; */
 }
