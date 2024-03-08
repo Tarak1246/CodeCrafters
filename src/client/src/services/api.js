@@ -56,7 +56,16 @@ export const updateUserData = async (data) => {
     const response = await axios.post(`${BASE_URL}/v2/updateUserData`,data);
     return response.data;
   } catch (error) {
-    throw new Error(`Error user register: ${error.message}`);
+    throw new Error(`Error user edit: ${error.message}`);
+  }
+};
+
+export const updateUserPrivileges = async (id,data) => {
+  try {
+    const response = await axios.put(`${BASE_URL}/v2/updateUserPrivileges/${id}`,data);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error user edit: ${error.message}`);
   }
 };
 

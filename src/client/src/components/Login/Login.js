@@ -84,18 +84,18 @@ const Login = () => {
     }
     try {
       userData = await loginUser(data);
+      console.log(userData);
       if (userData?.status == 200) {        
-        console.log("token from db........", userData?.token);
-        console.log(userData)
         setToken(userData?.token);
         setIsLoggedIn(true);
         toast.success(userData.data, {
           position: toast.POSITION.TOP_RIGHT,
-          autoClose: 10000,
+          autoClose: 1000,
         });
         localStorage.setItem("loginUser", userData?.user?.username);
         localStorage.setItem("loginUserType", userData?.user?.role);
         localStorage.setItem("jwtToken",userData?.token);
+        localStorage.setItem("adminPrivilege",userData?.user?.adminPrivilege);
         navigate("/home");
       } else {
         toast.error(userData.data, {

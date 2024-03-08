@@ -42,14 +42,14 @@ const Settings = () => {
           logoutUser();
           toast.error(response.data, {
             position: toast.POSITION.TOP_RIGHT,
-            autoClose: 5000,
+            autoClose: 1000,
           });
         }
       } catch (error) {
         console.error(error);        
         toast.error("Failed to fetch user details.", {
           position: toast.POSITION.TOP_RIGHT,
-          autoClose: 5000,
+          autoClose: 1000,
         });
       }
     };
@@ -73,13 +73,13 @@ const Settings = () => {
         setEditMode(false); // Switch back to view mode
         toast.success("Profile updated successfully.", {
           position: toast.POSITION.TOP_RIGHT,
-          autoClose: 5000,
+          autoClose: 1000,
         });
       } else {
         console.log(response);
         toast.error(response.data, {
           position: toast.POSITION.TOP_RIGHT,
-          autoClose: 5000,
+          autoClose: 1000,
         });
       }
     } catch (error) {
