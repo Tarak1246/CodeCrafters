@@ -50,8 +50,6 @@ const EditUser = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(id);
-      console.log(formData);
       // Make PUT request to update item in the database
       formData["adminPrivilege"] = formData["admin privilege"];
       const response  = await updateUserPrivileges(id,formData);
