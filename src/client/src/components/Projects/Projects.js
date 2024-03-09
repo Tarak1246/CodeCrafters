@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useData } from '../DataContext';
+import { projectDbPull } from '../../services/api';
 
 const Projects = () => {
 
@@ -13,7 +14,8 @@ const Projects = () => {
   useEffect(() => {
     const fetchData = async()=>{
       try{
-        let response = {
+        let response = await projectDbPull();
+        let response1 = {
         "data": [
           {
             "id": "1",

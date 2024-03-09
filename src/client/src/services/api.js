@@ -69,4 +69,13 @@ export const updateUserPrivileges = async (id,data) => {
   }
 };
 
+export const projectDbPull = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/v2/getProjects`);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error user edit: ${error.message}`);
+  }
+};
+
 //add all api services here only
