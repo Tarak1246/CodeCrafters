@@ -58,6 +58,9 @@ const Projects = () => {
   return (
     <div>
       <h1>Projects</h1>
+      <button className="btn btn-primary" title="add a Project" >
+          ADD
+        </button>
       <table className="data-table">
           <thead>
             <tr>
@@ -73,6 +76,10 @@ const Projects = () => {
                 {tableHeaders.map((header) => (
                   <td key={header}>{item[header]}</td>
                 ))}
+                  <td>
+                  <button className="actionBtn" >Edit</button>
+                  <button className="actionBtn" >Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>

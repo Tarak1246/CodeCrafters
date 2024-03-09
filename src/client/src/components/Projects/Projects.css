@@ -1,1 +1,43 @@
-/* write your css here */
+.app {
+    display: flex;
+    height: 100vh;
+  }
+   
+   
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+   
+  .data-table th, .data-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+   
+  .data-table th {
+    background-color: #f2f2f2;
+  }
+   
+   
+  .actionBtn{
+    text-decoration: underline;
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font: inherit;
+    padding: auto;
+  }
+   
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    float: right;
+    margin-right: 2%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
