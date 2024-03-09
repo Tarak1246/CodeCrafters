@@ -12,3 +12,9 @@ aside h2, div{
 .sidebar-tab{
   float: left;
 }
+
+nav aside div{
+  display: inline-block;
+  /* Add margins or padding for spacing between divs */
+  margin-right: 5%; /* Adjust spacing as needed */
+}
