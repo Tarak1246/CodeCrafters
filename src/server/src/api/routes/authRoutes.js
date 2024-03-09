@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const settingsController = require('../controllers/userSettingsController');
 const usersController = require('../controllers/usersController');
+const projectController = require('../controllers/projectController')
 //user settings
 app.get('/getLoggedinUserData/:username', settingsController.getLoggedinUserData);
 
@@ -16,6 +17,12 @@ app.post('/updateUserData',settingsController.updateUserData);
 
 // Update user privileges
 app.put('/updateUserPrivileges/:id', usersController.updateUserPrivileges);
+
+// Add project details
+app.post('/addProject', projectController.addProject);
+
+//Pulling DB to front
+app.get('/getProjects', projectController.getProjectData);
 
 // // Delete item by ID
 // router.delete('/:id', authorizeMiddleware, loggingMiddleware, itemsController.deleteItem);
