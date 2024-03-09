@@ -1,4 +1,3 @@
-// EditPage.js
 import React, { useState, useEffect } from 'react';
 import { useData } from '../DataContext';
 
@@ -7,6 +6,9 @@ const Projects = () => {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const { state, setDataa } = useData();
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
   useEffect(() => {
     const fetchData = async()=>{
@@ -46,7 +48,7 @@ const Projects = () => {
   }
 
     fetchData();
-  }, []); // The empty dependency array ensures it runs only once on mount
+  }, []);
 
   const tableHeaders = data.length > 0 ? Object.keys(data[0]) : [];
     const filteredData = data.filter((item) =>
@@ -57,7 +59,15 @@ const Projects = () => {
 
   return (
     <div>
-      <h1>Projects</h1>
+      <h1 id="projectStyle" style={{color: 'darkslateblue'}}> Projects </h1>
+      <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={handleSearch}
+          className="search-input"
+          style={{ float: 'right' }}
+        />
       <button className="btn btn-primary" title="add a Project" >
           ADD
         </button>
