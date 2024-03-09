@@ -5,6 +5,7 @@ import { useData } from '../DataContext';
 const Projects = () => {
 
   const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const { state, setDataa } = useData();
 
   useEffect(() => {
@@ -48,10 +49,35 @@ const Projects = () => {
   }, []); // The empty dependency array ensures it runs only once on mount
 
   const tableHeaders = data.length > 0 ? Object.keys(data[0]) : [];
+    const filteredData = data.filter((item) =>
+    Object.values(item).some((value) =>
+      String(value).toLowerCase().includes(searchTerm)
+    )
+  );
 
   return (
     <div>
       <h1>Projects</h1>
+      <table className="data-table">
+          <thead>
+            <tr>
+              {tableHeaders.map((header) => (
+                <th key={header}>{header.toUpperCase()}</th>
+              ))}
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredData.map((item) => (
+              <tr key={item.id}>
+                {tableHeaders.map((header) => (
+                  <td key={header}>{item[header]}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
     </div>
   );
 };
