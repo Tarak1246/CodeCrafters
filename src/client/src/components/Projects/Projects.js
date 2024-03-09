@@ -1,50 +1,57 @@
 // EditPage.js
 import React, { useState, useEffect } from 'react';
+import { useData } from '../DataContext';
 
 const Projects = () => {
 
+  const [data, setData] = useState([]);
+  const { state, setDataa } = useData();
+
   useEffect(() => {
-    {/* write your code here */}
-   // Call the function on component mount
+    const fetchData = async()=>{
+      try{
+        let response = {
+        "data": [
+          {
+            "id": "1",
+            "name": "project1",
+            "members": 30,
+            "client":"ABC",
+            "start date": "01/01/2024",
+            "end date": "01/01/2024",
+            "deadline": "01/01/2024",
+            "progress":"10%",
+            "status":"In-progress"
+          },
+          {
+            "id": "2",
+            "name": "project2",
+            "members": 20,
+            "client":"XYZ",
+            "start date": "01/01/2024",
+            "end date": "01/01/2024",
+            "deadline": "01/01/2024",
+            "progress":"100%",
+            "status":"Completed"
+          },
+        ]
+      };
+
+      setData(response.data);
+    }
+    catch(error){
+      console.error('error fetching data', error);
+    }
+  }
+
+    fetchData();
   }, []); // The empty dependency array ensures it runs only once on mount
+
+  const tableHeaders = data.length > 0 ? Object.keys(data[0]) : [];
 
   return (
     <div>
-    {<table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Members</th>
-            <th>Client</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Deadline</th>
-            <th>Progress</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Project1</td>
-            <td>30</td>
-            <td>ABC</td>
-            <td>01/01/2024</td>
-            <td>08/01/2024</td>
-            <td>07/01/2024</td>
-            <td>10%</td>
-            <td>In-Progress</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Project2</td>
-            <td>10</td>
-            <td>HSBC</td>
-            <td>01/01/2025</td>
-            <td>10/01/2025</td>
-            <td>09/01/2025</td>
-            <td>5%</td>
-            <td>In-Progress</td>
-        </tr>
-    </table>}
+      <h1>Projects</h1>
     </div>
   );
 };
