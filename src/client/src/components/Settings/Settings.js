@@ -4,7 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Settings.css";
-import { getLoggedinUserData, updateUserData, getUsers } from "../../services/api";
+import {
+  getLoggedinUserData,
+  updateUserData,
+  getUsers,
+} from "../../services/api";
 // import AuthContext from "../AuthContext";
 
 const Settings = () => {
@@ -43,14 +47,14 @@ const Settings = () => {
         });
       }
     } catch (error) {
-      console.error(error);        
+      console.error(error);
       toast.error("Failed to fetch user details.", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 1000,
       });
     }
   };
-  const fetchExistingEmails = async()=>{
+  const fetchExistingEmails = async () => {
     const response = await getUsers();
     setExistingEmails(response?.data.map((user) => user.email));
   };
@@ -67,7 +71,7 @@ const Settings = () => {
     if (!editMode) {
       return; // Prevent submission when not in edit mode
     }
-    console.log(errors)
+    console.log(errors);
 
     if (Object.keys(errors).length > 0) {
       return; // Prevent form submission if there are errors
@@ -246,13 +250,15 @@ const Settings = () => {
               {editMode ? (
                 <>
                   <button
-                      className="userEditBtn"
-                      type="submit"
-                      disabled={Object.keys(errors).length > 0}
-                      style={{ backgroundColor: Object.keys(errors).length > 0 ? 'gray' : 'blue' }}
-                      title={Object.keys(errors).length > 0 ? 'Cannot save due to errors' : 'Save'}
+                    className="userEditBtn"
+                    type="submit"
+                    disabled={Object.keys(errors).length > 0}
+                    style={{
+                      backgroundColor:
+                        Object.keys(errors).length > 0 ? "gray" : "lightblue",
+                    }}
                   >
-                      Save
+                    Save
                   </button>
                   <button
                     className="clearBtn"
