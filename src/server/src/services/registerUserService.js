@@ -15,6 +15,9 @@ const requiredKeys = [
 
 //check admin user email format
 const checkEmailFormat = async (email) => {
+  console.log(email);
+  console.log(emailRegex);
+  console.log(emailRegex.test(email))
   return emailRegex.test(email);
 };
 //check password format
@@ -72,15 +75,15 @@ const createAdminUser = async (adminUserData) => {
           data: { error: "Email already exists" },
         };
       }
-
-      if (checkEmailFormat(adminUserData.email)) {
+      const emailFormatStatus = await checkEmailFormat(adminUserData.email);
+      if (!emailFormatStatus) {
         return {
           status: 400,
           data: { error: "Email format should be @gmail.com" },
         };
       }
-
-      if (checkPasswordFormat(adminUserData.password)) {
+      const passwordFormatStatus = await checkPasswordFormat(adminUserData.password);
+      if (!passwordFormatStatus) {
         return {
           status: 400,
           data: {
@@ -97,7 +100,7 @@ const createAdminUser = async (adminUserData) => {
       await adminUser.save();
 
       // Call mail server after admin user creation
-      await mailingServer(adminUserData);
+      // await mailingServer(adminUserData);
 
       // If mail sending is successful, return success response
       return { status: 201, data: "Admin user created successfully" };
