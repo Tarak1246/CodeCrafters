@@ -2,26 +2,111 @@ const User = require("../database/schemas/userSchema");
 const jwt = require("../utils/jwtUtils");
 const bcrypt = require("bcrypt");
 const mailingServer = require("../api/middlewares/mailingMiddleware");
+const emailRegex = /^[\w\d._%+-]+@gmail\.com$/;
+const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$*]).{8,}$/;
+const requiredKeys = [
+  "username",
+  "email",
+  "password",
+  "firstname",
+  "lastname",
+  "role",
+];
 
+//check admin user email format
+const checkEmailFormat = async (email) => {
+  console.log(email);
+  console.log(emailRegex);
+  console.log(emailRegex.test(email))
+  return emailRegex.test(email);
+};
+//check password format
+const checkPasswordFormat = async (password) => {
+  return passwordRegex.test(password);
+};
+
+//check admin user api request body
+const validateAdminUserRequestPayload = async (requestPayload) => {
+  // 1. Check for required keys:
+  const hasRequiredKeys = requiredKeys.every((key) => key in requestPayload);
+
+  // 2. Check for empty values:
+  const hasEmptyValues = Object.values(requestPayload).some(
+    (value) => value === null || value === undefined || value === ""
+  );
+
+  // Combine results:
+  return {
+    hasRequiredKeys,
+    hasEmptyValues,
+    isValid: hasRequiredKeys && !hasEmptyValues,
+  };
+};
 //create admin user
 const createAdminUser = async (adminUserData) => {
   try {
-    // Check if admin user already exists
-    const existingAdminUser = await User.findOne({ role: "admin" });
-    if (existingAdminUser) {
-      return { status: 400, data: { error: "Admin user already exists" } };
+    const requestPayloadStatus = await validateAdminUserRequestPayload(
+      adminUserData
+    );
+    if (requestPayloadStatus.isValid) {
+      if(adminUserData.role != "admin") return { status: 400, data: { error: "Only admin role user can create using this api!" } };
+
+      // Check if admin user already exists
+      const existingAdminUser = await User.findOne({ role: "admin" });
+      if (existingAdminUser) {
+        return { status: 400, data: { error: "Only one user should have role as an admin!" } };
+      }
+
+      // Check if username already exists
+      const existingAdminUsername = await User.findOne({
+        username: adminUserData.username,
+      });
+      if (existingAdminUsername) {
+        return { status: 400, data: { error: "username already exists" } };
+      }
+
+      // Check if admin user mailid already exists
+      const existingAdminUserMail = await User.findOne({
+        email: adminUserData.email,
+      });
+      if (existingAdminUserMail) {
+        return {
+          status: 400,
+          data: { error: "Email already exists" },
+        };
+      }
+      const emailFormatStatus = await checkEmailFormat(adminUserData.email);
+      if (!emailFormatStatus) {
+        return {
+          status: 400,
+          data: { error: "Email format should be @gmail.com" },
+        };
+      }
+      const passwordFormatStatus = await checkPasswordFormat(adminUserData.password);
+      if (!passwordFormatStatus) {
+        return {
+          status: 400,
+          data: {
+            error:
+              "Password should contain at least one uppercase letter, lowercase letter, digit, and special symbol, and be at least 8 characters long",
+          },
+        };
+      }
+
+      adminUserData.status = "active";
+      adminUserData.adminPrivilege = "true";
+      // Create admin user
+      const adminUser = new User(adminUserData);
+      await adminUser.save();
+
+      // Call mail server after admin user creation
+      // await mailingServer(adminUserData);
+
+      // If mail sending is successful, return success response
+      return { status: 201, data: "Admin user created successfully" };
+    } else {
+      return { status: 500, data: "request body invalid" };
     }
-    adminUserData.status = 'active';
-    adminUserData.adminPrivilege = 'true';
-    // Create admin user
-    const adminUser = new User(adminUserData);
-    await adminUser.save();
-
-    // Call mail server after admin user creation
-    await mailingServer(adminUserData);
-
-    // If mail sending is successful, return success response
-    return { status: 201, data: "Admin user created successfully" };
   } catch (error) {
     console.error("Error creating admin user:", error);
     return { status: 500, data: "Internal Server Error" };
@@ -33,19 +118,19 @@ const getUsers = async () => {
   try {
     const users = await User.aggregate([
       {
-        $match: { _id: { $exists: true } }
+        $match: { _id: { $exists: true } },
       },
       {
         $project: {
-          "admin privilege" : "$adminPrivilege", //{ $toString:"$adminPrivilege"}
-          "username" : 1,
-          "email" : 1,
-          "role" : 1,
-          "status" : 1,
-          "id" : "$_id",
-          "_id":0          
-        }
-      }
+          "admin privilege": "$adminPrivilege", //{ $toString:"$adminPrivilege"}
+          username: 1,
+          email: 1,
+          role: 1,
+          status: 1,
+          id: "$_id",
+          _id: 0,
+        },
+      },
     ]);
     // const users = await User.find({}, { username: 1, email: 1, status: 1, role: 1, adminPrivilege: 1, _id: 0 });
     return { status: 200, data: users };

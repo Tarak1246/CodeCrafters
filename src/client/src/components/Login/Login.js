@@ -132,6 +132,8 @@ const Login = () => {
             </label>
             <input
               type="text"
+              placeholder="enter username"
+              title="username"
               style={{
                 borderWidth: 1,
                 alignItems: "center",
@@ -159,6 +161,8 @@ const Login = () => {
             </label>
             <input
               type="password"
+              placeholder="enter password"
+              title="Password should contain at least one uppercase letter, lowercase letter, digit, and special symbol, and be at least 8 characters long"
               style={{
                 borderWidth: 1,
                 alignItems: "center",
@@ -172,7 +176,7 @@ const Login = () => {
               {...register("password", {
                 required: "Password is required.",
               })}
-              // onChange={handlePasswordChange}
+              onChange={handlePasswordChange}
               autoComplete="off"
               required
             />
@@ -184,6 +188,7 @@ const Login = () => {
             Don't have an account?{" "}
             <Link to="/register">
               <span
+              title="click to register a user"
                 onClick={() => {
                   clearErrors(["username", "password"]);
                   reset();
@@ -196,11 +201,12 @@ const Login = () => {
             <button
               className="LRBtn"
               type="submit"
+              title="login"
               disabled={Object.keys(errors).length > 0}
             >
               Login
             </button>
-            <button className="LRBtn" type="submit" onClick={() => {
+            <button className="LRBtn" type="submit" title="clear" onClick={() => {
                   clearErrors([
                     "username",
                     "password"

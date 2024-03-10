@@ -4,7 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Settings.css";
-import { getLoggedinUserData, updateUserData } from "../../services/api";
+import {
+  getLoggedinUserData,
+  updateUserData,
+  getUsers,
+} from "../../services/api";
 // import AuthContext from "../AuthContext";
 
 const Settings = () => {
@@ -14,6 +18,7 @@ const Settings = () => {
     register,
     handleSubmit,
     setValue,
+    setError,
     clearErrors,
     reset,
     formState: { errors },
@@ -22,43 +27,54 @@ const Settings = () => {
   // const { isAuthenticated, user, logout } = useContext(AuthContext);
   const [formData, setFormData] = useState({});
   const [editMode, setEditMode] = useState(false);
+  const [existingEmails, setExistingEmails] = useState([]);
+  const fetchUserDetails = async () => {
+    try {
+      let loggedinUser = localStorage.getItem("loginUser");
+      let response = await getLoggedinUserData(loggedinUser);
+      if (response.status == 200) {
+        response = response.data;
+        setFormData(response);
+        setValue("username", response.username);
+        setValue("email", response.email);
+        setValue("firstname", response.firstname);
+        setValue("lastname", response.lastname);
+      } else {
+        logoutUser();
+        toast.error(response.data, {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 1000,
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to fetch user details.", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1000,
+      });
+    }
+  };
+  const fetchExistingEmails = async () => {
+    const response = await getUsers();
+    setExistingEmails(response?.data.map((user) => user.email));
+  };
   useEffect(() => {
     // if (!isAuthenticated) {
     //   logout();
     //   navigate('/login');
     // }
-    const fetchUserDetails = async () => {
-      try {
-        let loggedinUser = localStorage.getItem("loginUser");
-        let response = await getLoggedinUserData(loggedinUser);
-        if (response.status == 200) {
-          response = response.data;
-          setFormData(response);
-          setValue("username", response.username);
-          setValue("email", response.email);
-          setValue("firstname", response.firstname);
-          setValue("lastname", response.lastname);
-        } else {
-          logoutUser();
-          toast.error(response.data, {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 1000,
-          });
-        }
-      } catch (error) {
-        console.error(error);        
-        toast.error("Failed to fetch user details.", {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 1000,
-        });
-      }
-    };
+    fetchExistingEmails();
     fetchUserDetails();
   }, []);
 
   const onSubmit = async (data) => {
     if (!editMode) {
       return; // Prevent submission when not in edit mode
+    }
+    console.log(errors);
+
+    if (Object.keys(errors).length > 0) {
+      return; // Prevent form submission if there are errors
     }
 
     try {
@@ -75,6 +91,7 @@ const Settings = () => {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 1000,
         });
+        clearErrors();
       } else {
         console.log(response);
         toast.error(response.data, {
@@ -88,8 +105,6 @@ const Settings = () => {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 500,
       });
-    } finally {
-      clearErrors();
     }
   };
 
@@ -98,7 +113,6 @@ const Settings = () => {
   };
 
   const handleCancelClick = () => {
-    setEditMode(false);
     // Reset form to initial values from API
     if (formData) {
       setValue("username", formData.username);
@@ -107,12 +121,30 @@ const Settings = () => {
       setValue("lastname", formData.lastname);
     }
     clearErrors(); // Clear any validation errors
+    setEditMode(false);
   };
 
   const logoutUser = () => {
     reset();
     localStorage.clear();
     navigate("/login");
+  };
+
+  const handleEmailChange = (event) => {
+    const emailValue = event.target.value;
+    // Regular expression for email validation
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[\w\d._%+-]+@gmail\.com$/;
+    if (!emailValue) {
+      setError("email", { type: "manual", message: "Email is required" });
+    } else if (!emailRegex.test(emailValue)) {
+      setError("email", { type: "manual", message: "Email is not valid" });
+    } else if (existingEmails.includes(emailValue)) {
+      setError("email", { type: "manual", message: "Email already exists" });
+    } else {
+      clearErrors("email"); // Clear errors for the "email" field
+    }
+    console.log(errors);
   };
 
   return (
@@ -165,6 +197,7 @@ const Settings = () => {
                 {...register("email", { required: "Email is required." })}
                 autoComplete="off"
                 required
+                onChange={handleEmailChange}
                 disabled={!editMode}
               />
               {errors.email && (
@@ -220,6 +253,10 @@ const Settings = () => {
                     className="userEditBtn"
                     type="submit"
                     disabled={Object.keys(errors).length > 0}
+                    style={{
+                      backgroundColor:
+                        Object.keys(errors).length > 0 ? "gray" : "lightblue",
+                    }}
                   >
                     Save
                   </button>
