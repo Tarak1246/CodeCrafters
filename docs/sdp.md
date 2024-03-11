@@ -29,12 +29,12 @@ The project will follow an Agile methodology with elements of Scrum. This approa
     * Prepare for deployment.
     * Roll out the software.
 
-* Minimum viable product available date - Mar 15
+* Minimum viable product available date - Mar 19
 
 ## Contributors
 
-1. S S Eswara Satyanarayana Aneesh Dangeti
-2. Taraka Sai Reddy Seelam
-3. Akshay Reddy Yalla
-4. Lakshmi Prasanna Yekkaladevi
-5. Pavan Teja Jukanti
+1. Pavan Teja Jukanti
+2. S S Eswara Satyanarayana Aneesh Dangeti
+3. Taraka Sai Reddy Seelam
+4. Akshay Reddy Yalla
+5. Lakshmi Prasanna Yekkaladevi
