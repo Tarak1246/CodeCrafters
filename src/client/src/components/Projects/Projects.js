@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, navigate} from 'react';
 import { useData } from '../DataContext';
 import { projectDbPull } from '../../services/api';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ConfirmToast from '../ConfirmToast/ConfirmToast'
 
 const Projects = () => {
 
@@ -11,36 +14,56 @@ const Projects = () => {
     setSearchTerm(event.target.value);
   };
 
+  const handleDeleteClick = () => {
+    let toastId;
+ 
+    const handleConfirm = () => {
+      console.log('Item deleted!');
+      toast.success('Item deleted!', {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 10000
+      });
+      toast.dismiss(toastId);
+      navigate('/home');
+    };
+ 
+
+    toastId = toast.warning(<ConfirmToast onConfirm={handleConfirm} />, {
+      autoClose: false,
+      closeButton: true,
+    });
+  };
+
   useEffect(() => {
     const fetchData = async()=>{
       try{
         let response = await projectDbPull();
-        let response1 = {
-        "data": [
-          {
-            "id": "1",
-            "name": "project1",
-            "members": 30,
-            "client":"ABC",
-            "start date": "01/01/2024",
-            "end date": "01/01/2024",
-            "deadline": "01/01/2024",
-            "progress":"10%",
-            "status":"In-progress"
-          },
-          {
-            "id": "2",
-            "name": "project2",
-            "members": 20,
-            "client":"XYZ",
-            "start date": "01/01/2024",
-            "end date": "01/01/2024",
-            "deadline": "01/01/2024",
-            "progress":"100%",
-            "status":"Completed"
-          },
-        ]
-      };
+      //   let response1 = {
+      //   "data": [
+      //     {
+      //       "id": "1",
+      //       "name": "project1",
+      //       "members": 30,
+      //       "client":"ABC",
+      //       "start date": "01/01/2024",
+      //       "end date": "01/01/2024",
+      //       "deadline": "01/01/2024",
+      //       "progress":"10%",
+      //       "status":"In-progress"
+      //     },
+      //     {
+      //       "id": "2",
+      //       "name": "project2",
+      //       "members": 20,
+      //       "client":"XYZ",
+      //       "start date": "01/01/2024",
+      //       "end date": "01/01/2024",
+      //       "deadline": "01/01/2024",
+      //       "progress":"100%",
+      //       "status":"Completed"
+      //     },
+      //   ]
+      // };
 
       setData(response.data);
     }
@@ -93,7 +116,7 @@ const Projects = () => {
                 ))}
                 <td>
                   <button className="actionBtn">Edit</button>
-                  <button className="actionBtn">Delete</button>
+                  <button className="actionBtn" onClick={() => handleDeleteClick(item)}>Delete</button>
                 </td>
               </tr>
             ))}
