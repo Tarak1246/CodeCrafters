@@ -71,9 +71,12 @@ const Projects = () => {
           style={{ float: 'right' }}
         />
       <button className="btn btn-primary" title="add a Project" >
-          ADD
-        </button>
-      <table className="data-table">
+      ADD
+      </button>
+      {filteredData.length === 0 ? (
+        <p style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "60vh" }}>No projects to display.</p>
+      ) : (
+        <table className="data-table">
           <thead>
             <tr>
               {tableHeaders.map((header) => (
@@ -88,15 +91,15 @@ const Projects = () => {
                 {tableHeaders.map((header) => (
                   <td key={header}>{item[header]}</td>
                 ))}
-                  <td>
-                  <button className="actionBtn" >Edit</button>
-                  <button className="actionBtn" >Delete</button>
+                <td>
+                  <button className="actionBtn">Edit</button>
+                  <button className="actionBtn">Delete</button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-
+      )}
     </div>
   );
 };
