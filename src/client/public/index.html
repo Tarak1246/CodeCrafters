@@ -1,29 +1,107 @@
+<!--
+  @file index.html
+  @description: starting html file of the react application. This is the only html for entire react application
+  @author @Tarak1246
+-->
+
+<!-- @description: Declares the document type as HTML -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- 
+      @description: Sets the character encoding for proper character display
+      @value: UTF-8
+    -->
     <meta charset="utf-8" />
+    <!-- 
+      @description: Defines a favicon for the browser tab
+    -->
     <link rel="icon" href="%PUBLIC_URL%/project-tracker.png" />
+    <!-- 
+      @description: Ensures responsive layout across different screen sizes
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 
+      @description: Sets the default theme color for browsers like Chrome on Android
+    -->
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Web site created using create-react-app" />
+    <!--
+      @description: Provides a website description for search engines
+    -->
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <!--
+      @description: Defines an icon for Apple devices
+    -->
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/project-tracker.png" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512- enacting phones down!**" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--
+      @description: Links to the external stylesheet for Bootstrap 4.0.0 (CSS framework).
+    -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!--
+        @description: Links to an external stylesheet for Font Awesome 6.2.0 (icon library).
+      -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512- enacting phones down!**"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--
+      @description: Links to a manifest file for potential progressive web app functionalities.
+    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      @description: Sets the title displayed in the browser tab and search results. 
+      @content: Project Tracker.
+    -->
     <title>Project Tracker</title>
   </head>
-  <body style="overflow: hidden;">
+  <!--
+    @description: Sets the body style (potentially used to prevent page scrolling, adjust based on your needs). 
+    @value: overflow: hidden;
+  -->
+  <body style="overflow: hidden">
+    <!--
+      @description: Provides a fallback message for users with JavaScript disabled.
+    -->
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!--
+      @description: Defines the root element where the React application will be rendered. 
+      @ID: root
+    -->
     <div id="root"></div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    <!--
+      @description: Links to an external script for jQuery 3.2.1 (used with Bootstrap).
+    -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--
+        @description: Links to an external script for Popper.js (required for Bootstrap tooltips and popovers).
+      -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
       integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--
+        @description: Links to an external script for Bootstrap 4.0.0 JavaScript functionalities.
+      -->
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
