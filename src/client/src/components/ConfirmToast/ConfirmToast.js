@@ -8,7 +8,7 @@ const ConfirmToast = ({ onConfirm, onClose }) => {
   
   const handleConfirm = () => {
     onConfirm();
-    // onClose(); // Close the toast after handling confirmation
+    // onClose();
   };
 
   return (
