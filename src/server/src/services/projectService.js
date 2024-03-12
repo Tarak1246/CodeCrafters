@@ -16,7 +16,7 @@ const addProject = async (projectData) => {
 
 const getProjectData = async() =>{
   try {
-    const projectData = await Project.find({});
+    const projectData = await Project.find({}, { _id: 0, __v: 0});
     
     return { status: 200, data: projectData };
   } catch (error) {
