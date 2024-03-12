@@ -176,7 +176,7 @@ const Login = () => {
               {...register("password", {
                 required: "Password is required.",
               })}
-              onChange={handlePasswordChange}
+              // onChange={handlePasswordChange}
               autoComplete="off"
               required
             />
