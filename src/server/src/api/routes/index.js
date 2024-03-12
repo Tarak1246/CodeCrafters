@@ -5,7 +5,7 @@ const authorizeMiddleware = require('../middlewares/authorizeMiddleware');
 const loggingMiddleware = require('../middlewares/loggingMiddleware');
 const registerRouter = require('./registerUser');
 const loginRouter = require("./loginUser");
-const settingsRouter = require("./userSettings");
+const authRoutes = require("./authRoutes");
 
 // Main route
 app.get('/', loggingMiddleware, (req, res) => {
@@ -19,6 +19,6 @@ app.use('/v', loggingMiddleware, registerRouter);
 app.use('/v1', loggingMiddleware, loginRouter);
 
 //user settings route
-app.use('/v2', authorizeMiddleware, loggingMiddleware, settingsRouter );
+app.use('/v2', authorizeMiddleware, loggingMiddleware, authRoutes );
 
 module.exports = app;

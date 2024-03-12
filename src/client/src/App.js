@@ -7,6 +7,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Dashboard from './components/Dashboard/Dashboard';
 import Settings from './components/Settings/Settings';
+import EditUser from './components/EditUser/EditUser';
 
 const App = () => {
 
@@ -23,8 +24,8 @@ const App = () => {
               <Layout>
                 <Routes>
                   <Route exact path="/home" element={<Navigate to="/home/dashboard" replace />} />
-                  {/* <Route path="/home/dashboard" element={<Dashboard />} />
-                  <Route path="/home/settings" element={<Settings />} /> */}
+                   <Route path="/home/users/editUser/:id" element={<EditUser />} />
+                  {/*<Route path="/home/settings" element={<Settings />} /> */}
                    { /* add routes here */ }
                 </Routes>
               </Layout>

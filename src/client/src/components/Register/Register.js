@@ -32,7 +32,6 @@ const Register = () => {
   const fetchExistingUsers = async () => {
     try {
       const response = await getUsers();
-      console.log(response.data)
       setExistingUsernames(response.data.map((user) => user.username));
       setExistingEmails(response.data.map((user) => user.email));
     } catch (error) {
@@ -58,8 +57,8 @@ const Register = () => {
   const handleEmailChange = (event) => {
     const emailValue = event.target.value;
     // Regular expression for email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[\w\d._%+-]+@gmail\.com$/;
     if (!emailValue) {
       setError("email", { type: "manual", message: "Email is required" });
     } else if (!emailRegex.test(emailValue)) {
@@ -144,6 +143,8 @@ const Register = () => {
             <label>Username<span id="requiredField">*</span></label>
             <input
               type="text"
+              placeholder="enter username"
+              title="username"
               style={{
                 borderWidth: 1,
                 alignItems: "center",
@@ -167,6 +168,8 @@ const Register = () => {
             <label>Email<span id="requiredField">*</span></label>
             <input
               type="text"
+              placeholder="enter email in @gmail.com format"
+              title="Email format is @gmail.com"
               style={{
                 borderWidth: 1,
                 alignItems: "center",
@@ -188,6 +191,8 @@ const Register = () => {
             <label>Password<span id="requiredField">*</span></label>
             <input
               type="password"
+              placeholder="enter password"
+              title="Password should contain at least one uppercase letter, lowercase letter, digit, and special symbol, and be at least 8 characters long"
               style={{
                 borderWidth: 1,
                 alignItems: "center",
@@ -211,6 +216,8 @@ const Register = () => {
             <label>Confirm Password<span id="requiredField">*</span></label>
             <input
               type="password"
+              placeholder="re-enter password"
+              title="confirm password"
               style={{
                 borderWidth: 1,
                 alignItems: "center",
@@ -235,7 +242,8 @@ const Register = () => {
             Already have an Account , Want to{" "}
             <Link to="/login">
               <span
-                onClick={() => {
+              title="click to login"
+              onClick={() => {
                   clearErrors([
                     "username",
                     "email",
@@ -250,8 +258,8 @@ const Register = () => {
             </Link>
           </p>
           <div className="form-control button-container">
-            <button className="LRBtn" type="submit" disabled={Object.keys(errors).length > 0}>Register</button>
-            <button className="LRBtn" type="submit" onClick={() => {
+            <button className="LRBtn" type="submit" title="register" disabled={Object.keys(errors).length > 0}>Register</button>
+            <button className="LRBtn" type="submit" title="clear" onClick={() => {
                   clearErrors([
                     "username",
                     "email",
