@@ -1,8 +1,17 @@
-.app {
+/**
+ *@file Users.css
+ * @author @Tarak1246
+ * @description CSS for Users component
+ * @date Mar 13, 2024
+ */
+
+ /* Layout Styles */
+ .app {
   display: flex;
   height: 100vh;
 }
 
+/* Search Input Styles */
 .search-input {
   margin-bottom: 20px;
   padding: 8px;
@@ -10,6 +19,7 @@
   border-radius: 4px;
 }
 
+/* Data Table Styles */
 .data-table {
   width: 100%;
   border-collapse: collapse;
@@ -30,6 +40,7 @@
   background-color: #f9f9f9;
 }
 
+/* Action Button Styles */
 .actionBtn{
   text-decoration: underline;
   background: none;
@@ -39,6 +50,8 @@
   font: inherit;
   padding: auto;
 }
+
+/* Refresh Button Styles */
 .refreshBtn{
   color: #0f0e0e;
   padding: 10px 15px;

@@ -1,21 +1,95 @@
+/**
+ * @file Login.js
+ * @description Login component for the project tracker application
+ * @author @Tarak1246
+ * @date Mar 13, 2024
+ */
+/**
+ * @module react
+ * @description Import React library for creating React components
+ */
 import React, { useState, useEffect } from "react";
+/**
+ * @description Import styles from Login.css file
+ */
 import "./Login.css";
+/**
+ * @module react-hook-form
+ * @description Import useForm hook from react-hook-form for form handling
+ */
 import { useForm } from "react-hook-form";
+/**
+ * @module react-router-dom
+ * @description Import Link and useNavigate from react-router-dom for navigation
+ */
 import { Link, useNavigate } from "react-router-dom";
+/**
+ * @description Import loginUser and getUsers functions from the api service
+ */
 import { loginUser, getUsers } from "../../services/api";
+/**
+ * @module react-toastify
+ * @description Import toast library for displaying toast notifications.
+ * Also import its stylesheet for styling the notifications.
+ */
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+/**
+ * @description Import the project tracker image from the images directory
+ */
 import projectTrackerImage from "../../images/project-tracker.png";
-
+/**
+ * @description Login component for the Project Tracker application.
+ * It handles user login functionality, including form validation,
+ * authentication with the server, and user session management.
+ */
 const Login = () => {
+  /**
+   * @description Configures the toast notification system (likely for displaying messages).
+   */
   toast.configure();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [token, setToken] = useState('');
+  /**
+   * @description State variable to store an array of usernames retrieved from the server.
+   * Initially set to an empty array `[]`.
+   * @type {string[]}
+   */
   const [existingUsernames, setExistingUsernames] = useState([]);
+  /**
+   * @description State variable to store an array of usernames filtered from existing users
+   * who have the "active" status. Initially set to an empty array `[]`.
+   * @type {string[]}
+   */
   const [activeUsers, setActiveUsers] = useState([]);
+  /**
+   * @description Function for programmatic navigation within the application,
+   * likely used for redirecting the user to different routes.
+   * Obtained using the `useNavigate` hook from react-router-dom.
+   * @type {import('react-router-dom').Navigate}
+   */
   const navigate = useNavigate();
+  /**
+   * @description Variable to store user data (likely username, token, etc.) after a successful login.
+   * Initially set to an empty string `""`.
+   * @type {string}
+   */
   let userData = "";
 
+  /**
+   * Destructures properties from the useForm hook (react-hook-form library).
+   * Provides functions for form validation, state management, error handling,
+   * and field value observation.
+   *
+   * @param {Object} options Configuration options for the useForm hook (optional).
+   *
+   * @returns {Object} An object containing the following properties:
+   *  - register: Function to register form fields for validation.
+   *  - handleSubmit: Function to handle form submission and validation.
+   *  - setError: Function to set an error message for a specific form field.
+   *  - clearErrors: Function to clear all or specific form field errors.
+   *  - reset: Function to reset the form state to its initial values.
+   *  - formState: Object containing the form state with the following property:
+   *      - errors: Object containing error messages for each registered field.
+   */
   const {
     reset,
     register,
@@ -24,17 +98,31 @@ const Login = () => {
     clearErrors,
     formState: { errors },
   } = useForm({});
-
+  /**
+   * @description Fetches usernames from the server on component mount.
+   * Fetches usernames and filters for active users upon successful response.
+   * Displays an error toast notification if fetching fails.
+   */
   useEffect(() => {
     fetchExistingUsers();
-  }, []);
-
-
+  }, []); // Empty dependency array ensures it runs only once on mount
+  /**
+   * @description Fetches usernames from the server and updates state variables.
+   * Asynchronously fetches user data using the `getUsers` function (likely from an API service).
+   * Upon successful response, extracts usernames and filters for active users based on the "status" property.
+   * Updates the `existingUsernames` and `activeUsers` state variables with the retrieved data.
+   * Displays an error toast notification using `toast` from react-toastify if fetching fails.
+   * @returns {Promise<void>} (Doesn't explicitly return a value)
+   */
   const fetchExistingUsers = async () => {
     try {
       const response = await getUsers();
-      setExistingUsernames((response.data).map((user) => user.username));
-      setActiveUsers(((response.data).filter(obj => obj.status === "active")).map((user) => user.username)); 
+      setExistingUsernames(response.data.map((user) => user.username));
+      setActiveUsers(
+        response.data
+          .filter((obj) => obj.status === "active")
+          .map((user) => user.username)
+      );
     } catch (error) {
       toast.error("Failed to fetch active users. Please try again later.", {
         position: toast.POSITION.TOP_RIGHT,
@@ -42,60 +130,57 @@ const Login = () => {
       });
     }
   };
-
+  /**
+   * @description Handles username input changes in the form.
+   * Checks if the username is empty, exists (active/inactive),
+   * and sets errors accordingly using setError and clearErrors from useForm.
+   * @param {React.ChangeEvent<HTMLInputElement>} event The change event object.
+   * @returns {Promise<void>} (Doesn't explicitly return a value)
+   */
   const handleUsernameChange = (event) => {
     const usernameValue = event.target.value;
     if (!usernameValue) {
       setError("username", { type: "manual", message: "Username is required" });
     } else if (existingUsernames.includes(usernameValue)) {
-        if(activeUsers.includes(usernameValue)){
-            clearErrors("username");
-        }else{
-            setError("username", {
-                type: "manual",
-                message: "User doesn't have privilege to login! Consult your admin",
-            });
-        }      
-    } else {
+      if (activeUsers.includes(usernameValue)) {
+        clearErrors("username");
+      } else {
         setError("username", {
-            type: "manual",
-            message: "User doesn't exist",
-          });
-    }
-  };
-
-  const handlePasswordChange = (event) => {
-    const passwordValue = event.target.value;    
-    // Regular expression for password validation 
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$*]).{8,}$/;
-  
-    if (!passwordValue) {
-      setError("password", { type: "manual", message: "Password is required" });
-    } else if (!passwordRegex.test(passwordValue)) {
-      setError("password", { type: "manual", message: "Password should contain at least one uppercase letter, lowercase letter, digit, and special symbol, and be at least 8 characters long" });
+          type: "manual",
+          message: "User doesn't have privilege to login! Consult your admin",
+        });
+      }
     } else {
-      clearErrors("password"); // Clear errors for the "password" field
+      setError("username", {
+        type: "manual",
+        message: "User doesn't exist",
+      });
     }
   };
-
+  /**
+   * @description Handles user login form submission.
+   * Prevents submission if there are form errors.
+   * Attempts to log in the user using loginUser from the api service,
+   * handling successful and failed login attempts with toasts.
+   * Resets the form and clears errors after submission (success or failure).
+   * @param {any} data The form data (likely containing username and password).
+   * @returns {Promise<void>} (Doesn't explicitly return a value)
+   */
   const userLogin = async (data) => {
     if (Object.keys(errors).length > 0) {
-        return;
+      return;
     }
     try {
       userData = await loginUser(data);
-      console.log(userData);
-      if (userData?.status == 200) {        
-        setToken(userData?.token);
-        setIsLoggedIn(true);
+      if (userData?.status == 200) {
         toast.success(userData.data, {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 1000,
         });
         localStorage.setItem("loginUser", userData?.user?.username);
         localStorage.setItem("loginUserType", userData?.user?.role);
-        localStorage.setItem("jwtToken",userData?.token);
-        localStorage.setItem("adminPrivilege",userData?.user?.adminPrivilege);
+        localStorage.setItem("jwtToken", userData?.token);
+        localStorage.setItem("adminPrivilege", userData?.user?.adminPrivilege);
         navigate("/home");
       } else {
         toast.error(userData.data, {
@@ -114,18 +199,25 @@ const Login = () => {
       clearErrors();
     }
   };
-
+  /**
+ * @description Renders the JSX structure for the Login component.
+ * @returns {JSX.Element} The JSX element representing the login form.
+ */
   return (
     <div className="main">
+      {/* Row for application title */}
       <div className="rowAB">
         <h1>Project Tracker</h1>
       </div>
+      {/* Row for project tracker logo */}
       <div className="rowA">
         <img src={projectTrackerImage} alt="project tracker" />
       </div>
+      {/* Row for login form */}
       <div className="rowB">
         <h2 className="LRTitle">Login</h2>
         <form onSubmit={handleSubmit(userLogin)}>
+          {/* Username input field */}
           <div className="form-control f-c1">
             <label>
               Username<span id="requiredField">*</span>
@@ -134,7 +226,7 @@ const Login = () => {
               type="text"
               placeholder="enter username"
               title="username"
-              style={{
+              style={{ /* Styling properties for the username input */
                 borderWidth: 1,
                 alignItems: "center",
                 justifyContent: "center",
@@ -155,6 +247,7 @@ const Login = () => {
               <p className="errorMsg">{errors.username.message}</p>
             )}
           </div>
+          {/* Password input field */}
           <div className="form-control">
             <label>
               Password<span id="requiredField">*</span>
@@ -163,7 +256,7 @@ const Login = () => {
               type="password"
               placeholder="enter password"
               title="Password should contain at least one uppercase letter, lowercase letter, digit, and special symbol, and be at least 8 characters long"
-              style={{
+              style={{/* Styling properties for the password input */
                 borderWidth: 1,
                 alignItems: "center",
                 justifyContent: "center",
@@ -176,7 +269,6 @@ const Login = () => {
               {...register("password", {
                 required: "Password is required.",
               })}
-              // onChange={handlePasswordChange}
               autoComplete="off"
               required
             />
@@ -185,18 +277,22 @@ const Login = () => {
             )}
           </div>
           <p id="logintxt">
+            {/* Link to registration page */}
             Don't have an account?{" "}
             <Link to="/register">
               <span
-              title="click to register a user"
+                title="click to register a user"
                 onClick={() => {
                   clearErrors(["username", "password"]);
                   reset();
                 }}
-              >register</span>
+              >
+                register
+              </span>
             </Link>
           </p>
           {errors.apiError && <p>{errors.apiError.message}</p>}
+          {/* Login and Clear buttons */}
           <div className="form-control button-container">
             <button
               className="LRBtn"
@@ -206,13 +302,17 @@ const Login = () => {
             >
               Login
             </button>
-            <button className="LRBtn" type="submit" title="clear" onClick={() => {
-                  clearErrors([
-                    "username",
-                    "password"
-                  ]);
-                  reset();
-                }}>Clear</button>
+            <button
+              className="LRBtn"
+              type="submit"
+              title="clear"
+              onClick={() => {
+                clearErrors(["username", "password"]);
+                reset();
+              }}
+            >
+              Clear
+            </button>
           </div>
         </form>
       </div>
