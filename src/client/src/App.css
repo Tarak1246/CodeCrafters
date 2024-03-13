@@ -1,18 +1,36 @@
-.App {
+/**
+ *@file App.css
+ * @author @Tarak1246
+ * @description CSS for app component.
+ * @date Mar 13, 2024
+ */
+
+/**
+ * @description Base styles applied globally.
+ */
+ .App {
   text-align: center;
 }
-
+/**
+ * @description Styles for the application logo.
+ */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+/**
+ * @description Animation for the application logo (enabled for non-reduced motion preference).
+ * @media (prefers-reduced-motion: no-preference)
+ */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+/**
+ * @description Styles for the application header.
+ */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,11 +41,15 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+/**
+ * @description Styles for links within the application.
+ */
 .App-link {
   color: #61dafb;
 }
-
+/**
+ * @description Definition for the 'App-logo-spin' animation (rotates the logo).
+ */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,18 +58,24 @@
     transform: rotate(360deg);
   }
 }
-
+/**
+ * @description Styles for row elements with class 'rowA'.
+ */
 .rowA {
   display: flex;
   flex-direction: row;
   float: left;
   width: 50%;
 }
-
-img{
+/**
+ * @description Default styles for all images.
+ */
+img {
   width: 100%;
 }
-
+/**
+ * @description Styles for the application container element.
+ */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -55,11 +83,16 @@ img{
   margin-top: 95px;
 }
 
+/**
+ * @description Styles for the content container element.
+ */
 .content-container {
   display: flex;
   flex: 1;
 }
-
+/**
+ * @description Generic styles applied to header, footer, aside, and main elements.
+ */
 header,
 footer,
 aside,
@@ -67,16 +100,18 @@ main {
   padding: 10px;
   border: 1px solid #ddd;
 }
-
+/**
+ * @description Additional styles for header and footer elements.
+ */
 header,
 footer {
   background-color: #f2f2f2;
 }
-
+/**
+ * @description Additional styles for the aside element.
+ */
 aside {
   width: 10%;
   background-color: #f9f9f9;
   text-align: center;
-  
 }
-

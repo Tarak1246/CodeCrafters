@@ -1,13 +1,21 @@
+/**
+ * @file edituser.css
+ * @description css for edituser component.
+ * @author @Tarak1246
+ * @date Mar 13, 2024
+ */
+
+
+/* styles for heading */
 .editUser h2{
   margin-left: 3%;
 }
+/* styles for form */
 .dynamic-form {
   max-width: 700px;
   width: 68%;
   margin-left: 15%;
-  /* margin: auto; */
   padding: 10px;
-  /* border: 1px solid #0f0e0e; */
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -16,34 +24,33 @@
   /* margin-bottom: 1rem; */
 }
 
-
+/* styles for form input text fields */
 .form-control input[type="text"]{
   display: flex;
   flex-direction: column;
 }
-
+/* styles for form input groups */
 .label-input-group {
   display: flex;
   align-items: center;
 }
-
+/* styles for form labels */
 label {
   font-weight: bold;
   text-transform: capitalize;
 }
-
+/* styles for form input fields */
 .input-field {
   flex: 1;
   font-size: 16px;
   border: 1px solid #0a0a0a;
   border-radius: 4px;
 }
-
+/* styles for buttons */
 .btn-primary {
   background-color: #007bff;
   color: #fff;
   padding: 10px 15px;
-  /* margin-left: 5%; */
   border: none;
   border-radius: 4px;
   cursor: pointer;

@@ -1,20 +1,41 @@
-aside h2, div{
-  flex: 1;
-  /* border-bottom: 1px solid black;  */
-  cursor: pointer;
-  /* float: left; */
-}
 
-.sidebar-tab.active {
-  background-color: #f0f0f0;
+/**
+ * @file Sidebar.css
+ * @description css for sidebar component.
+ * @author @Tarak1246
+ * @date Mar 13, 2024
+ */
+ 
+ /**
+ * @selector aside h2, aside div
+ * @description Styles for headings (<h2>) and navigation items (div) within the sidebar.
+ */
+ aside h2, div {
+  flex: 1;  /* Makes elements share remaining space equally */
+  /* border-bottom: 1px solid black;  /* Commented out, consider using borders for separation */
+  cursor: pointer;  /* Indicates clickable elements */
+  /* float: left;  /* Commented out, using Flexbox for layout */
 }
-
+/**
+ * @selector .sidebar-tab.active
+ * @description Styles for the currently active sidebar tab.
+ */
+ .sidebar-tab.active {
+  background-color: #f0f0f0;  /* Highlights the active tab */
+}
+/**
+ * @selector .sidebar-tab
+ * @description Styles for individual sidebar tabs.
+ */
 .sidebar-tab{
   float: left;
 }
 
-nav aside div{
-  display: inline-block;
-  /* Add margins or padding for spacing between divs */
-  margin-right: 5%; /* Adjust spacing as needed */
+/**
+ * @selector nav aside div
+ * @description Styles for navigation items (div) within the sidebar container.
+ */
+ nav aside div {
+  display: inline-block;  /* Makes elements appear side-by-side */
+  margin-right: 5%;  /* Adds spacing between navigation items */
 }

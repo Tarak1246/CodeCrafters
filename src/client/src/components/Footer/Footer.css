@@ -1,45 +1,49 @@
+/**
+ *@file Footer.css
+ * @author @Tarak1246
+ * @description CSS for Footer component.
+ * @date Mar 13, 2024
+ */
+
 /* Modal Container */
 .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  }
-  
-  /* Open Modal */
-  .modal.open {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    background-color: #fff; /* White background */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle effect */
-    position: relative;
-  }
-  
-  /* Close Button */
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  /* Content Inside the Modal */
-  .modal-content p {
-    margin: 0;
-  }
-  
-  /* Add any additional styling based on your preferences */
-  
+  display: none; /* Initially hidden */
+  position: fixed; /* Stays in place when scrolled */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Open Modal */
+.modal.open {
+  display: flex; /* Makes content visible */
+  align-items: center; /* Vertically centers content */
+  justify-content: center; /* Horizontally centers content */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff; /* White background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle effect */
+  position: relative;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer; /* Indicates clickable element */
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Content Inside the Modal */
+.modal-content p {
+  margin: 0; /* Removes default margin for cleaner styling */
+}

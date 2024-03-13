@@ -1,5 +1,16 @@
-.sidebar {
-    width: 20%;
-    background-color: #f9f9f9;
-    padding: 10px;
-  }
+/**
+ * @file confirmtoast.css
+ * @description css for confirmtoast component.
+ * @author @Tarak1246
+ * @date Mar 13, 2024
+ */
+ 
+ /**
+ * @selector .sidebar
+ * @description Styles for the sidebar element.
+ */
+ .sidebar {
+  width: 20%;
+  background-color: #f9f9f9;
+  padding: 10px;
+}

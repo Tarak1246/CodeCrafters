@@ -1,14 +1,26 @@
-// ConfirmToast.js
+/**
+ * @file ConfirmToast.js
+ * @description Renders a confirmation toast component for user confirmation actions.
+ * @author @Tarak1246
+ * @date Mar 13, 2024
+ */
 
+/**
+ * @module react
+ * @description Core library for building user interfaces with React.
+ */
 import React from 'react';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+/**
+ * @function ConfirmToast
+ * @description A confirmation toast component to be used for user confirmation.
+ * @param {function} onConfirm - Callback function to be executed on confirmation.
+ * @param {function} onClose - Callback function to be executed on closing the toast.
+ * @returns {JSX.Element} The JSX representation of the confirmation toast.
+ */
 const ConfirmToast = ({ onConfirm, onClose }) => {
   
   const handleConfirm = () => {
     onConfirm();
-    // onClose();
   };
 
   return (
