@@ -55,21 +55,19 @@ const App = () => {
      * @description Sets up client-side routing using React Router.
      */
     <Router>
-      /** * @description Provides a global data context for application data. */
+      {/* @description Provides a global data context for application data. */}
       <DataProvider>
-        /** * @description Defines the routes of the application. */
+        {/* @description Defines the routes of the application. */}
         <Routes>
-          /** * @description Redirects the index route ('/') to the login page.
-          */
+          {/* @description Redirects the index route ('/') to the login page. */}          
           <Route index element={<Navigate to="/login" replace />} />
-          /** * @description Renders the Login component for the '/login' route.
-          */
+          {/* @description Renders the Login component for the '/login' route. */}
           <Route path="/login" element={<Login />} />
-          /** * @description Renders the Register component for the '/register'
-          route. */
+          {/* @description Renders the Register component for the '/register'
+          route. */}
           <Route path="/register" element={<Register />} />
-          /** * @description Catch-all route for other routes within the
-          application. * Renders the Layout component with nested routes. */
+          {/* @description Catch-all route for other routes within the
+          application. Renders the Layout component with nested routes. */}
           <Route
             path="/*"
             element={
@@ -77,17 +75,17 @@ const App = () => {
                * @description Provides a layout for authenticated views.
                */
               <Layout>
-                /** * @description Nested routes within the Layout. */
+                {/* @description Nested routes within the Layout. */}
                 <Routes>
-                  /** * @description Redirects '/home' to '/home/dashboard' for
-                  consistency. */
+                  {/* @description Redirects '/home' to '/home/dashboard' for
+                  consistency. */}
                   <Route
                     exact
                     path="/home"
                     element={<Navigate to="/home/dashboard" replace />}
                   />
-                  /** * @description Renders the EditUser component for editing
-                  a user with a dynamic ID. */
+                  {/* @description Renders the EditUser component for editing
+                  a user with a dynamic ID. */}
                   <Route
                     path="/home/users/editUser/:id"
                     element={<EditUser />}

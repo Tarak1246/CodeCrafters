@@ -1,9 +1,24 @@
-.app-container {
+/**
+ *@file Layout.css
+ * @author @Tarak1246
+ * @description CSS for layout component.
+ */
+
+/**
+ * @selector .app-container
+ * @description Styles for the application container element.
+ */
+ .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.main-container {
+
+/**
+ * @selector .main-container
+ * @description Styles for the main content container element.
+ */
+ .main-container {
   display: flex;
 }
