@@ -13,7 +13,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       This is dashboard
-    {/* write code here */} 
+      
     </div>
   );
 };
