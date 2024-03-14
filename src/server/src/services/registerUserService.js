@@ -1,3 +1,9 @@
+/**
+ * @file userController.js
+ * @description Handles user registration, login, retrieval, and admin user creation functionalities.
+ * @author @Tarak1246
+ * @date March 13, 2024
+ */
 const User = require("../database/schemas/userSchema");
 const jwt = require("../utils/jwtUtils");
 const bcrypt = require("bcrypt");
@@ -13,19 +19,37 @@ const requiredKeys = [
   "role",
 ];
 
-//check admin user email format
+/**
+ * @description Checks if the provided email address matches a valid email format.
+ * @param {string} email - The email address to validate.
+ * @returns {Promise<boolean>} Resolves to true if the email format is valid, false otherwise.
+ */
 const checkEmailFormat = async (email) => {
-  console.log(email);
-  console.log(emailRegex);
-  console.log(emailRegex.test(email))
   return emailRegex.test(email);
 };
-//check password format
+/**
+ * @description Checks if the provided password matches a specific format.
+ * @param {string} password - The password to validate.
+ * @returns {Promise<boolean>} Resolves to true if the password matches the format, false otherwise.
+ */
 const checkPasswordFormat = async (password) => {
   return passwordRegex.test(password);
 };
 
-//check admin user api request body
+/**
+ * @description Validates the request payload for creating a new admin user.
+ * @param {Object} requestPayload - The object containing user data for admin creation.
+ * @param {string} requestPayload.username - The username for the new admin user.
+ * @param {string} requestPayload.email - The email address for the new admin user.
+ * @param {string} requestPayload.password - The password for the new admin user.
+ * @param {string} [requestPayload.firstname] - The first name for the new admin user (optional).
+ * @param {string} [requestPayload.lastname] - The last name for the new admin user (optional).
+ * @param {string} [requestPayload.role] - The role for the new admin user (defaults to "admin").
+ * @returns {Promise<Object>} An object containing validation results.
+ * @property {boolean} hasRequiredKeys - True if all required keys are present in the request payload, false otherwise.
+ * @property {boolean} hasEmptyValues - True if any of the request payload values are empty, false otherwise.
+ * @property {boolean} isValid - True if the request payload is valid (all required keys present and no empty values), false otherwise.
+ */
 const validateAdminUserRequestPayload = async (requestPayload) => {
   // 1. Check for required keys:
   const hasRequiredKeys = requiredKeys.every((key) => key in requestPayload);
@@ -42,19 +66,30 @@ const validateAdminUserRequestPayload = async (requestPayload) => {
     isValid: hasRequiredKeys && !hasEmptyValues,
   };
 };
-//create admin user
+/**
+ * @description Creates a new admin user.
+ * @param {Object} adminUserData - An object containing user data for admin creation.
+ * @returns {Promise<Object>} An object containing status code and data message.
+ */
 const createAdminUser = async (adminUserData) => {
   try {
     const requestPayloadStatus = await validateAdminUserRequestPayload(
       adminUserData
     );
     if (requestPayloadStatus.isValid) {
-      if(adminUserData.role != "admin") return { status: 400, data: { error: "Only admin role user can create using this api!" } };
+      if (adminUserData.role != "admin")
+        return {
+          status: 400,
+          data: { error: "Only admin role user can create using this api!" },
+        };
 
       // Check if admin user already exists
       const existingAdminUser = await User.findOne({ role: "admin" });
       if (existingAdminUser) {
-        return { status: 400, data: { error: "Only one user should have role as an admin!" } };
+        return {
+          status: 400,
+          data: { error: "Only one user should have role as an admin!" },
+        };
       }
 
       // Check if username already exists
@@ -82,7 +117,9 @@ const createAdminUser = async (adminUserData) => {
           data: { error: "Email format should be @gmail.com" },
         };
       }
-      const passwordFormatStatus = await checkPasswordFormat(adminUserData.password);
+      const passwordFormatStatus = await checkPasswordFormat(
+        adminUserData.password
+      );
       if (!passwordFormatStatus) {
         return {
           status: 400,
@@ -113,7 +150,17 @@ const createAdminUser = async (adminUserData) => {
   }
 };
 
-//get users
+/**
+ * @description Retrieves a list of users from the database.
+ * @returns {Promise<Object>} An object containing status code and user data.
+ * @property {number} status - HTTP status code (200 on success, 500 on error).
+ * @property {Array<Object>} [data] - Array of user objects on success, or empty on error.
+ * @property {string} data[].username - Username of the user.
+ * @property {string} data[].email - Email address of the user.
+ * @property {string} data[].role - User's role (e.g., "admin", "manager", "employee").
+ * @property {string} data[].status - User's account status (e.g., "active", "inactive").
+ * @property {string} [data[].adminPrivilege] - Whether the user has admin privilege (optional, masked for security).
+ */
 const getUsers = async () => {
   try {
     const users = await User.aggregate([
@@ -140,7 +187,19 @@ const getUsers = async () => {
   }
 };
 
-// Create a new user
+/**
+ * @description Creates a new user in the database.
+ * @param {Object} userData - An object containing user registration data.
+ * @param {string} userData.username - The username for the new user.
+ * @param {string} userData.email - The email address for the new user.
+ * @param {string} userData.password - The password for the new user (hashed before saving).
+ * @param {string} [userData.firstname] - The first name for the new user (optional).
+ * @param {string} [userData.lastname] - The last name for the new user (optional).
+ * @param {string} [userData.role] - The role for the new user (defaults to a non-privileged role).
+ * @returns {Promise<Object>} An object containing status code and message.
+ * @property {number} status - HTTP status code (201 on success, 409 on conflict, 500 on error).
+ * @property {string} data - Message indicating success ("user registration success!") or error details.
+ */
 const createUser = async (userData) => {
   try {
     const newUser = new User(userData);
@@ -157,7 +216,16 @@ const createUser = async (userData) => {
   }
 };
 
-//login user
+/**
+ * @description Logs in a user and generates a JWT token upon successful authentication.
+ * @param {Object} userData - An object containing login credentials.
+ * @param {string} userData.username - The username for login.
+ * @param {string} userData.password - The password for login.
+ * @returns {Promise<Object>} An object containing status code, data message, and potentially a token.
+ * @property {number} status - HTTP status code (200 on success, 401 on invalid credentials).
+ * @property {string} data - Message indicating success ("user login successful!") or error ("Invalid credentials!").
+ * @property {string} [token] - JWT token for authorized access upon successful login (optional).
+ */
 const loginUser = async (userData) => {
   const { username, password } = userData;
 
@@ -181,28 +249,9 @@ const loginUser = async (userData) => {
   return { status: 200, data: "user login success!", token: token };
 };
 
-// Find a user by username
-const findUserByUsername = async (username) => {
-  try {
-    return await User.findOne({ username });
-  } catch (error) {
-    throw error;
-  }
-};
-
-// Find a user by email
-const findUserByEmail = async (email) => {
-  try {
-    return await User.findOne({ email });
-  } catch (error) {
-    throw error;
-  }
-};
-
 module.exports = {
   createAdminUser,
   getUsers,
   createUser,
   loginUser,
-  findUserByEmail,
 };
