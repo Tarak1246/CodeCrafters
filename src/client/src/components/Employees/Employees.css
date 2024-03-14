@@ -1,1 +1,23 @@
 /* write your css here */
+.add-btn{
+    margin: 0px 0px 0px 40rem;
+    border-radius: 8px;
+    width: 5rem;
+}
+.emptable {
+    width: 70%;
+    color: aqua;
+}
+
+.emptable.thead.th{
+    vertical-align: baseline;
+}
+.emptable thead th {
+    vertical-align: middle;
+}
+
+.form-control{
+    border: 1px solid #007bff;
+    border-right: 0px;
+    border-radius: 5px 0px 0px 5px;
+}

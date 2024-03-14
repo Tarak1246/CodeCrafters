@@ -1,5 +1,6 @@
 // EditPage.js
 import React, { useState, useEffect } from 'react';
+import "react-toastify/dist/ReactToastify.css";
 
 const Employees = () => {
 
@@ -10,8 +11,15 @@ const Employees = () => {
 
   return (
     <div>
-      <table class='table-wrapper table table-striped'>
-        <thead>
+      <h3>Employees</h3>
+      <form class="form-inline" style={{marginBottom:'10px'}}>
+      <button class="btn btn-outline-primary my-2 my-sm-0" style={{marginRight: '42.7rem',}} >Add</button>
+      <input class="form-control my-2 my-sm-0" type="search" placeholder="Search" aria-label="Search"></input>
+      <button class="btn btn-outline-primary my-2 my-sm-0" >Search</button>
+      </form>
+   
+      <table className='emptable table-bordered table-striped table-wrapper table' >
+        <thead style={{fontSize:"smaller",}}>
           <tr>
             <th>ID</th>
             <th>Name</th>
