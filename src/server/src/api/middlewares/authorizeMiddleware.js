@@ -1,10 +1,24 @@
+/**
+ * @file authorizeMiddleware.js
+ * @description Middleware for verifying JWT authentication tokens and attaching user data to the request object.
+ * @author @Tarak1246
+ * @date March 13, 2024
+ */
+
 const jwtUtils = require("../../utils/jwtUtils");
 
+/**
+ * Authenticates a request using a provided JWT token.
+ * @param {express.Request} req The incoming request object.
+ * @param {express.Response} res The outgoing response object.
+ * @param {Function} next The next middleware function in the chain.
+ * @returns {Promise<void>} Resolves if authentication is successful or rejects with an error.
+ * @throws {Error} If there's an error retrieving user data from the service.
+ */
 const authorizeMiddleware = async (req, res, next) => {
-  // const token = req.header('Authorization');
-  const token = req.headers.authorization?.split(" ")[1]; // Extract token from request header
-
-  console.log("tokennnnnnn", token);
+  // Extract token from Authorization header, handling optional chaining
+  const token = req.headers.authorization?.split(" ")[1];
+  //check token exist or not
   if (!token) {
     res.status(401).json({ data: "Unauthorized" });
   }
@@ -26,7 +40,9 @@ const authorizeMiddleware = async (req, res, next) => {
     console.error("Error verifying token:", error);
 
     if (error.name === "TokenExpiredError") {
-      res.status(401).json({ status: 401, data: "Session expired! Login again" });
+      res
+        .status(401)
+        .json({ status: 401, data: "Session expired! Login again" });
     } else {
       res.status(401).json({ status: 401, data: "Invalid token" });
     }

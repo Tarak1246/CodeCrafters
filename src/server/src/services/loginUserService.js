@@ -1,9 +1,21 @@
+/**
+ * @file loginController.js
+ * @description Handles user login requests, performs authentication, and generates JWT tokens.
+ * @author @Tarak1246
+ * @date March 13, 2024
+ */
+
 const User = require("../database/schemas/userSchema");
 const jwt = require("../utils/jwtUtils");
 const bcrypt = require("bcrypt");
-const mailingServer = require("../api/middlewares/mailingMiddleware");
 
-//login user
+/**
+ * @description Login a user and generate a JWT token upon successful authentication.
+ * @param {Object} userData - An object containing username and password for login.
+ * @param {string} userData.username - The user's username for login.
+ * @param {string} userData.password - The user's password for login.
+ * @returns {Promise<Object>} An object containing status code, data message, and potentially a token and user data.
+ */
 const loginUser = async (userData) => {
   const { username, password } = userData;
 
@@ -12,7 +24,6 @@ const loginUser = async (userData) => {
   if (!user) {
     return { status: 401, data: "Invalid credentials!" };
   }
-console.log(user)
   // Compare the provided password with the stored hashed password
   const passwordMatch = await bcrypt.compare(password, user.password);
 
@@ -21,12 +32,11 @@ console.log(user)
   }
 
   // Create a JWT token
-  // const token = jwt.sign({  username: user.username }, 'your-secret-key', { expiresIn: '1h' });
   const token = await jwt.generateToken({ username: username });
 
-  return { status: 200, data: "user login success!", token: token, user:user };
+  return { status: 200, data: "user login success!", token: token, user: user };
 };
 
 module.exports = {
-  loginUser
+  loginUser,
 };

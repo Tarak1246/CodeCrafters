@@ -1,3 +1,11 @@
+/**
+ * @module server
+ * @description Main server module for the Node.js application.
+ * @author @Tarak1246
+ * @date March 13, 2024
+ */
+
+// Required modules
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -5,15 +13,23 @@ const routes = require("./src/api/routes/index");
 const { connectDB } = require("./src/database/index");
 const morgan = require("morgan");
 const errorHandlerMiddleware = require("./src/api/middlewares/errorHandlerMiddleware.js");
-const authorizeMiddleware = require("./src/api/middlewares/authorizeMiddleware.js");
 const variables = require("./config/variables.js");
 const pino = require("pino");
 const fs = require("fs");
 const cookieParser = require("cookie-parser");
-const key = require("./src/config/config.js");
+/**
+ * @typedef {Object} Server
+ * @property {app.Application} app Express application instance.
+ */
 
+/**
+ * @type {Server}
+ */
 let server = null;
-// Connect to MongoDB using a connection pool
+/**
+ * @description Connects to the MongoDB database and starts the server.
+ * @returns {Promise<void>} Resolves upon successful connection and server startup.
+ */
 connectDB()
   .then(() => {
     // Start server only after successful connection
@@ -23,7 +39,9 @@ connectDB()
     console.error("Error connecting to MongoDB:", err.message);
     process.exit(1);
   });
-
+/**
+ * @description Initializes middleware and starts listening for requests.
+ */
 function startServer() {
   // Middleware for logging
   app.use(morgan("dev"));
@@ -61,7 +79,7 @@ function startServer() {
 
   // Routes
   app.use("/", routes);
-  
+
   // Error handling middleware
   app.use(errorHandlerMiddleware);
 
@@ -80,7 +98,7 @@ function startServer() {
     next();
   });
   app.use(cookieParser()); // Enable cookie parsing
-
+  // Global error handling
   process.on("unhandledRejection", (reason, promise) => {
     console.error("Unhandled Rejection at:", promise, "reason:", reason);
     // Additional error handling logic
@@ -102,5 +120,5 @@ function startServer() {
 }
 
 module.exports = {
-  server,
+  server, // Export the server instance for potential use in other modules
 };
