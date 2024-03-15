@@ -25,7 +25,20 @@ const getProjectData = async() =>{
   }
 }
 
+const deleteProject = async(id) =>{
+  try {
+    // console.log(id);
+    const projectData = await Project.deleteOne({"id": id});
+    
+    return { status: 200, data: "Project deleted successfully" };
+  } catch (error) {
+    console.error("Error retrieving project info:", error);
+    return { status: 500, data: "Internal Server Error" };
+  }
+}
+
 module.exports = {
     addProject,
-    getProjectData
+    getProjectData,
+    deleteProject
 };

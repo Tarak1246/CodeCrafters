@@ -118,7 +118,7 @@ export const updateUserPrivileges = async (id,data) => {
     const response = await axios.put(`${BASE_URL}/v2/updateUserPrivileges/${id}`,data);
     return response.data;
   } catch (error) {
-    throw new Error(`Error user edit: ${error.message}`);
+    throw new Error(`Error updating user priviliges: ${error.message}`);
   }
 };
 
@@ -127,6 +127,15 @@ export const projectDbPull = async () => {
     const response = await axios.get(`${BASE_URL}/v2/getProjects`);
     return response.data;
   } catch (error) {
-    throw new Error(`Error user edit: ${error.message}`);
+    throw new Error(`Error getting projects: ${error.message}`);
+  }
+};
+
+export const projectRecordDelete = async (id) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/v2/deleteProject/${id}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error deleting record: ${error.message}`);
   }
 };
