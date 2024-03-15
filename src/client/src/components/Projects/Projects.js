@@ -1,6 +1,6 @@
 import React, { useState, useEffect, navigate} from 'react';
 import { useData } from '../DataContext';
-import { projectDbPull } from '../../services/api';
+import { projectDbPull, projectRecordDelete} from '../../services/api';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ConfirmToast from '../ConfirmToast/ConfirmToast'
@@ -14,17 +14,20 @@ const Projects = () => {
     setSearchTerm(event.target.value);
   };
 
-  const handleDeleteClick = () => {
+  toast.configure();
+
+  const handleDeleteClick = (item) => {
     let toastId;
- 
-    const handleConfirm = () => {
-      console.log('Item deleted!');
-      toast.success('Item deleted!', {
+    console.log(item);
+    const handleConfirm = async () => {
+      await projectRecordDelete(item.id)
+      console.log('Project deleted!');
+      toast.success('Project deleted!', {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 10000
       });
       toast.dismiss(toastId);
-      navigate('/home');
+      // navigate('/home');
     };
  
 
