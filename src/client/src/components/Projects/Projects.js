@@ -22,9 +22,10 @@ const Projects = () => {
     const handleConfirm = async () => {
       await projectRecordDelete(item.id)
       console.log('Project deleted!');
+      setData(data.filter(project => project.id !== item.id));
       toast.success('Project deleted!', {
         position: toast.POSITION.TOP_RIGHT,
-        autoClose: 10000
+        autoClose: 1000
       });
       toast.dismiss(toastId);
       // navigate('/home');
