@@ -1,25 +1,24 @@
 /**
- * @file edituser.css
- * @description css for edituser component.
- * @author @Tarak1246
+ * @file editproject.css
+ * @description css for editproject component.
+ * @author @satyaaneesh98
  * @date Mar 13, 2024
  */
 
-.editUser{
-  margin-left: 1%;
-  padding: 10px
-}
+
 /* styles for heading */
 .editUser h2{
   margin-left: 3%;
 }
 /* styles for form */
-.editUser .dynamic-form {
-  /* width: 80%; */
+.editProjectComponent .dynamic-form{
+  max-width: 900px;
+  margin: auto;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: auto;
 }
 
 .form-group {
@@ -57,3 +56,4 @@ label {
   border-radius: 4px;
   cursor: pointer;
 }
+

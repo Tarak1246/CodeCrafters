@@ -148,3 +148,12 @@ export const addProjectRecord = async (data) => {
     throw new Error(`Error getting projects: ${error.message}`);
   }
 };
+
+export const updateProjectRecord = async (id,data) => {
+  try {
+    const response = await axios.put(`${BASE_URL}/v2/updateProject/${id}`,data);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error updating projects: ${error.message}`);
+  }
+};

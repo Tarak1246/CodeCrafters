@@ -18,9 +18,8 @@ const Projects = () => {
   const { state, setDataa } = useData();
 
   const handleEditClick = (item) => {
-    console.log(item)
     setDataa(item);
-    navigate(`/home/addProject/${item.id}`);
+    navigate(`/home/projects/editProject/${item.id}`);
 
   };
   const handleDeleteClick = (item) => {

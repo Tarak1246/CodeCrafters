@@ -1,7 +1,7 @@
 /**
  * @file database/index.js
  * @description Handles database connection to MongoDB using Mongoose.
- * @author @Tarak1246
+ * @author @Tarak1246 @satyaaneesh98
  * @date March 13, 2024
  */
 const mongoose = require("mongoose");
@@ -12,10 +12,7 @@ const { mongoURI } = require("../config/config");
  */
 const connectDB = async () => {
   try {
-    await mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(mongoURI);
     console.log("MongoDB connected");
   } catch (err) {
     console.error("Error connecting to MongoDB:", err.message);

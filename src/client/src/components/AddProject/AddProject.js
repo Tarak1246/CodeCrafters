@@ -82,7 +82,7 @@ const AddProject = () => {
         </div>
 
         <div className="form-group">
-          <label>Project Name</label>
+          <label>Name</label>
           <Controller
             name="name"
             control={control}

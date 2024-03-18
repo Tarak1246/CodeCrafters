@@ -31,8 +31,23 @@ const deleteProject = async(id) =>{
   }
 }
 
+const updateProject = async(id,data)=>{
+  try {
+    const existingItem = await Project.find({id:id});
+    if (!existingItem) {
+      return { status: 404, data: "project not found" };
+    }
+    const updatedDoc = await Project.updateOne({id:id}, {$set:data}, { new: true });
+    return { status: 200, data: "Project updated successfully" };
+  } catch (error) {
+    console.error("Error updating project:", error);
+    return { status: 500, data: "Error updating project!" };
+  }
+}
+
 module.exports = {
     addProject,
     getProjectData,
-    deleteProject
+    deleteProject,
+    updateProject
 };
