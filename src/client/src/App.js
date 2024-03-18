@@ -48,6 +48,9 @@ import Register from "./components/Register/Register";
 import EditUser from "./components/EditUser/EditUser";
 
 import AddProject from "./components/AddProject/AddProject";
+
+import EditProject from "./components/EditProject/EditProject";
+
 /**
  * @description Root component of the application.
  * @returns {JSX.Element} The rendered application component.
@@ -94,7 +97,7 @@ const App = () => {
                     element={<EditUser />}
                   />
                   <Route path="/home/projects/addProject" element={<AddProject />} />
-
+                  <Route path="/home/projects/editProject/:id" element={<EditProject />} />
                 </Routes>
               </Layout>
             }
