@@ -49,5 +49,4 @@ app.get("/getProjects", projectController.getProjectData);
 //Deleting the project record using unique project name
 app.get("/deleteProject/:id", projectController.deleteProject);
 
-
 module.exports = app;

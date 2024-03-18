@@ -46,6 +46,8 @@ import Register from "./components/Register/Register";
  * @description Imports the EditUser component for editing user details.
  */
 import EditUser from "./components/EditUser/EditUser";
+
+import AddProject from "./components/AddProject/AddProject";
 /**
  * @description Root component of the application.
  * @returns {JSX.Element} The rendered application component.
@@ -91,6 +93,8 @@ const App = () => {
                     path="/home/users/editUser/:id"
                     element={<EditUser />}
                   />
+                  <Route path="/home/projects/addProject" element={<AddProject />} />
+
                 </Routes>
               </Layout>
             }

@@ -139,3 +139,12 @@ export const projectRecordDelete = async (id) => {
     throw new Error(`Error deleting record: ${error.message}`);
   }
 };
+
+export const addProjectRecord = async (data) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/v2/addProject`,data);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error getting projects: ${error.message}`);
+  }
+};

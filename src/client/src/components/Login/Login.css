@@ -136,11 +136,12 @@
     }
   
     .form-control {
-      flex-direction: column;
+      flex-direction: column; 
     }
   
     .form-control input[type="text"],
-    .form-control input[type="password"] {
+    .form-control input[type="password"],
+    .form-control input[type="select"] {
       width: inherit;
     }
   }
