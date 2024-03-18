@@ -14,8 +14,6 @@ const getProjectData = async(req, res) =>{
 }
 
 const deleteProject = async(req, res) =>{
-  console.log("HIIIIIIIIIIIIIIIII");
-  console.log(req);
   const {id} = req?.params;
   const projectResponse = await addProjectService.deleteProject(id);
   res.json(projectResponse);

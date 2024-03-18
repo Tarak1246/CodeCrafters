@@ -23,7 +23,6 @@ const generateToken = async (user) => {
  * @returns {Promise<Object>} A promise that resolves with the decoded payload of the token if valid, or rejects with an error if invalid.
  */
 const verifyToken = async (token) => {
-  console.log(jwt.verify(token, jwtSecret));
   return jwt.verify(token, jwtSecret);
 };
 
