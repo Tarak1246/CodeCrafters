@@ -36,10 +36,32 @@ End Date: Expected end date of the MVP development - MAR 22
 * Contracts
 ![alt text](<contracts page.png>)
 
-* Projects page
-![alt text](<projects page.png>)
+**Projects page**
+Below is the projects tab page that will look like when viewed. It contains existing project information.
 
-* Employees page
+* R5/R5.1:
+![alt text](<projects listing.png>)
+
+* Below image shows the projects information saved in the database in the backend.
+![alt text](projects_in_DB.png)
+
+* R5.2 - Form Fields(Edit/Add actions):
+![alt text](editproject.png) 
+![alt text](addproject.png)
+
+* Below GIF shows how the existing project can be edited.
+![alt text](edit_project.gif)
+
+* Below GIF shows how to add a new project.
+![alt text](add_project.gif)
+
+* R5.3 - Below GIF shows the search of records.
+![alt text](search.gif)
+
+* R5.4 - Below GIF shows how to delete a project.
+![alt text](delete.gif)
+
+**Employees page**
 ![alt text](<employees page.png>)
 
 * Users page
