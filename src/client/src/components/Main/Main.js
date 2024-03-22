@@ -38,6 +38,8 @@ import Employees from "../Employees/Employees";
  * @description Import Users component
  */
 import Users from "../Users/Users";
+
+import Contracts from "../Contracts/Contracts";
 /**
  * @function Main
  * @param {string} selectedTab - The currently selected tab from the parent component.
@@ -72,7 +74,9 @@ const Main = ({ selectedTab }) => {
       break;
     case "contracts":
       content = (
-        <div className="my-component-container">This is {selectedTab} </div>
+        <div className="my-component-container">
+          <Contracts />
+        </div>
       );
       break;
     case "employees":

@@ -1,0 +1,59 @@
+/**
+ * @file editproject.css
+ * @description css for editproject component.
+ * @author @satyaaneesh98
+ * @date Mar 13, 2024
+ */
+
+
+/* styles for heading */
+.editUser h2{
+  margin-left: 3%;
+}
+/* styles for form */
+.editContractComponent .dynamic-form{
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: auto;
+}
+
+.form-group {
+  /* margin-bottom: 1rem; */
+}
+
+/* styles for form input text fields */
+.form-control input[type="text"]{
+  display: flex;
+  flex-direction: column;
+}
+/* styles for form input groups */
+.label-input-group {
+  display: flex;
+  align-items: center;
+}
+/* styles for form labels */
+label {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+/* styles for form input fields */
+.input-field {
+  flex: 1;
+  font-size: 16px;
+  border: 1px solid #0a0a0a;
+  border-radius: 4px;
+}
+/* styles for buttons */
+.btn-primary {
+  /* background-color: #007bff; */
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, navigate } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { projectDbPull, projectRecordDelete } from "../../services/api";
 import { toast } from "react-toastify";
@@ -72,9 +72,8 @@ const Projects = () => {
 
   return (
     <div>
-      <h1 id="projectStyle" style={{ color: "darkslateblue" }}>
-        {" "}
-        Projects{" "}
+      <h1 id="projectStyle">
+        Projects
       </h1>
       <button title="refresh" className="refreshBtn" onClick={handleRefresh}>
         <i className="fa fa-refresh" aria-hidden="true"></i>

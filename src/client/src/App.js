@@ -51,6 +51,14 @@ import AddProject from "./components/AddProject/AddProject";
 
 import EditProject from "./components/EditProject/EditProject";
 
+import AddContract from "./components/AddContract/AddContract";
+
+import EditContract from "./components/EditContract/EditContract";
+
+import AddEmployee from "./components/AddEmployee/AddEmployee";
+
+import EditEmployee from "./components/EditEmployee/EditEmployee";
+
 /**
  * @description Root component of the application.
  * @returns {JSX.Element} The rendered application component.
@@ -98,6 +106,11 @@ const App = () => {
                   />
                   <Route path="/home/projects/addProject" element={<AddProject />} />
                   <Route path="/home/projects/editProject/:id" element={<EditProject />} />
+                  <Route path="/home/contracts/addContract" element={<AddContract />} />
+                  <Route path="/home/contracts/editContract/:id" element={<EditContract />} />
+                  <Route path="/home/employees/addEmployee" element={<AddEmployee />} />
+                  <Route path="/home/employees/editEmployee/:id" element={<EditEmployee />} />
+
                 </Routes>
               </Layout>
             }
