@@ -34,9 +34,10 @@ const updateProject = async (req, res) => {
   }
 };
 
+
 module.exports = {
   addProject,
   getProjectData,
   deleteProject,
-  updateProject,
+  updateProject
 };

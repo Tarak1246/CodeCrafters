@@ -69,10 +69,10 @@ export const registerUser = async (userData) => {
 
 export const getDashboardData = async () => {
   try {
-    const response = await axios.get(`/v2/getDashboardData`);
+    const response = await axios.get(`${BASE_URL}/v2/getDashboardData`);
     return response.data;
   } catch (error) {
-    throw new Error(`Error user register: ${error.message}`);
+    throw new Error(`Error dashboard: ${error.message}`);
   }
 };
 /**
