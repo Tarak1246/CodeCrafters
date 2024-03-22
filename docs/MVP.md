@@ -10,6 +10,15 @@
 * Dashboard page
 ![alt text](dashboard-1.png)
 
+* Contracts
+![alt text](<contracts page.png>)
+
+* Projects page
+![alt text](<projects page.png>)
+
+* Employees page
+![alt text](<employees page.png>)
+
 * Users page
 ![alt text](<users page.png>)
 
