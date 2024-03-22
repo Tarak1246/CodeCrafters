@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import { useData } from "../DataContext";
-import "./EditProject.css";
+import "./EditContract.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { updateProjectRecord } from "../../services/api";
+import { updateContractRecord } from "../../services/api";
 
-const EditProject = () => {
+const EditContract = () => {
   toast.configure();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const EditProject = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await updateProjectRecord(id, data);
+      const response = await updateContractRecord(id, data);
       if (response?.status == 200) {
         toast.success(response?.data, {
           position: toast.POSITION.TOP_RIGHT,
@@ -41,36 +41,36 @@ const EditProject = () => {
         });
       }
     } catch (error) {
-      console.error("Error updating project:", error);
-      toast.error("Error updating project", {
+      console.error("Error updating contract:", error);
+      toast.error("Error updating contract", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 1000,
       });
     } finally {
       reset();
-      navigate("/home/projects");
+      navigate("/home/contracts");
     }
   };
 
   const cancelForm = async (e) => {
     try {
-      navigate("/home/projects");
+      navigate("/home/contracts");
     } catch (error) {
-      console.error("Error cancelling project:", error);
+      console.error("Error cancelling contract:", error);
     }
   };
 
   return (
-    <div className="editProjectComponent">
+    <div className="editContractComponent">
       {/* heading */}
-      <h2>Edit Project</h2>
+      <h2>Edit Contract</h2>
       <form className="dynamic-form" onSubmit={handleSubmit(onSubmit)}>
         {/* fetch data from db abd dynamically loop headers from db data object and genrate form based on conditions */}
         {Object.keys(formData).map((field) => (
           <div key={field} className="form-group">
             <label htmlFor={field}>{field}</label>
-            {field === "id" || field === "name" || field === "client" ? (
-              field === "id" || field === "name" ? (
+            {field === "id" || field === "name" || field === "category" ? (
+              field === "id"  || field === "name" ? (
                 <Controller
                   name={field}
                   control={control}
@@ -81,8 +81,8 @@ const EditProject = () => {
                         type="text"
                         {...field}
                         autoComplete="off"
-                        placeholder="Enter unique project id"
-                        title="project id"
+                        placeholder="Enter unique contract id"
+                        title="contract id"
                         disabled
                       />
                       {errors.id && (
@@ -90,7 +90,7 @@ const EditProject = () => {
                       )}
                     </>
                   )}
-                  rules={{ required: "Project ID is required." }}
+                  rules={{ required: "Contract ID is required." }}
                 />
               ) : (
                 <Controller
@@ -103,20 +103,18 @@ const EditProject = () => {
                         type="text"
                         {...field}
                         autoComplete="off"
-                        placeholder="Enter unique project id"
-                        title="project id"
+                        placeholder="Enter unique contract id"
+                        title="contract id"
                       />
                       {errors.id && (
                         <p className="errorMsg">{errors.id.message}</p>
                       )}
                     </>
                   )}
-                  rules={{ required: "Project ID is required." }}
+                  rules={{ required: "Contract ID is required." }}
                 />
               )
-            ) : field === "startDate" ||
-              field === "endDate" ||
-              field === "deadline" ? (
+            ) : field === "startDate" || field === "endDate" ? (
               <Controller
                 name={field}
                 control={control}
@@ -138,30 +136,6 @@ const EditProject = () => {
                 )}
                 rules={{ required: `${field} is required.` }}
               />
-            ) : field === "status" ? (
-              <Controller
-                name={field}
-                control={control}
-                defaultValue={formData[field]}
-                render={({ field }) => (
-                  <>
-                    <select
-                      {...field}
-                      className="custom-select"
-                      title="project status"
-                      style={{ width: "233px", float: "right" }}
-                    >
-                      <option value="" disabled selected>
-                        Select project status
-                      </option>
-                      <option value="InComplete">In Complete</option>
-                      <option value="In-Progress">In Progress</option>
-                      <option value="Completed">Completed</option>
-                    </select>
-                  </>
-                )}
-                rules={{ required: "status is required." }}
-              />
             ) : (
               <Controller
                 name={field}
@@ -172,29 +146,19 @@ const EditProject = () => {
                     <select
                       {...field}
                       className="custom-select"
-                      title="project progress"
+                      title="contract status"
                       style={{ width: "233px", float: "right" }}
                     >
                       <option value="" disabled selected>
-                        Select project progress
+                        Select contract status
                       </option>
-                      <option value="0% - Req & Design Phase">
-                        0% - Req & Design Phase
-                      </option>
-                      <option value="25% - Development Phase">
-                        25% - Development Phase
-                      </option>
-                      <option value="50% - Testing Phase">
-                        50% - Testing Phase
-                      </option>
-                      <option value="75% - Support Phase">
-                        75% - Support Phase
-                      </option>
-                      <option value="100% - Completed">100% - Completed</option>
+                      <option value="InComplete">In Complete</option>
+                      <option value="In-Progress">In Progress</option>
+                      <option value="Completed">Completed</option>
                     </select>
                   </>
                 )}
-                rules={{ required: "progress is required." }}
+                rules={{ required: "status is required." }}
               />
             )}
           </div>
@@ -211,4 +175,4 @@ const EditProject = () => {
   );
 };
 
-export default EditProject;
+export default EditContract;

@@ -157,3 +157,69 @@ export const updateProjectRecord = async (id,data) => {
     throw new Error(`Error updating projects: ${error.message}`);
   }
 };
+
+//contracts 
+export const addContractRecord = async(data) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/v2/addContract`,data);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error adding contract: ${error.message}`);
+  }
+};
+
+export const contractDbPull = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/v2/getContracts`);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error getting contracts: ${error.message}`);
+  }
+};
+
+export const contractRecordDelete = async (id) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/v2/deleteContract/${id}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error deleting record: ${error.message}`);
+  }
+};
+
+export const updateContractRecord = async (id,data) => {
+  try {
+    const response = await axios.put(`${BASE_URL}/v2/updateContract/${id}`,data);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error updating contracts: ${error.message}`);
+  }
+};
+
+//employess
+export const employeeDbPull = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/v2/getEmployees`);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error getting contracts: ${error.message}`);
+  }
+};
+
+export const addEmployeeRecord = async(data) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/v2/addEmployee`,data);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error adding employee: ${error.message}`);
+  }
+};
+
+
+export const employeeRecordDelete = async (id) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/v2/deleteEmployee/${id}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error deleting record: ${error.message}`);
+  }
+};
