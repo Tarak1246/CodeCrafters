@@ -9,11 +9,11 @@
 The intellectual merit of this is to provide ourselves with a thorough understanding of the software development process, as everyone engages in both development and testing roles. This approach ensures continuous improvement and adaptability, essential for timely project deployment. The broader impact of this method builds us ready for real-world IT challenges, fostering skills in agile methodologies and collaborative problem-solving.
 
 * Project Team: 
-1.Taraka Sai Reddy Seelam
-2.Yekkaladevi Lakshmi Prasanna
-3.S S Eswara Satyanarayana Aneesh Dangeti
-4.Pavan Teja Jukanti
-5.Akshay Reddy Yalla
+* 1.Taraka Sai Reddy Seelam
+* 2.Yekkaladevi Lakshmi Prasanna
+* 3.S S Eswara Satyanarayana Aneesh Dangeti
+* 4.Pavan Teja Jukanti
+* 5.Akshay Reddy Yalla
 
 * Timeline:
 Start Date:  JAN 29
@@ -23,6 +23,7 @@ End Date: Expected end date of the MVP development - MAR 22
 
 * Admin user creation
 ![alt text](<admin user.png>)
+<video controls src="new admin.mp4" title="Title"></video>
 
 * Login page
 ![alt text](<login page.png>)
