@@ -24,14 +24,14 @@ The intellectual merit of this is to provide ourselves with a thorough understan
 **Admin user creation**
 ![alt text](<admin user.png>)
 
-* Admin User creation and Activation
-![alt text](Admin.gif)
-
 **Login page**
 ![alt text](<login page.png>)
 
 **Register page**
 ![alt text](register.png)
+
+* User register and activation by admin user
+![alt text](Admin.gif)
 
 **Dashboard page**
 ![alt text](dashboard-1.png)
