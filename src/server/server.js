@@ -13,10 +13,11 @@ const routes = require("./src/api/routes/index");
 const { connectDB } = require("./src/database/index");
 const morgan = require("morgan");
 const errorHandlerMiddleware = require("./src/api/middlewares/errorHandlerMiddleware.js");
-const variables = require("./config/variables.js");
+const { env, port } = require("./config/variables.js");
 const pino = require("pino");
 const fs = require("fs");
 const cookieParser = require("cookie-parser");
+
 /**
  * @typedef {Object} Server
  * @property {app.Application} app Express application instance.
@@ -83,6 +84,7 @@ function startServer() {
   // Error handling middleware
   app.use(errorHandlerMiddleware);
 
+  
   // Middleware for logging responses
   app.use((req, res, next) => {
     const originalEnd = res.end;
@@ -98,6 +100,7 @@ function startServer() {
     next();
   });
   app.use(cookieParser()); // Enable cookie parsing
+
   // Global error handling
   process.on("unhandledRejection", (reason, promise) => {
     console.error("Unhandled Rejection at:", promise, "reason:", reason);
@@ -110,8 +113,8 @@ function startServer() {
   });
   // Start server
   try {
-    server = app.listen(variables.port, () =>
-      console.log("server started on port", variables.port, variables.env)
+    server = app.listen(port, () =>
+      console.log("server started on port", port, env)
     );
   } catch (err) {
     console.error("Error starting server:", err.message);

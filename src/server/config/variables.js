@@ -21,4 +21,8 @@ require("dotenv-safe").config({
 module.exports = {
   env: process.env.NODE_ENV, // Application environment (e.g., development, production)
   port: process.env.PORT, // Server port
+  jwtSecret: process.env.jwtSecret, //jwtSecret
+  mongoURI: process.env.mongoURI, //mongoURI
+  passportUsername: process.env.passportUsername,
+  passportPassword: process.env.passportPassword
 };

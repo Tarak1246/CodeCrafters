@@ -6,7 +6,7 @@
  */
 
 const jwt = require("jsonwebtoken");
-const { jwtSecret } = require("../config/config");
+const { jwtSecret } = require("../../config/variables");
 
 /**
  * @description Generates a JWT token for a user.
