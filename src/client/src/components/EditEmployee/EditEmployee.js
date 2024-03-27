@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { updateContractRecord } from "../../services/api";
+import { updateEmployeeRecord } from "../../services/api";
 
 const EditEmployee = () => {
   toast.configure();
@@ -28,8 +28,8 @@ const EditEmployee = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await updateContractRecord(id, data);
-      if (response?.status == 200) {
+      const response = await updateEmployeeRecord(id, data);
+      if (response?.status === 200) {
         toast.success(response?.data, {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 1000,
@@ -41,8 +41,8 @@ const EditEmployee = () => {
         });
       }
     } catch (error) {
-      console.error("Error updating contract:", error);
-      toast.error("Error updating contract", {
+      console.error("Error updating Employee:", error);
+      toast.error("Error updating Employee", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 1000,
       });
@@ -61,7 +61,7 @@ const EditEmployee = () => {
   };
 
   return (
-    <div className="editContractComponent">
+    <div className="editEmployeeComponent">
       {/* heading */}
       <h2>Edit Employee</h2>
       <form className="dynamic-form" onSubmit={handleSubmit(onSubmit)}>
@@ -136,7 +136,7 @@ const EditEmployee = () => {
                 )}
                 rules={{ required: `${field} is required.` }}
               />
-            ) : (
+            ) : field === "type" ? (
               <Controller
                 name={field}
                 control={control}
@@ -150,17 +150,65 @@ const EditEmployee = () => {
                       style={{ width: "233px", float: "right" }}
                     >
                       <option value="" disabled selected>
-                        Select contract status
+                        Select Type status
                       </option>
-                      <option value="InComplete">In Complete</option>
-                      <option value="In-Progress">In Progress</option>
-                      <option value="Completed">Completed</option>
+                            <option value="Full Time">Full Time</option>
+                            <option value="Part Time">Part Time</option>
+                      
                     </select>
                   </>
                 )}
-                rules={{ required: "status is required." }}
+                rules={{ required: "Type is required." }}
               />
-            )}
+                        ) : field ==="designation" ?(
+                            <Controller
+                                name={field}
+                                control={control}
+                                defaultValue={formData[field]}
+                                render={({ field }) => (
+                                    <>
+                                        <select
+                                            {...field}
+                                            className="custom-select"
+                                            title="contract status"
+                                            style={{ width: "233px", float: "right" }}
+                                        >
+                                            <option value="" disabled selected>
+                                                Select Designation 
+                                            </option>
+                                            <option value="Software Engineer">Software Engineer</option>
+                                            <option value="Product Manager">Product Manager</option>
+                                          
+                                        </select>
+                                    </>
+                                )}
+                                rules={{ required: "status is required." }}
+                            />
+                            ) : (
+                                <Controller
+                                    name={field}
+                                    control={control}
+                                    defaultValue={formData[field]}
+                                    render={({ field }) => (
+                                        <>
+                                            <select
+                                                {...field}
+                                                className="custom-select"
+                                                title="contract status"
+                                                style={{ width: "233px", float: "right" }}
+                                            >
+                                                <option value="" disabled selected>
+                                                    Select Role
+                                                </option>
+                                                <option value="Developer">Developer</option>
+                                                <option value="Manager">Manager</option>
+
+                                            </select>
+                                        </>
+                                    )}
+                                    rules={{ required: "status is required." }}
+                                />
+                            ) }
           </div>
         ))}
         {/* buttons */}
