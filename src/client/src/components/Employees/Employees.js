@@ -19,7 +19,7 @@ const Employees = () => {
 
   const handleEditClick = (item) => {
     setDataa(item);
-    // navigate(`/home/employees/editEmployee/${item.id}`);
+     navigate(`/home/employees/editEmployee/${item.id}`);
 
   };
   const handleDeleteClick = (item) => {

@@ -223,3 +223,12 @@ export const employeeRecordDelete = async (id) => {
     throw new Error(`Error deleting record: ${error.message}`);
   }
 };
+
+export const updateEmployeeRecord = async (id, data) => {
+    try {
+        const response = await axios.put(`${BASE_URL}/v2/updateEmployee/${id}`, data);
+        return response.data;
+    } catch (error) {
+        throw new Error(`Error updating Employee: ${error.message}`);
+    }
+};
