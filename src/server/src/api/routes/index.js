@@ -15,7 +15,28 @@ const loggingMiddleware = require("../middlewares/loggingMiddleware");
 const registerRouter = require("./registerUser");
 const loginRouter = require("./loginUser");
 const authRoutes = require("./authRoutes");
-
+const passport = require('passport');
+const { passportUsername, passportPassword } = require("../../../config/variables");
+const BasicStrategy = require('passport-http').BasicStrategy;
+// const LocalStrategy = require("passport-local").Strategy;
+passport.use(
+  new BasicStrategy(
+    async (username, password, done) => {
+      try {
+        // Retrieve user from env file
+        console.log(username, password);
+        console.log(passportUsername, passportPassword);
+        return username == passportUsername && password == passportPassword
+          ? done(null, true)
+          : done(null, false, { message: "Invalid username or password" });
+      } catch (error) {
+        return done(error);
+      }
+    }
+  )
+);
+// Initialize Passport
+app.use(passport.initialize());
 /**
  * Main route handler.
  * @param {express.Request} req The incoming request object.
