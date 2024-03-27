@@ -312,7 +312,7 @@ const AddEmployee = () => {
               width: 100,
               height: 50,
               color: "white",
-              borderRadius: 40,
+              borderRadius: "7px",
             }}
           >
             Submit
@@ -325,7 +325,7 @@ const AddEmployee = () => {
               width: 100,
               height: 50,
               color: "white",
-              borderRadius: 40,
+              borderRadius: "7px",
             }}
             onClick={cancelForm}
           >

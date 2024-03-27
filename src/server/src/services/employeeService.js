@@ -31,13 +31,13 @@ const deleteEmployee = async(id) =>{
   }
 }
 
-const updateContract = async(id,data)=>{
-  try {
-    const existingItem = await Contract.find({id:id});
+const updateEmployee = async(id,data)=>{
+    try {
+        const existingItem = await Employee.find({ id: id });
     if (!existingItem) {
       return { status: 404, data: "contract not found" };
-    }
-    const updatedDoc = await Contract.updateOne({id:id}, {$set:data}, { new: true });
+        }
+        const updatedDoc = await Employee.updateOne({ id: id }, { $set: data }, { new: true });
     return { status: 200, data: "contract updated successfully" };
   } catch (error) {
     console.error("Error updating contract:", error);
@@ -49,5 +49,5 @@ module.exports = {
     addEmployee,
     getEmployees,
     deleteEmployee,
-    updateContract
+    updateEmployee
 };
