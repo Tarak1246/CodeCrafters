@@ -8,6 +8,7 @@ const express = require("express");
 const router = express.Router();
 const registerUserController = require("../controllers/registerUserController");
 const loggingMiddleware = require("../middlewares/loggingMiddleware");
+const passport = require('passport');
 
 /**
  * Registers a new admin user account.
@@ -20,6 +21,7 @@ const loggingMiddleware = require("../middlewares/loggingMiddleware");
 router.post(
   "/adminUser",
   loggingMiddleware,
+  passport.authenticate('basic', { session: false }),
   registerUserController.createAdminUser
 );
 /**

@@ -76,4 +76,6 @@ app.get("/getEmployees", employeeController.getEmployees);
 
 app.get("/deleteEmployee/:id", employeeController.deleteEmployee);
 
+app.put("/updateEmployee/:id", employeeController.updateEmployee);
+
 module.exports = app;

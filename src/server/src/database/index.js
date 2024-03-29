@@ -5,7 +5,7 @@
  * @date March 13, 2024
  */
 const mongoose = require("mongoose");
-const { mongoURI } = require("../config/config");
+const { mongoURI } = require("../../config/variables");
 /**
  * @description Connects to the MongoDB database.
  * @returns {Promise<void>} Resolves upon successful connection.

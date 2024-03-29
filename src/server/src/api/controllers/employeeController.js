@@ -18,17 +18,17 @@ const deleteEmployee = async (req, res) => {
   res.json(employeeResponse);
 };
 
-const updateContract= async (req, res) => {
+const updateEmployee= async (req, res) => {
   try {
-    const contractData = req?.body;
+    const employeeData = req?.body;
     const { id } = req?.params;
 
-    const updatecontractResponse = await addContractService.updateContract(
+      const updateEmployeeResponse = await addEmployeeService.updateEmployee(
       id,
-      contractData
+        employeeData
     );
 
-    res.json(updatecontractResponse);
+      res.json(updateEmployeeResponse);
   } catch (error) {
     res.status(500).json({ message: "Failed to update contract" });
   }
@@ -39,5 +39,5 @@ module.exports = {
     addEmployee,
     getEmployees,
     deleteEmployee,
-  updateContract
+  updateEmployee
 };
