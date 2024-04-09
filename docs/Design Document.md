@@ -27,7 +27,7 @@
 * D1. Admin user creation
   * A controlled method for creating admin user through a REST API.
   * Mockup Images
-    * D1.1, D1.2
+    * D1.1, D1.2 and E1
       * ![alt text](admin_user_creation.png)
   * Data Flow Diagram (D1.1,D1.2)
     * ![alt text](<admin user creation data flow diagram.png>)
@@ -44,6 +44,8 @@
       * ![alt text](<Register failure scenario.png>)
     * D2.3 Security(password stored in hash format)
       * ![Register Form Security](Register%20Form%20Security.png)
+    * E2
+      * ![alt text](<register evaluation criteria.png>)
   * Data Flow Diagram
     * Data flow diagram for user register component(D2.1,D2.2,D2.3)
     * ![alt text](<user registration dataflow-diagram.png>)
@@ -59,6 +61,8 @@
       * ![alt text](<Login Form Validation.png>)
       * ![alt text](<Login success scenario.png>)
       * ![alt text](<Login failure scenario.png>)
+    * E3
+      * ![alt text](<login evaluation criteria.png>)
   * Data Flow Diagram
     * Data flow diagram for user login component(D3.1,D3.2,D3.3)
     * ![alt text](<user login dataflow-diagram.png>)
@@ -126,6 +130,8 @@
     * D8.2 Edit User Settings
       * ![alt text](<user information edit.png>)
       * ![alt text](<User Settings Validation.png>)
+    * E8
+      * ![alt text](<settings evaluation criteria.png>)
   * Data Flow Diagram
     * Data flow diagram for user settings component(D8.1,D8.2).
     * ![alt text](<user settings dataflow-diagram.png>)
@@ -137,6 +143,8 @@
       * ![alt text](Users.png)
     * D9.2 Edit user
       * ![Edit user](https://github.com/TeamCodeCrafterss/CodeCrafters/assets/36734811/8d3af64d-51dc-413e-9852-19a5ff9ee49a)
+    * E9
+      * ![alt text](<users tab evaluation criteria.png>)
   * Data Flow Diagram
     * Data flow diagram for users component(D9.1,D9.2).
     * ![alt text](<users data flow diagram.png>)

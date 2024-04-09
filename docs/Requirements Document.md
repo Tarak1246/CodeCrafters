@@ -11,6 +11,7 @@
     * First Name: The admin user's first name (optional).
     * Last Name: The admin user's last name (optional).
     * Role: The admin user's role(value must be admin).
+  * E1: Functionally creates admin via POST request with validated unique username, email, and strong password.
 
 * R2. Register page: Contains a form with required fields to register a user to the platform.
   * R2.1  Form Fields:
@@ -43,7 +44,6 @@
     * Register
       * Button field.
       * After submitting, it deactivates itself to avoid repeated registrations.
-      * When processing, a loading indication is displayed.
       * Form should clear after submission.
   * R2.2  Form Validation:
     * All required fields must be filled before submission.
@@ -51,6 +51,7 @@
     * Proper message should be show after successfully register or failure in toast.
   * R2.3  Security:
     * Store passwords securely using hashing and salting techniques.
+  * E2: Secure user registration form with validated unique username, email, and strong password with confirmation, clear error messages, and successful registration/failure toast notification.
 
 * R3. Login Page: Contains a form with required fields to login a user into the platform.
   * R3.1  Form Fields:
@@ -70,13 +71,12 @@
       * Button field.
       * Submits the form data for processing.
       * Disables itself after submission to prevent multiple login attempts.
-      * Displays a loading indicator while processing.
   * R3.2  Form Validation:
     * Display an error message if the username or password is invalid.
     * Form should clear after submission.
+  * E3: Secure user login form with validated username and strong password, masked input, and clear error messages. Form clears after submission.
 
-* R4. Dashboard Page: The Dashboard module aims to provide users with a graphical representation of key metrics related to employees,
-                         contractors, and projects within the organization.
+* R4. Dashboard Page: The Dashboard module aims to provide users with a graphical representation of key metrics related to employees, contractors, and projects within the organization.
   * R4.1 Visualize Project Data:
     * The dashboard shall visualize project data to provide insights into project status and progress.
     * It shall include a pie chart representing metrics such as project timelines.
@@ -223,6 +223,7 @@
     * Provide clear error messages for invalid input.
     * Provide a way to undo edits and return to the original data.
     * Provide a logout option so that users can safely log out.
+  * E8: User settings page showing current username, email, first name, and last name. Offers "Edit" button to update editable information (first name, last name, and email format) with validation and error messages. Allows saving changes, undoing edits, and secure logout.
 
 * R9. Users
   * R9.1 List user
@@ -239,6 +240,7 @@
     * Able to change user status.
     * Able to change user role.
     * Able to change user privilege.
+  * E9: Admin-only user management page listing all users in a table with username, email, status, role, and admin privilege. Edit option allows admins to edit user data (status, role, and potentially privilege) within a dedicated form.
 
 ## NON-FUNCTIONAL REQUIREMENTS
 
