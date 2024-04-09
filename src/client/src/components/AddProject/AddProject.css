@@ -1,72 +1,92 @@
+/**
+* @author @Satyaaneesh98
+*/
+
 /* DynamicForm.css */
 
+/* 
+    Below CSS file is used for styles for the dynamic form component used in the project.
+    It includes styles for form elements, buttons, and layout.
+*/
+
+
+/* Styles for the main dynamic form container */
 .projectComponent .dynamic-form {
-  max-width: 900px;
-  margin: auto;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height: auto;
+  max-width: 900px; /* Setting maximum width 900px for the form */
+  margin: auto; /* Keeping form horizontally */
+  padding: 10px; /* Padding around the form */
+  border: 1px solid #ddd; /* Add border with a light gray color */
+  border-radius: 8px; /* Add border radius for rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for a subtle effect */
+  height: auto; /* Allow the form to grow vertically */
 }
 
+/* Styles for label and input field groups */
 .label-input-group {
-  display: flex;
-  align-items: center;
+  display: flex; /* Display label and input fields in a row */
+  align-items: center; /* Align items vertically */
 }
+
+/* Styles for input fields */
 input {
   float: right;
 }
+
+/* Styling for date picker */
 .react-datepicker-wrapper{
   float: right;
   /* margin-left: 10%; */
 }
+
+/* Styling for labels */
 
 label {
   font-weight: bold;
   text-transform: capitalize;
 }
 
+/* Styling for input fields */
 .input-field {
-  flex: 1;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  flex: 1; /* Expand input field*/
+  font-size: 16px; /* Set font size for input fields to 16px */
+  border: 1px solid #ddd; /* Add border with a light gray color */
+  border-radius: 4px; /* Add border radius for rounded corners */
 }
 
+/* Styling for primary buttons */
 .btn-primary {
-  /* background-color: #007bff; */
-  color: #fff;
-  /* padding: 10px 15px; */
-  /* margin-left: 1%; */
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  color: #fff; /* Setting text color to white */
+  border: none; /* Removing border */
+  border-radius: 4px; /* Add border radius for rounded corners */
+  cursor: pointer; /* Set cursor to pointer */
 }
 
 /* .btn-primary:hover {
   background-color: #0056b3;
 } */
 
-button{
-  margin-left: 1%;
-  border: none;
-  border-radius: 1%;
-  background-color: #007bff;
+/* Styling for secondary buttons */
+button {
+  margin-left: 1%; /* Add margin to the left of the button */
+  border: none; /* Remove border */
+  border-radius: 1%; /* Add border radius for rounded corners */
+  background-color: #007bff; /* Set background color */
 }
 
+/* Styling for form fields */
 .form-field {
-  width: 100%; /* Set the width to 100% for consistent sizing */
-  padding: 8px; /* Set padding for consistent spacing */
+  width: 100%; /* width to 100% */
+  padding: 8px; /* Add padding */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
-
-.projectComponent{
-  max-height: 600px;
-  overflow-y: auto;
+/* Styling for project component container */
+.projectComponent {
+  max-height: 600px; /* Settibg maximum height for the container */
+  overflow-y: auto; /* Add vertical scroll when content overflows */
 }
 
-.form-group{
-  width: 100%;
+/* Styling for form groups */
+.form-group {
+  width: 100%; /* Setting width to 100% */
 }

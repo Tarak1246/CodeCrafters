@@ -1,7 +1,7 @@
 /**
  * @file server.js (or main.js)
  * @description Entry point for the Express server, defining routes and middleware.
- * @author @Tarak1246
+ * @author @Tarak1246 @satyaaneesh98
  * @date March 13, 2024
  */
 const express = require("express");

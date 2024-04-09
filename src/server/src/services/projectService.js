@@ -1,3 +1,7 @@
+/**
+* @author @Satyaaneesh98
+*/
+
 const Project = require("../database/schemas/projectSchema");
 
 const addProject = async (projectData) => {
