@@ -2,7 +2,7 @@
  * @file index.js
  * @description Entry point for the React application.
  * Imports necessary libraries, renders the root App component, and integrates performance reporting.
- * @author @Tarak1246
+ * @author @Tarak1246 @satyaaneesh98
  * @date Mar 13, 2024
  */
 /**

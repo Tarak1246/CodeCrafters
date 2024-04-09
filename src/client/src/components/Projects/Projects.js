@@ -1,80 +1,107 @@
+/**
+* @author @Satyaaneesh98
+*/
+
+// Projects.js
+
+/*
+    This component represents a list of projects with functionality to search, add, edit, and delete projects.
+    It utilizes React, React Router, API services for data manipulation, and toast notifications for user feedback.
+*/
+
+// Import necessary libraries and components
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { projectDbPull, projectRecordDelete } from "../../services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ConfirmToast from "../ConfirmToast/ConfirmToast";
-import { useData } from "../DataContext";
+import { useData } from "../DataContext"; // Custom hook for accessing shared data context
 
 const Projects = () => {
-  const [data, setData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  // State variables
+  const [data, setData] = useState([]); // Holds project data
+  const [searchTerm, setSearchTerm] = useState(""); // Holds search term
+
+  // Function to handle search input
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
+  // Toast configuration
   toast.configure();
-  const navigate = useNavigate();
-  const { state, setDataa } = useData();
+  const navigate = useNavigate(); // Navigate function from React Router
+  const { state, setDataa } = useData(); // Custom hook for accessing shared data context
 
+  // Function to handle edit button click
   const handleEditClick = (item) => {
-    setDataa(item);
-    navigate(`/home/projects/editProject/${item.id}`);
-
+    setDataa(item); // Set shared data context
+    navigate(`/home/projects/editProject/${item.id}`); // Navigate to edit project page
   };
+
+  // Function to handle delete button click
   const handleDeleteClick = (item) => {
-    let toastId;
+    // Function to handle confirmation of delete action
     const handleConfirm = async () => {
-      await projectRecordDelete(item.id);
-      console.log("Project deleted!");
-      setData(data.filter((project) => project.id !== item.id));
-      toast.success("Project deleted!", {
+      await projectRecordDelete(item.id); // Delete project record from database
+      setData(data.filter((project) => project.id !== item.id)); // Update project data
+      toast.success("Project deleted!", { // Show success message
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 1000,
       });
-      toast.dismiss(toastId);
+      toast.dismiss(toastId); // Dismiss toast notification
     };
 
-    toastId = toast.warning(<ConfirmToast onConfirm={handleConfirm} />, {
+    let toastId; // Variable to hold toast ID
+    toastId = toast.warning(<ConfirmToast onConfirm={handleConfirm} />, { // Show confirmation toast
       autoClose: false,
       closeButton: true,
     });
   };
+
+  // Function to fetch project data from database
   const fetchData = async () => {
     try {
-      let response = await projectDbPull();
-      setData(response.data);
+      let response = await projectDbPull(); // Fetch project data from database
+      setData(response.data); // Set project data
     } catch (error) {
-      console.error("error fetching data", error);
+      console.error("error fetching data", error); // Log error if data fetching fails
     }
   };
+
+  // Effect hook to fetch data on component mount
   useEffect(() => {
     fetchData();
   }, []);
 
+  // Extract table headers from project data
   const tableHeaders = data.length > 0 ? Object.keys(data[0]) : [];
+  
+  // Filter data based on search term
   const filteredData = data.filter((item) =>
     Object.values(item).some((value) =>
       String(value).toLowerCase().includes(searchTerm)
     )
   );
 
+  // Function to navigate to add project page
   const addProject = async () => {
     try {
-      navigate("/home/projects/addProject");
+      navigate("/home/projects/addProject"); // Navigate to add project page
     } catch (error) {
-      console.error("Error cancelling project:", error);
+      console.error("Error cancelling project:", error); // Log error if navigation fails
     }
   };
+
+  // Function to handle refresh button click
   const handleRefresh = async () => {
-    fetchData();
+    fetchData(); // Refresh project data
   };
 
+  // Render JSX
   return (
     <div>
-      <h1 id="projectStyle">
-        Projects
-      </h1>
+      <h1 id="projectStyle">Projects</h1>
       <button title="refresh" className="refreshBtn" onClick={handleRefresh}>
         <i className="fa fa-refresh" aria-hidden="true"></i>
         {/* Refresh button icon */}

@@ -3,7 +3,7 @@
  * @description Root component of the application.
  * Sets up client-side routing using React Router, manages data context with DataProvider,
  * renders different components based on routes, and enforces a protected layout for authenticated routes.
- * @author @Tarak1246
+ * @author @Tarak1246 @satyaaneesh98
  * @date Mar 13, 2024
  */
 
