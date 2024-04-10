@@ -38,13 +38,17 @@
 * Expected Result: All projects are listed in the table with the correct information, including the members field.  
 * Status: Tested and working successfully.
 
-* IN R5.1, the table item no. 3, members item is not achieved 100%, it is partially completed. Below is the justification for the partial completion. But seeing the whole component R5 as a requirement, it can be stated that the R5 is 90% completed without any issues. 
-    
-    Justification for table item 3 in R5.1 partial completion:
-    The system encounters technical challenges in dynamically updating the Projects table's members field based on employee assignments. Limitations in establishing real-time connections between the Projects and Employees tables hinder seamless synchronization. These constraints stem from data retrieval mechanisms and database schema design, impacting data consistency and integrity.
+* Test Case 2: Verify Projects Listing Table Displays Correctly Including Member Count
+* Description: Ensure that the Projects Listing table displays all projects from the database in a tabular format, including the member count for each project.
+* Steps:
+  1. Open the Projects page.  
+  2. Check if the table is visible.  
+  3. Verify that all project records are displayed in the table, including the members field.
+* Expected Result: All projects are listed in the table with the correct information, including the members field, and the member count is updated dynamically.
+* Status: Tested and working successfully.
 
 # R5.2. Form Fields (Edit/Add actions):
-* Test Case 2: Verify Form Fields for Adding a New Project  
+* Test Case 3: Verify Form Fields for Adding a New Project  
 * Description: Ensure that the form for adding a new project contains all required fields and functionalities.  
 * Steps:  
  1. Click on the "Add" button.  
@@ -54,7 +58,7 @@
 * Status: Tested and working successfully.  
 
 # R5.3 Search button:
-* Test Case 3: Verify Search Functionality  
+* Test Case 4: Verify Search Functionality  
 * Description: Ensure that the search button allows users to search for projects using any desired keyword.
 * Steps:
   1. Enter a keyword in the search box.  
@@ -63,7 +67,7 @@
 * Expected Result: Projects matching the keyword are displayed in the table.  
 * Status: Tested and working successfully.  
 # R5.4 Delete:
-* Test Case 4: Verify Project Deletion Functionality  
+* Test Case 5: Verify Project Deletion Functionality  
 * Description: Ensure that the delete action removes the project record from the UI and triggers a database query to delete the data entry completely.
 * Steps:  
   1. Click on the delete button for a project.  

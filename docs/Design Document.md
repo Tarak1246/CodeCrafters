@@ -84,6 +84,10 @@
 
     * E5.1 Below evaluation shows all project information is showing correctly and all fields are present along with the action buttons.
     ![alt text](E5.1-1.png)
+    * Showing the updated members count based on the employees assigned to the projects dynamically.
+    ![alt text](<E 5.1 - Updated Member count.png>)  
+    ![alt text](<E 5.1 - Updated Member count_Employees.png .png>)  
+    ![alt text](<E 5.1 - Updated Member count_database.png>)  
 
     * D5.2 Edit and add project information.
       * ![Add project information](Add%20project%20information.png)
