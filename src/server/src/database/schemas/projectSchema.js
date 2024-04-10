@@ -1,13 +1,14 @@
-/**
-* @author @Satyaaneesh98
-*/
-
 // Import mongoose library for creating database schemas
 const mongoose = require("mongoose");
 
 // Defining project schema using mongoose.Schema
 const projectSchema = new mongoose.Schema({
   // Defining schema fields
+  members: {
+    type: Number, // Data type is Number
+    required: true, // Field is required
+    default: 0, // Default value is 0
+  },
   id: {
     type: String, // Data type is String
     required: true, // Field is required
@@ -56,7 +57,7 @@ const projectSchema = new mongoose.Schema({
 });
 
 // Set toJSON transform for formatting date fields in output.
-// This is mainly used as seeing the date in default format in UI is casuing error. Hence converted it to toJSON for seeing the date as needed.
+// This is mainly used as seeing the date in default format in UI is causing error. Hence converted it to toJSON for seeing the date as needed.
 projectSchema.set("toJSON", {
   transform: function (doc, dateFormatChange) {
     // Format startDate, endDate, and deadline to locale date string

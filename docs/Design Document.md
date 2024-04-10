@@ -81,14 +81,36 @@
   * Mockup Images
     * D5.1 Lists all the project details in below tabular format as per requirement R4.1
       * ![Projects](projects.png)
+
+    * E5.1 Below evaluation shows all project information is showing correctly and all fields are present along with the action buttons.
+    ![alt text](E5.1-1.png)
+    * Showing the updated members count based on the employees assigned to the projects dynamically.
+    ![alt text](<E 5.1 - Updated Member count.png>)  
+    ![alt text](<E 5.1 - Updated Member count_Employees.png .png>)  
+    ![alt text](<E 5.1 - Updated Member count_database.png>)  
+
     * D5.2 Edit and add project information.
       * ![Add project information](Add%20project%20information.png)
       * ![Edit Project Information](Edit%20Project%20Information.png)
+
+    * E5.2 Below shows the edit and add project evaluation and also shows the newly added project. It is working successsfully while cancelling the updates and additions.
+    * ![alt text](<E5.2 (1) - Edit Tab-1.png>)
+    * ![alt text](<E 5.2 (2) - Add-1.png>) 
+    * ![alt text](<E 5.2 (3) - Adding & Showing Update-1.png>) 
+    * ![alt text](<E 5.2 (4) - Seeing added project-1.png>) 
+
     * D5.3 Lists the search criteria if there are any matches
       * ![Search](search.jpg)
+    * E 5.3 - Evaluation satisifies for search.
+    * ![alt text](<E 5.3 - Search-1.png>)
+
     * D5.4 Prompts the user to confirm the delete.
       * ![Delete](Delete.jpg)
       * ![Item deleted](item%20deleted.jpg)
+    * E5.4:
+    * ![alt text](<E 5.4(1) - Delete-1.png>) 
+    * ![alt text](<E 5.4 - Delete-1.png>)
+    
     * Data Flow Diagram for the project's component (D5.1, D5.2, D5.3, D5.4)
       * ![Data Flow Diagram - Projects](projects_data_flow_diagram_Updated.png)
 

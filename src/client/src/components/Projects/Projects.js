@@ -1,7 +1,3 @@
-/**
-* @author @Satyaaneesh98
-*/
-
 // Projects.js
 
 /*

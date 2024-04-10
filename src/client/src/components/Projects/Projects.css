@@ -1,32 +1,23 @@
-/**
-* @author @Satyaaneesh98
-*/
-
-/* Styling for the main application projectcontainer */
-.app {
-  display: flex; /* Display contents in a flex layout */
-  height: 100vh; /* Setting height to 100% of the viewport height */
-}
- 
 /* Styling for the data table */
 .data-table {
-  width: 100%; /* Setting width to 100% */
+  width: 80%; /* Setting width to 100% */
   border-collapse: collapse; /* Collapse borders of table cells */
   margin-top: 20px; /* Add top margin */
 }
- 
+
 /* Styling for table header and table data cells */
-.data-table th, .data-table td {
+.data-table th,
+.data-table td {
   border: 1px solid #ddd; /* Add border with light gray color */
   padding: 10px; /* Add padding */
   text-align: left; /* Align text to the left */
 }
- 
+
 /* Styling for table header */
 .data-table th {
   background-color: #f2f2f2; /* Setting background color for table header */
 }
- 
+
 /* Styling for action buttons */
 .actionBtn {
   text-decoration: underline; /* Underline text */
@@ -37,7 +28,7 @@
   font: inherit; /* Inherit font Styling */
   padding: auto; /* Add padding */
 }
- 
+
 /* Styling for primary button */
 .btn-primary {
   background-color: #007bff; /* Setting background color to blue */
@@ -49,3 +40,13 @@
   border-radius: 4px; /* Add border radius for rounded corners */
   cursor: pointer; /* Setting cursor to pointer */
 }
+
+
+/* Styling for the members field */
+.members-cell {
+  max-width: 100px; /* Adjust the maximum width as needed */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
