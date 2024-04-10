@@ -24,5 +24,7 @@ module.exports = {
   jwtSecret: process.env.jwtSecret, //jwtSecret
   mongoURI: process.env.mongoURI, //mongoURI
   passportUsername: process.env.passportUsername,
-  passportPassword: process.env.passportPassword
+  passportPassword: process.env.passportPassword,
+  testMongoURI: process.env.testMongoURI, //testmongoURI
+  testPort: process.env.TEST_PORT, // Server port
 };

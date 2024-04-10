@@ -31,7 +31,7 @@ let server = null;
  * @description Connects to the MongoDB database and starts the server.
  * @returns {Promise<void>} Resolves upon successful connection and server startup.
  */
-connectDB()
+connectDB('main')
   .then(() => {
     // Start server only after successful connection
     startServer();

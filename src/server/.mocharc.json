@@ -1,0 +1,6 @@
+{
+    "reporter": "spec",
+    "timeout": 2000,
+    "slow": 1000
+  }
+  

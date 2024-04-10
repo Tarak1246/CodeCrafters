@@ -5,15 +5,15 @@
  * @date March 13, 2024
  */
 const mongoose = require("mongoose");
-const { mongoURI } = require("../../config/variables");
+const { mongoURI,testMongoURI } = require("../../config/variables");
 /**
  * @description Connects to the MongoDB database.
  * @returns {Promise<void>} Resolves upon successful connection.
  */
-const connectDB = async () => {
+const connectDB = async (environment) => {
   try {
-    await mongoose.connect(mongoURI);
-    console.log("MongoDB connected");
+    environment == 'test' ? await mongoose.connect(testMongoURI) : await mongoose.connect(mongoURI);
+    console.log(`${environment} MongoDB connected`);
   } catch (err) {
     console.error("Error connecting to MongoDB:", err.message);
     process.exit(1);
