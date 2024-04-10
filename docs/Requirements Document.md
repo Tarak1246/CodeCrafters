@@ -159,7 +159,7 @@
     * The user may get the relevant contract data in the table by clicking on a search result.
   * R6.3 Add New Contract:
     * The page must have an obvious "Add New Contract" button or link.
-    * After selecting the "Add New Contract" option, a form including the parties, start and end dates, contract name, and other necessary information is              shown.
+    * After selecting the "Add New Contract" option, a form including the parties, start and end dates, contract name, and other necessary information is shown.
     * The entered data must be validated by the system to guarantee correctness and completeness.
     * The new entry will be added to the contracts table upon the new contract's successful submission.
   * R6.4. Edit Current Contracts:
