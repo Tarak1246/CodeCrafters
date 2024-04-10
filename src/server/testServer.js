@@ -13,7 +13,7 @@ const routes = require("./src/api/routes/index");
 const { connectDB } = require("./src/database/index");
 const morgan = require("morgan");
 const errorHandlerMiddleware = require("./src/api/middlewares/errorHandlerMiddleware.js");
-const { env, port } = require("./config/variables.js");
+const { env, testPort } = require("./config/variables.js");
 const pino = require("pino");
 const fs = require("fs");
 const cookieParser = require("cookie-parser");
@@ -31,7 +31,7 @@ let server = null;
  * @description Connects to the MongoDB database and starts the server.
  * @returns {Promise<void>} Resolves upon successful connection and server startup.
  */
-connectDB('main')
+connectDB('test')
   .then(() => {
     // Start server only after successful connection
     startServer();
@@ -113,8 +113,8 @@ function startServer() {
   });
   // Start server
   try {
-    server = app.listen(port, () =>
-      console.log("server started on port", port, env)
+    server = app.listen(testPort, () =>
+      console.log("server started on port", testPort, env)
     );
   } catch (err) {
     console.error("Error starting server:", err.message);
@@ -122,6 +122,4 @@ function startServer() {
   }
 }
 
-module.exports = {
-  server, // Export the server instance for potential use in other modules
-};
+module.exports = app;
