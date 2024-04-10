@@ -1,4 +1,4 @@
-# Projects Components Test cases
+## Projects Components Test cases
 
 * Below are test case used to test each requirements.
 * The test case covers all the test scenarios for the requirement.
@@ -34,9 +34,14 @@
 * Steps:
   1. Open the Projects page.  
   2. Check if the table is visible.  
-  3. Verify that all project records are displayed in the table.  
-* Expected Result: All projects are listed in the table with the correct information.  
-* Status: Tested and working successfully.  
+  3. Verify that all project records are displayed in the table, including the members field.
+* Expected Result: All projects are listed in the table with the correct information, including the members field.  
+* Status: Tested and working successfully.
+
+* IN R5.1, the table item no. 3, members item is not achieved 100%, it is partially completed. Below is the justification for the partial completion. But seeing the whole component R5 as a requirement, it can be stated that the R5 is 90% completed without any issues. 
+    
+    Justification for table item 3 in R5.1 partial completion:
+    The system encounters technical challenges in dynamically updating the Projects table's members field based on employee assignments. Limitations in establishing real-time connections between the Projects and Employees tables hinder seamless synchronization. These constraints stem from data retrieval mechanisms and database schema design, impacting data consistency and integrity.
 
 # R5.2. Form Fields (Edit/Add actions):
 * Test Case 2: Verify Form Fields for Adding a New Project  
