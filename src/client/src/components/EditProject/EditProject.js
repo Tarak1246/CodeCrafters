@@ -71,30 +71,101 @@ const EditProject = () => {
       <form className="dynamic-form" onSubmit={handleSubmit(onSubmit)}>
         {/* fetch data from db abd dynamically loop headers from db data object and genrate form based on conditions */}
         {Object.keys(formData).map((field) => (
-          <div key={field} className="form-group">
-            <label htmlFor={field}>{field}</label>
-            {field === "id" || field === "name" || field === "client" ? (
-              field === "id" || field === "name" ? (
+          field !== "members" && (
+            <div key={field} className="form-group">
+              <label htmlFor={field}>{field}</label>
+              {field === "id" || field === "name" || field === "client" ? (
+                field === "id" || field === "name" ? (
+                  <Controller
+                    name={field}
+                    control={control}
+                    defaultValue={formData[field]}
+                    render={({ field }) => (
+                      <>
+                        <input
+                          type="text"
+                          {...field}
+                          autoComplete="off"
+                          placeholder="Enter unique project id"
+                          title="project id"
+                          disabled
+                        />
+                        {errors.id && (
+                          <p className="errorMsg">{errors.id.message}</p>
+                        )}
+                      </>
+                    )}
+                    rules={{ required: "Project ID is required." }}
+                  />
+                ) : (
+                  <Controller
+                    name={field}
+                    control={control}
+                    defaultValue={formData[field]}
+                    render={({ field }) => (
+                      <>
+                        <input
+                          type="text"
+                          {...field}
+                          autoComplete="off"
+                          placeholder="Enter unique project id"
+                          title="project id"
+                        />
+                        {errors.id && (
+                          <p className="errorMsg">{errors.id.message}</p>
+                        )}
+                      </>
+                    )}
+                    rules={{ required: "Project ID is required." }}
+                  />
+                )
+              ) : field === "startDate" ||
+                field === "endDate" ||
+                field === "deadline" ? (
+                <Controller
+                  name={field}
+                  control={control}
+                  defaultValue={
+                    formData[field] ? new Date(formData[field]) : null
+                  }
+                  render={({ field }) => (
+                    <DatePicker
+                      {...field}
+                      selected={field.value}
+                      dateFormat="MM/dd/yyyy" // Provided format
+                      placeholderText={`Select ${field.name} date`}
+                      className="custom-datepicker"
+                      showMonthDropdown
+                      showYearDropdown
+                      yearDropdownItemNumber={100}
+                      title={`${field.name} date`}
+                    />
+                  )}
+                  rules={{ required: `${field} is required.` }}
+                />
+              ) : field === "status" ? (
                 <Controller
                   name={field}
                   control={control}
                   defaultValue={formData[field]}
                   render={({ field }) => (
                     <>
-                      <input
-                        type="text"
+                      <select
                         {...field}
-                        autoComplete="off"
-                        placeholder="Enter unique project id"
-                        title="project id"
-                        disabled
-                      />
-                      {errors.id && (
-                        <p className="errorMsg">{errors.id.message}</p>
-                      )}
+                        className="custom-select"
+                        title="project status"
+                        style={{ width: "233px", float: "right" }}
+                      >
+                        <option value="" disabled selected>
+                          Select project status
+                        </option>
+                        <option value="InComplete">In Complete</option>
+                        <option value="In-Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                      </select>
                     </>
                   )}
-                  rules={{ required: "Project ID is required." }}
+                  rules={{ required: "status is required." }}
                 />
               ) : (
                 <Controller
@@ -103,105 +174,38 @@ const EditProject = () => {
                   defaultValue={formData[field]}
                   render={({ field }) => (
                     <>
-                      <input
-                        type="text"
+                      <select
                         {...field}
-                        autoComplete="off"
-                        placeholder="Enter unique project id"
-                        title="project id"
-                      />
-                      {errors.id && (
-                        <p className="errorMsg">{errors.id.message}</p>
-                      )}
+                        className="custom-select"
+                        title="project progress"
+                        style={{ width: "233px", float: "right" }}
+                      >
+                        <option value="" disabled selected>
+                          Select project progress
+                        </option>
+                        <option value="0% - Req & Design Phase">
+                          0% - Req & Design Phase
+                        </option>
+                        <option value="25% - Development Phase">
+                          25% - Development Phase
+                        </option>
+                        <option value="50% - Testing Phase">
+                          50% - Testing Phase
+                        </option>
+                        <option value="75% - Support Phase">
+                          75% - Support Phase
+                        </option>
+                        <option value="100% - Completed">
+                          100% - Completed
+                        </option>
+                      </select>
                     </>
                   )}
-                  rules={{ required: "Project ID is required." }}
+                  rules={{ required: "progress is required." }}
                 />
-              )
-            ) : field === "startDate" ||
-              field === "endDate" ||
-              field === "deadline" ? (
-              <Controller
-                name={field}
-                control={control}
-                defaultValue={
-                  formData[field] ? new Date(formData[field]) : null
-                }
-                render={({ field }) => (
-                  <DatePicker
-                    {...field}
-                    selected={field.value}
-                    dateFormat="MM/dd/yyyy" // Provided format
-                    placeholderText={`Select ${field.name} date`}
-                    className="custom-datepicker"
-                    showMonthDropdown
-                    showYearDropdown
-                    yearDropdownItemNumber={100}
-                    title={`${field.name} date`}
-                  />
-                )}
-                rules={{ required: `${field} is required.` }}
-              />
-            ) : field === "status" ? (
-              <Controller
-                name={field}
-                control={control}
-                defaultValue={formData[field]}
-                render={({ field }) => (
-                  <>
-                    <select
-                      {...field}
-                      className="custom-select"
-                      title="project status"
-                      style={{ width: "233px", float: "right" }}
-                    >
-                      <option value="" disabled selected>
-                        Select project status
-                      </option>
-                      <option value="InComplete">In Complete</option>
-                      <option value="In-Progress">In Progress</option>
-                      <option value="Completed">Completed</option>
-                    </select>
-                  </>
-                )}
-                rules={{ required: "status is required." }}
-              />
-            ) : (
-              <Controller
-                name={field}
-                control={control}
-                defaultValue={formData[field]}
-                render={({ field }) => (
-                  <>
-                    <select
-                      {...field}
-                      className="custom-select"
-                      title="project progress"
-                      style={{ width: "233px", float: "right" }}
-                    >
-                      <option value="" disabled selected>
-                        Select project progress
-                      </option>
-                      <option value="0% - Req & Design Phase">
-                        0% - Req & Design Phase
-                      </option>
-                      <option value="25% - Development Phase">
-                        25% - Development Phase
-                      </option>
-                      <option value="50% - Testing Phase">
-                        50% - Testing Phase
-                      </option>
-                      <option value="75% - Support Phase">
-                        75% - Support Phase
-                      </option>
-                      <option value="100% - Completed">100% - Completed</option>
-                    </select>
-                  </>
-                )}
-                rules={{ required: "progress is required." }}
-              />
-            )}
-          </div>
+              )}
+            </div>
+          )
         ))}
         {/* buttons */}
         <button type="submit" className="btn btn-primary">

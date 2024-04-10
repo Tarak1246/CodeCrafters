@@ -94,6 +94,7 @@
     * It shall adapt its layout and elements dynamically to provide an optimal viewing experience on desktops, tablets, and mobile devices.
 
 * R5. Projects
+
   * R5.1 Projects Listing(Table Format):
     * Shows all the projects that are created and present in the database in a tabular format.
     * Each project record in the table will have action items for modifying(Edit/Delete) the project information.
@@ -109,12 +110,16 @@
           6. Deadline - Project deadline.
           7. Progress & Status - Project percentage completion and completion status.
           8. Actions - Provides two action buttons for editing and deleting the projects.
+
+  * E5.1: Ensure the Projects Listing table displays all project information accurately, including ID, Name, Client, Start/End date, Deadline, Progress & Status, and Actions for editing and deleting projects.
+
   * R5.2. Form Fields (Edit/Add actions):
     * Upon clicking the edit or add action icon, a side tab will be opened to provide the user the ability to add/change the project information.
-    * ID: Enter a ID for the project for distinct identification which will be an unique ID.
+    * ID: Enter a ID for the project for distinct identification which will be an unique ID. This ID cannot be edited.
     * Name:
       * Enter the project name as required.
       * All the names should be unique.
+      * This project name cannot be edited.
     * Client: Client name for the particular project.
     * Start Date: Represents the project start date.
     * End Date: Represents the project end date.
@@ -126,10 +131,16 @@
     * Save: Upon clicking save, the data will be saved.
     * Update: Updated information will be saved in the edit action.
     * Cancel: Clears the form in the edit/add action.
+
+  * E5.2: Verify that the form for adding/changing project information opens upon clicking the edit or add action icon, allowing users to enter/edit Client, Start Date, End Date, Deadline, Progress, and Status. Ensure save, update, and cancel functionalities work correctly.
+
   * R5.3 Search button: A search button is present globally to search for any matching data present in the projects component.
+  * E5.3: Ensure the search button allows users to search for projects using keywords, with search results accurately displayed in the table.
+
   * R5.4 Delete:
     * It will delete the project record from this UI and it will trigger the database query and delete the data entries from table completely.
     * Cancel delete action for few seconds before sending the query to the database for record deletion.
+  * E5.4: Verify that the delete action removes project records from the UI and triggers a database query to delete data entries completely. Ensure there is a delay in the cancel delete action before sending the query to the database for record deletion.
 
 * R6. Contracts
   * R6.1. List Contracts in Table Format:
