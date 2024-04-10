@@ -142,6 +142,11 @@
     * Cancel delete action for few seconds before sending the query to the database for record deletion.
   * E5.4: Verify that the delete action removes project records from the UI and triggers a database query to delete data entries completely. Ensure there is a delay in the cancel delete action before sending the query to the database for record deletion.
 
+  * IN R5.1, the table item no. 3, members item is not achieved 100%, it is paritally completed. Below is the justification for the partial completion. But seeing the whole component R5 as a requirement, it can be stated that the R5 is 90% completed without any issues. 
+    
+    Justification for table item 3 in R5.1 partial completion:
+    The system encounters technical challenges in dynamically updating the Projects table's members field based on employee assignments. Limitations in establishing real-time connections between the Projects and Employees tables hinder seamless synchronization. These constraints stem from data retrieval mechanisms and database schema design, impacting data consistency and integrity.
+
 * R6. Contracts
   * R6.1. List Contracts in Table Format:
     * The information in the contracts table must be presented in an understandable tabular format.
