@@ -80,7 +80,7 @@ const createAdminUser = async (adminUserData) => {
       if (adminUserData.role != "admin")
         return {
           status: 400,
-          data: { error: "Only admin role user can create using this api!" },
+          data: "Only admin role user can create using this api!",
         };
 
       // Check if admin user already exists
@@ -88,7 +88,7 @@ const createAdminUser = async (adminUserData) => {
       if (existingAdminUser) {
         return {
           status: 400,
-          data: { error: "Only one user should have role as an admin!" },
+          data: "Only one user should have role as an admin!",
         };
       }
 
@@ -97,7 +97,7 @@ const createAdminUser = async (adminUserData) => {
         username: adminUserData.username,
       });
       if (existingAdminUsername) {
-        return { status: 400, data: { error: "username already exists" } };
+        return { status: 400, data: "username already exists"};
       }
 
       // Check if admin user mailid already exists
@@ -107,14 +107,14 @@ const createAdminUser = async (adminUserData) => {
       if (existingAdminUserMail) {
         return {
           status: 400,
-          data: { error: "Email already exists" },
+          data: "Email already exists",
         };
       }
       const emailFormatStatus = await checkEmailFormat(adminUserData.email);
       if (!emailFormatStatus) {
         return {
           status: 400,
-          data: { error: "Email format should be @gmail.com" },
+          data: "Email format should be @gmail.com",
         };
       }
       const passwordFormatStatus = await checkPasswordFormat(
@@ -123,10 +123,7 @@ const createAdminUser = async (adminUserData) => {
       if (!passwordFormatStatus) {
         return {
           status: 400,
-          data: {
-            error:
-              "Password should contain at least one uppercase letter, lowercase letter, digit, and special symbol, and be at least 8 characters long",
-          },
+          data:"Password should contain at least one uppercase letter, lowercase letter, digit, and special symbol, and be at least 8 characters long"
         };
       }
 
