@@ -1,1 +1,4 @@
-/* write your css here */
+.btn btn-primary.disabled {
+    background-color: #ddd; /* Change this to your desired disabled color */
+    color: #aaa; /* Change this to your desired disabled text color */
+  }

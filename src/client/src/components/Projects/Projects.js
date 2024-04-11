@@ -111,7 +111,8 @@ const Projects = () => {
         style={{ float: "right" }}
       />
       <button
-        className="btn btn-primary"
+        className={`btn btn-primary ${(localStorage.getItem("adminPrivilege") != "true") ? 'disabled' : ''}`}                  
+        disabled={localStorage.getItem("adminPrivilege") != "true"}
         title="add a Project"
         onClick={() => addProject()}
       >
@@ -145,9 +146,11 @@ const Projects = () => {
                   <td key={header}>{item[header]}</td>
                 ))}
                 <td>
-                  <button className="actionBtn" onClick={() => handleEditClick(item)}>Edit</button>
+                  <button className={`actionBtn ${localStorage.getItem("adminPrivilege") != "true" ? 'disabled' : ''}`}                  
+                    disabled={localStorage.getItem("adminPrivilege") != "true"} onClick={() => handleEditClick(item)}>Edit</button>
                   <button
-                    className="actionBtn"
+                    className={`actionBtn ${localStorage.getItem("adminPrivilege") != "true" ? 'disabled' : ''}`}                  
+                    disabled={localStorage.getItem("adminPrivilege") != "true"}
                     onClick={() => handleDeleteClick(item)}
                   >
                     Delete

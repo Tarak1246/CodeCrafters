@@ -11,14 +11,15 @@
   margin-left: 3%;
 }
 /* styles for form */
-.editContractComponent .dynamic-form{
+.editEmployeeComponent .dynamic-form{
   max-width: 900px;
   margin: auto;
   padding: 40px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height: auto;
+  height: 560px;
+  overflow-y: auto;
 }
 
 .form-group {
