@@ -151,7 +151,7 @@
    * Sets left margin and font size.
    */
   #logintxt {
-    margin-left: 4%;
+    margin-right: 10%;
     font-size: small;
   }
   /**
@@ -173,7 +173,7 @@
    * @description Styles for text color and left margin of elements within #logintxt span and .button-container button.
    * Sets the color to cadetblue and adds left margin.
    */
-  #logintxt span,
+ span,
   .button-container button {
     color: cadetblue;
     margin-left: 2%;
