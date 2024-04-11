@@ -3,7 +3,7 @@ const chaiHttp = require("chai-http");
 const expect = chai.expect;
 chai.use(chaiHttp);
 const server = require("../testServer.js");
-
+let token;
 describe("Server running check", () => {
   it("should return a message whether server is running or not", (done) => {
     chai
@@ -234,8 +234,107 @@ describe("admin user creation", () => {
   });
 
 });
-// Bearer token
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluVXNlciIsImlhdCI6MTcxMjc5MDkxNCwiZXhwIjoxNzEyNzk0NTE0fQ.4nnkeH69sYrImYJVVF-tfptnCI4FG2iWvabQm_bZrpg';
+
+describe("user registraion", () => {
+
+  it("successfull user registration", (done) => {   
+    const requestBody = {"username":"tarak123","email":"taraksai@gmail.com","password":"Tarak128@","confirm_password":"Tarak128@"};
+    chai
+      .request(server)
+      .post("/v/register")
+      .send(requestBody)
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(typeof res.body).to.equal('object');
+        expect(Object.keys(res.body).length).to.equal(2);
+        expect(res.body).to.have.property('status'); // Check for "status" property
+        expect(res.body.status).to.equal(201); // Verify status code (201 Created)
+        expect(res.body).to.have.property('data'); // Check for "data" property
+        expect(res.body.data).to.equal('user registration success!'); // Verify data message
+        done();
+      });
+  });
+
+  it("duplicate username while registration", (done) => {   
+    const requestBody = {"username":"tarak123","email":"taraksai@gmail.com","password":"Tarak128@","confirm_password":"Tarak128@"};
+    chai
+      .request(server)
+      .post("/v/register")
+      .send(requestBody)
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(typeof res.body).to.equal('object');
+        expect(Object.keys(res.body).length).to.equal(2);
+        expect(res.body).to.have.property('status'); // Check for "status" property
+        expect(res.body.status).to.equal(409); // Verify status code (201 Created)
+        expect(res.body).to.have.property('data'); // Check for "data" property
+        expect(res.body.data).to.equal('username already exist!'); // Verify data message
+        done();
+      });
+  });
+
+  it("duplicate user email while registration", (done) => {   
+    const requestBody = {"username":"tarak12","email":"taraksai@gmail.com","password":"Tarak128@","confirm_password":"Tarak128@"};
+    chai
+      .request(server)
+      .post("/v/register")
+      .send(requestBody)
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(typeof res.body).to.equal('object');
+        expect(Object.keys(res.body).length).to.equal(2);
+        expect(res.body).to.have.property('status'); // Check for "status" property
+        expect(res.body.status).to.equal(409); // Verify status code (201 Created)
+        expect(res.body).to.have.property('data'); // Check for "data" property
+        expect(res.body.data).to.equal('email already exist!'); // Verify data message
+        done();
+      });
+  });
+
+});
+
+describe("user login", () => {
+
+  it("successfull user registration", (done) => {   
+    const requestBody = {"username":"adminUser","password":"Pwd@1234"};
+    chai
+      .request(server)
+      .post("/v1/login")
+      .send(requestBody)
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(typeof res.body).to.equal('object');
+        expect(Object.keys(res.body).length).to.equal(4);
+        expect(res.body).to.have.property('status'); // Check for "status" property
+        expect(res.body.status).to.equal(200); // Verify status code (201 Created)
+        expect(res.body).to.have.property('data'); // Check for "data" property
+        expect(res.body.data).to.equal('user login success!'); // Verify data message
+        expect(res.body).to.have.property('token'); // Check for "status" property
+        expect(res.body).to.have.property('user'); // Check for "status" property
+        token = res.body.token;
+        done();
+      });
+  });
+  it("Invalid credentials", (done) => {   
+    const requestBody = {"username":"adminUser","password":"Pwd@123"};
+    chai
+      .request(server)
+      .post("/v1/login")
+      .send(requestBody)
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(typeof res.body).to.equal('object');
+        expect(Object.keys(res.body).length).to.equal(2);
+        expect(res.body).to.have.property('status'); // Check for "status" property
+        expect(res.body.status).to.equal(401); // Verify status code (201 Created)
+        expect(res.body).to.have.property('data'); // Check for "data" property
+        expect(res.body.data).to.equal('Invalid credentials!');
+        done();
+      });
+  });
+
+});
+
 
 describe('GET /v2/getProjects', () => {
   it('should return an array of projects', (done) => {
