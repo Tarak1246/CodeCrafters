@@ -81,17 +81,27 @@
     * The dashboard shall visualize project data to provide insights into project status and progress.
     * It shall include a pie chart representing metrics such as project timelines.
     * The dashboard shall update these statistics dynamically based on changes to the project database.
+
+  * E4.1 After adding the data to the projects table it shows the data on the dashboard in the pie chart.
+
   * R4.2 Employee Statistics:
     * The dashboard shall display the total number of employees registered in the system.
     * It shall provide a breakdown of employee demographics, including department-wise distribution.
     * The dashboard shall update these statistics dynamically based on changes to the employee database.
     * The data for employees will be seen in donut chart.
+
+  * E4.2 Adding data to the employees table gives the donut chart. It highlights the employess demographics when pointed in the grapgh.
+
   * R4.3 Contractor Information:
     * The dashboard will feature a component that displays information about the organization's contractors.
     * The data for the contractors is seen in bar chart.
+
+  * E4.3 Changes made to the Contractors tab dynamically gives the bar chart.
+
   * Responsive Design:
     * The dashboard interface shall be responsive and compatible with various devices and screen sizes.
     * It shall adapt its layout and elements dynamically to provide an optimal viewing experience on desktops, tablets, and mobile devices.
+  * E: It adapts to all the screen sizes and gives out the dynamic data which is responsive and compatible.
 
 * R5. Projects
 
