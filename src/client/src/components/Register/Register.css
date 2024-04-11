@@ -94,5 +94,5 @@ body {
 
 /* login text link and button color */
 #registertxt span, .button-container button{
-    color: cadetblue;
+    /* color: cadetblue; */
 }

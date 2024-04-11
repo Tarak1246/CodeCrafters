@@ -19,8 +19,7 @@ const Employees = () => {
 
   const handleEditClick = (item) => {
     setDataa(item);
-     navigate(`/home/employees/editEmployee/${item.id}`);
-
+    navigate(`/home/employees/editEmployee/${item.id}`);
   };
   const handleDeleteClick = (item) => {
     let toastId;
@@ -52,7 +51,10 @@ const Employees = () => {
     fetchData();
   }, []);
 
-  const tableHeaders = data.length > 0 ? Object.keys(data[0]) : [];
+  let tableHeaders = data.length > 0 ? Object.keys(data[0]) : [];
+  // alert(tableHeaders)
+  // tableHeaders = tableHeaders.filter(item => !["startDate","endDate"].includes(item));
+
   const filteredData = data.filter((item) =>
     Object.values(item).some((value) =>
       String(value).toLowerCase().includes(searchTerm)
@@ -72,9 +74,7 @@ const Employees = () => {
 
   return (
     <div>
-      <h1 id="projectStyle">
-        Employees
-      </h1>
+      <h1 id="projectStyle">Employees</h1>
       <button title="refresh" className="refreshBtn" onClick={handleRefresh}>
         <i className="fa fa-refresh" aria-hidden="true"></i>
         {/* Refresh button icon */}
@@ -88,7 +88,10 @@ const Employees = () => {
         style={{ float: "right" }}
       />
       <button
-        className="btn btn-primary"
+        className={`btn btn-primary ${
+          localStorage.getItem("adminPrivilege") != "true" ? "disabled" : ""
+        }`}
+        disabled={localStorage.getItem("adminPrivilege") != "true"}
         title="add a Project"
         onClick={() => addEmployee()}
       >
@@ -122,9 +125,24 @@ const Employees = () => {
                   <td key={header}>{item[header]}</td>
                 ))}
                 <td>
-                  <button className="actionBtn" onClick={() => handleEditClick(item)}>Edit</button>
                   <button
-                    className="actionBtn"
+                    className={`actionBtn ${
+                      localStorage.getItem("adminPrivilege") != "true"
+                        ? "disabled"
+                        : ""
+                    }`}
+                    disabled={localStorage.getItem("adminPrivilege") != "true"}
+                    onClick={() => handleEditClick(item)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className={`actionBtn ${
+                      localStorage.getItem("adminPrivilege") != "true"
+                        ? "disabled"
+                        : ""
+                    }`}
+                    disabled={localStorage.getItem("adminPrivilege") != "true"}
                     onClick={() => handleDeleteClick(item)}
                   >
                     Delete

@@ -47,7 +47,7 @@ import Register from "./components/Register/Register";
  */
 import EditUser from "./components/EditUser/EditUser";
 
-import AddProject from "./components/AddProject/AddProject";
+import AddProject from "./components/AddProject/AddProject.js";
 
 import EditProject from "./components/EditProject/EditProject";
 

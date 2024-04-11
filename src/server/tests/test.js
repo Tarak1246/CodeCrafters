@@ -65,10 +65,10 @@ describe("admin user creation", () => {
         expect(err).to.be.null;
         expect(typeof res.body).to.equal('object');
         expect(Object.keys(res.body).length).to.equal(2);
-        expect(res.body).to.have.property('status'); // Check for "status" property
-        expect(res.body.status).to.equal(500); // Verify status code (201 Created)
-        expect(res.body).to.have.property('data'); // Check for "data" property
-        expect(res.body.data).to.equal('request body invalid'); // Verify data message
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(500); 
+        expect(res.body).to.have.property('data'); 
+        expect(res.body.data).to.equal('request body invalid'); 
         done();
       });
   });
@@ -97,10 +97,10 @@ describe("admin user creation", () => {
         expect(err).to.be.null;
         expect(typeof res.body).to.equal('object');
         expect(Object.keys(res.body).length).to.equal(2);
-        expect(res.body).to.have.property('status'); // Check for "status" property
-        expect(res.body.status).to.equal(400); // Verify status code (201 Created)
-        expect(res.body).to.have.property('data'); // Check for "data" property
-        expect(res.body.data).to.equal('Only admin role user can create using this api!'); // Verify data message
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(400); 
+        expect(res.body).to.have.property('data'); 
+        expect(res.body.data).to.equal('Only admin role user can create using this api!'); 
         done();
       });
   });
@@ -129,10 +129,10 @@ describe("admin user creation", () => {
         expect(err).to.be.null;
         expect(typeof res.body).to.equal('object');
         expect(Object.keys(res.body).length).to.equal(2);
-        expect(res.body).to.have.property('status'); // Check for "status" property
-        expect(res.body.status).to.equal(400); // Verify status code (201 Created)
-        expect(res.body).to.have.property('data'); // Check for "data" property
-        expect(res.body.data).to.equal('Email format should be @gmail.com'); // Verify data message
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(400); 
+        expect(res.body).to.have.property('data'); 
+        expect(res.body.data).to.equal('Email format should be @gmail.com'); 
         done();
       });
   });
@@ -161,10 +161,10 @@ describe("admin user creation", () => {
         expect(err).to.be.null;
         expect(typeof res.body).to.equal('object');
         expect(Object.keys(res.body).length).to.equal(2);
-        expect(res.body).to.have.property('status'); // Check for "status" property
-        expect(res.body.status).to.equal(400); // Verify status code (201 Created)
-        expect(res.body).to.have.property('data'); // Check for "data" property
-        expect(res.body.data).to.equal('Password should contain at least one uppercase letter, lowercase letter, digit, and special symbol, and be at least 8 characters long'); // Verify data message
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(400); 
+        expect(res.body).to.have.property('data'); 
+        expect(res.body.data).to.equal('Password should contain at least one uppercase letter, lowercase letter, digit, and special symbol, and be at least 8 characters long'); 
         done();
       });
   });
@@ -193,10 +193,10 @@ describe("admin user creation", () => {
         expect(err).to.be.null;
         expect(typeof res.body).to.equal('object');
         expect(Object.keys(res.body).length).to.equal(2);
-        expect(res.body).to.have.property('status'); // Check for "status" property
-        expect(res.body.status).to.equal(201); // Verify status code (201 Created)
-        expect(res.body).to.have.property('data'); // Check for "data" property
-        expect(res.body.data).to.equal('Admin user created successfully'); // Verify data message
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(201); 
+        expect(res.body).to.have.property('data'); 
+        expect(res.body.data).to.equal('Admin user created successfully'); 
         done();
       });
   });
@@ -225,10 +225,10 @@ describe("admin user creation", () => {
         expect(err).to.be.null;
         expect(typeof res.body).to.equal('object');
         expect(Object.keys(res.body).length).to.equal(2);
-        expect(res.body).to.have.property('status'); // Check for "status" property
-        expect(res.body.status).to.equal(400); // Verify status code (201 Created)
-        expect(res.body).to.have.property('data'); // Check for "data" property
-        expect(res.body.data).to.equal('Only one user should have role as an admin!'); // Verify data message
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(400); 
+        expect(res.body).to.have.property('data'); 
+        expect(res.body.data).to.equal('Only one user should have role as an admin!'); 
         done();
       });
   });
@@ -247,10 +247,10 @@ describe("user registraion", () => {
         expect(err).to.be.null;
         expect(typeof res.body).to.equal('object');
         expect(Object.keys(res.body).length).to.equal(2);
-        expect(res.body).to.have.property('status'); // Check for "status" property
-        expect(res.body.status).to.equal(201); // Verify status code (201 Created)
-        expect(res.body).to.have.property('data'); // Check for "data" property
-        expect(res.body.data).to.equal('user registration success!'); // Verify data message
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(201); 
+        expect(res.body).to.have.property('data'); 
+        expect(res.body.data).to.equal('user registration success!'); 
         done();
       });
   });
@@ -265,10 +265,10 @@ describe("user registraion", () => {
         expect(err).to.be.null;
         expect(typeof res.body).to.equal('object');
         expect(Object.keys(res.body).length).to.equal(2);
-        expect(res.body).to.have.property('status'); // Check for "status" property
-        expect(res.body.status).to.equal(409); // Verify status code (201 Created)
-        expect(res.body).to.have.property('data'); // Check for "data" property
-        expect(res.body.data).to.equal('username already exist!'); // Verify data message
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(409); 
+        expect(res.body).to.have.property('data'); 
+        expect(res.body.data).to.equal('username already exist!'); 
         done();
       });
   });
@@ -283,10 +283,10 @@ describe("user registraion", () => {
         expect(err).to.be.null;
         expect(typeof res.body).to.equal('object');
         expect(Object.keys(res.body).length).to.equal(2);
-        expect(res.body).to.have.property('status'); // Check for "status" property
-        expect(res.body.status).to.equal(409); // Verify status code (201 Created)
-        expect(res.body).to.have.property('data'); // Check for "data" property
-        expect(res.body.data).to.equal('email already exist!'); // Verify data message
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(409); 
+        expect(res.body).to.have.property('data'); 
+        expect(res.body.data).to.equal('email already exist!'); 
         done();
       });
   });
@@ -305,12 +305,12 @@ describe("user login", () => {
         expect(err).to.be.null;
         expect(typeof res.body).to.equal('object');
         expect(Object.keys(res.body).length).to.equal(4);
-        expect(res.body).to.have.property('status'); // Check for "status" property
-        expect(res.body.status).to.equal(200); // Verify status code (201 Created)
-        expect(res.body).to.have.property('data'); // Check for "data" property
-        expect(res.body.data).to.equal('user login success!'); // Verify data message
-        expect(res.body).to.have.property('token'); // Check for "status" property
-        expect(res.body).to.have.property('user'); // Check for "status" property
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(200); 
+        expect(res.body).to.have.property('data'); 
+        expect(res.body.data).to.equal('user login success!'); 
+        expect(res.body).to.have.property('token'); 
+        expect(res.body).to.have.property('user'); 
         token = res.body.token;
         done();
       });
@@ -325,9 +325,9 @@ describe("user login", () => {
         expect(err).to.be.null;
         expect(typeof res.body).to.equal('object');
         expect(Object.keys(res.body).length).to.equal(2);
-        expect(res.body).to.have.property('status'); // Check for "status" property
-        expect(res.body.status).to.equal(401); // Verify status code (201 Created)
-        expect(res.body).to.have.property('data'); // Check for "data" property
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(401); 
+        expect(res.body).to.have.property('data'); 
         expect(res.body.data).to.equal('Invalid credentials!');
         done();
       });

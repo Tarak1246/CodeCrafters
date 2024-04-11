@@ -106,7 +106,7 @@ const Main = ({ selectedTab }) => {
    * @returns {JSX.Element} The JSX representation of the content to be rendered.
    */
   return (
-    <main style={{ paddingLeft: "203px", flex: "1", backgroundColor: "#fff" }}>
+    <main style={{ paddingLeft: "160px", flex: "1", backgroundColor: "#fff" }}>
       {content}
     </main>
   );

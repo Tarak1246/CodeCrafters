@@ -121,7 +121,7 @@
   button {
     max-width: 50%;
     padding: 2% 5%;
-    color: cadetblue;
+    /* color: cadetblue; */
   }
   /**
    * @description Media query for screens less than 600px wide.
@@ -175,6 +175,6 @@
    */
  span,
   .button-container button {
-    color: cadetblue;
+    /* color: cadetblue; */
     margin-left: 2%;
   }

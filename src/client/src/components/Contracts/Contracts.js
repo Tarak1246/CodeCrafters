@@ -88,7 +88,8 @@ const Contracts = () => {
         style={{ float: "right" }}
       />
       <button
-        className="btn btn-primary"
+        className={`btn btn-primary ${(localStorage.getItem("adminPrivilege") != "true") ? 'disabled' : ''}`}                  
+        disabled={localStorage.getItem("adminPrivilege") != "true"}
         title="add a contract"
         onClick={() => addContract()}
       >
@@ -123,13 +124,15 @@ const Contracts = () => {
                 ))}
                 <td>
                   <button
-                    className="actionBtn"
+                    className={`actionBtn ${localStorage.getItem("adminPrivilege") != "true" ? 'disabled' : ''}`}                  
+                    disabled={localStorage.getItem("adminPrivilege") != "true"}
                     onClick={() => handleEditClick(item)}
                   >
                     Edit
                   </button>
                   <button
-                    className="actionBtn"
+                    className={`actionBtn ${localStorage.getItem("adminPrivilege") != "true" ? 'disabled' : ''}`}                  
+                    disabled={localStorage.getItem("adminPrivilege") != "true"}
                     onClick={() => handleDeleteClick(item)}
                   >
                     Delete

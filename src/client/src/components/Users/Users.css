@@ -96,3 +96,8 @@
 .usersComponent.loading .loader-container {
   opacity: 1;
 }
+
+.actionBtn.disabled {
+  background-color: #ddd; /* Change this to your desired disabled color */
+  color: #aaa; /* Change this to your desired disabled text color */
+}

@@ -157,7 +157,9 @@ const Users = () => {
               ))}
               <td>
                 <button
-                  className="actionBtn"
+                  className={`actionBtn ${item['role'] === 'admin' ? 'disabled' : ''}`}                  
+                  disabled={item['role'] === 'admin'}
+                  title="cannot edit for admin role"
                   onClick={() => handleEditClick(item)}
                 >
                   Edit
