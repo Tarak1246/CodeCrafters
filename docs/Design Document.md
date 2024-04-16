@@ -126,7 +126,14 @@
     * ![Contracts](contracts.png)
   * Data Flow Diagram for the contracts component
     * ![Data Flow Diagram - Contracts](Contracts_dataFlowDiagram.jpg)
-
+  * E6.1 Contracts
+    * ![Contracts](Contracts.jpg)
+  * E6.2 Edit 
+    * ![Edit](<Contracts edit.jpg>)
+  * E6.3 Add
+    * ![Add](<Contracts add.jpg>)
+  * E6.4 Delete 
+    * ![Delete](<Contracts edit.jpg>)
 
  **D7.Employees** Provides the employee details and their roles in the projects. Data can be modified dynamically, and changes get reflected in the DB.
 
