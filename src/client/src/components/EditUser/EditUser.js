@@ -76,7 +76,7 @@ const EditUser = () => {
     { value: "true", label: "True" },
     { value: "false", label: "False" },
   ];
-
+ 
   /**
    * Fetches user data for editing and sets the initial form state.
    *
@@ -92,8 +92,12 @@ const EditUser = () => {
         console.error("Error fetching user for edit:", error);
       }
     };
-
-    fetchData();
+    if (localStorage.getItem("jwtToken")) {
+      fetchData();
+    } else {
+      localStorage.clear();
+      navigate("/login");
+    } 
   }, [id]);
   /**
    * Handles changes to form input fields.

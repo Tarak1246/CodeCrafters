@@ -27,6 +27,11 @@ import Chart from "chart.js/auto";
  */
 import { getDashboardData } from "../../services/api";
 /**
+ * @module react-router-dom
+ * @description Import Link and useNavigate from react-router-dom for navigation
+ */
+import { useNavigate } from "react-router-dom";
+/**
  * Imports its stylesheet for styling.
  */
 import "./Dashboard.css";
@@ -34,16 +39,21 @@ import "./Dashboard.css";
  * @description we use "usestate" hook to update state level variables within functional components
  */
 const Dashboard = () => {
-
   const [data, setData] = useState("");
   let [contractData, setContractData] = useState({});
   let [usersData, setUserData] = useState({});
   let [projectData, setProjectData] = useState({});
   let [employeeData, setEmployeeData] = useState({});
-
-/**
- * customizes the appearance and behaviour of the chart component
- */
+  /**
+   * @description Function for programmatic navigation within the application,
+   * likely used for redirecting the user to different routes.
+   * Obtained using the `useNavigate` hook from react-router-dom.
+   * @type {import('react-router-dom').Navigate}
+   */
+  const navigate = useNavigate();
+  /**
+   * customizes the appearance and behaviour of the chart component
+   */
   const chartOptions = {
     plugins: {
       legend: {
@@ -53,7 +63,7 @@ const Dashboard = () => {
     },
   };
 
-   // Fetch dashboard data from the API
+  // Fetch dashboard data from the API
   const fetchData = async () => {
     try {
       // Updates component state with the retrieved data
@@ -73,15 +83,20 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    Chart.register(CategoryScale);
-    fetchData();
+    if (localStorage.getItem("jwtToken")) {
+      Chart.register(CategoryScale);
+      fetchData();
+    } else {
+      localStorage.clear();
+      navigate("/login");
+    }
   }, []);
 
-  /** 
-   * We define an asynchronous function named prepareProjectCount, 
+  /**
+   * We define an asynchronous function named prepareProjectCount,
    * responsible for preparing project-related data for display in a chart format
    */
-  /** 
+  /**
    * We then use the map function on the arr array to go through each state and obtain the matching
    *  count from the data array. If a matched item is identified in the data array based
    *  on the status, we extract the count value; otherwise, we set it to 0.
@@ -107,8 +122,8 @@ const Dashboard = () => {
       ],
     };
   };
-   /** 
-   * We define an asynchronous function named prepareContractCount, 
+  /**
+   * We define an asynchronous function named prepareContractCount,
    * responsible for preparing Contract-related data for display in a chart format
    */
   const prepareContractCount = async (data) => {
@@ -131,8 +146,8 @@ const Dashboard = () => {
       ],
     };
   };
-   /** 
-   * We define an asynchronous function named prepareUserCount, 
+  /**
+   * We define an asynchronous function named prepareUserCount,
    * responsible for preparing user-related data for display in a chart format
    */
   const prepareUserCount = async (data) => {
@@ -155,8 +170,8 @@ const Dashboard = () => {
       ],
     };
   };
-   /** 
-   * We define an asynchronous function named prepareEmployeeCount, 
+  /**
+   * We define an asynchronous function named prepareEmployeeCount,
    * responsible for preparing employee-related data for display in a chart format
    */
   const prepareEmployeeCount = async (data) => {
@@ -190,7 +205,10 @@ const Dashboard = () => {
             <div className="chart-label">
               <p>
                 Total:{" "}
-                {projectData?.datasets?.[0]?.data?.reduce((acc, val) => acc + val, 0)}
+                {projectData?.datasets?.[0]?.data?.reduce(
+                  (acc, val) => acc + val,
+                  0
+                )}
               </p>
             </div>
           </div>
@@ -200,7 +218,10 @@ const Dashboard = () => {
             <div className="chart-label">
               <p>
                 Total:{" "}
-                {contractData?.datasets?.[0]?.data?.reduce((acc, val) => acc + val, 0)}
+                {contractData?.datasets?.[0]?.data?.reduce(
+                  (acc, val) => acc + val,
+                  0
+                )}
               </p>
             </div>
           </div>
@@ -210,7 +231,10 @@ const Dashboard = () => {
             <div className="chart-label">
               <p>
                 Total:{" "}
-                {employeeData?.datasets?.[0]?.data?.reduce((acc, val) => acc + val, 0)}
+                {employeeData?.datasets?.[0]?.data?.reduce(
+                  (acc, val) => acc + val,
+                  0
+                )}
               </p>
             </div>
           </div>
@@ -220,7 +244,10 @@ const Dashboard = () => {
             <div className="chart-label">
               <p>
                 Total:{" "}
-                {usersData?.datasets?.[0]?.data?.reduce((acc, val) => acc + val, 0)}
+                {usersData?.datasets?.[0]?.data?.reduce(
+                  (acc, val) => acc + val,
+                  0
+                )}
               </p>
             </div>
           </div>
@@ -228,59 +255,6 @@ const Dashboard = () => {
       )}
     </div>
   );
-  // return (
-  //   <div>
-  //     {data && (
-  //       <div className="dashboard-container">
-  //         {projectData && (
-  //           <div className="chart-container">
-  //             <h2>Projects</h2>
-  //             <Bar data={projectData} options={chartOptions} />
-  //             <div className="chart-label">
-  //               <p>
-  //                 Total:{" "}
-  //                 {projectData.datasets[0].data.reduce(
-  //                   (acc, val) => acc + val,
-  //                   0
-  //                 )}
-  //               </p>
-  //             </div>
-  //           </div>
-  //         )}
-  //         {contractData && (
-  //           <div className="chart-container">
-  //             <h2>Contracts</h2>
-  //             <Doughnut data={contractData} />
-  //             <div className="chart-label">
-  //               <p>
-  //                 Total:{" "}
-  //                 {contractData.datasets[0].data.reduce(
-  //                   (acc, val) => acc + val,
-  //                   0
-  //                 )}
-  //               </p>
-  //             </div>
-  //           </div>
-  //         )}
-  //         {usersData && (
-  //           <div className="chart-container">
-  //             <h2>Users</h2>
-  //             <Doughnut data={usersData} />
-  //             <div className="chart-label">
-  //               <p>
-  //                 Total:{" "}
-  //                 {usersData.datasets[0].data.reduce(
-  //                   (acc, val) => acc + val,
-  //                   0
-  //                 )}
-  //               </p>
-  //             </div>
-  //           </div>
-  //         )}
-  //       </div>
-  //     )}
-  //   </div>
-  // );
 };
 
 export default Dashboard;

@@ -51,7 +51,11 @@ const Contracts = () => {
     }
   };
   useEffect(() => {
-    fetchData();
+    if (localStorage.getItem("jwtToken")) {
+      fetchData();
+    } else {
+      logoutUser();
+    }  
   }, []);
 
   const tableHeaders = data.length > 0 ? Object.keys(data[0]) : [];
