@@ -35,7 +35,7 @@
   * D1.1, D1.2
     * ![alt text](admin_user_creation.png)
   * E1
-    * <video controls src="admin user creation.mp4" title="admin user"></video>
+    * ![alt text](<admin user creation.gif>)
 * Data Flow Diagram (D1.1,D1.2)
   * ![alt text](<admin user creation data flow diagram.png>)
 
@@ -53,7 +53,7 @@
   * D2.3 Security(password stored in hash format)
     * ![Register Form Security](Register%20Form%20Security.png)
   * E2
-    * <video controls src="user register.mp4" title="user register"></video>
+    * ![alt text](<user register.gif>)
 * Data Flow Diagram
   * Data flow diagram for user register component(D2.1,D2.2,D2.3)
   * ![alt text](<user registration dataflow-diagram.png>)
@@ -71,7 +71,7 @@
     * ![alt text](<Login success scenario.png>)
     * ![alt text](<Login failure scenario.png>)
   * E3
-    * <video controls src="user login.mp4" title="user login"></video>
+    * ![alt text](<user login.gif>)
 * Data Flow Diagram
   * Data flow diagram for user login component(D3.1,D3.2,D3.3)
   * ![alt text](<user login dataflow-diagram.png>)
@@ -178,7 +178,7 @@
     * ![alt text](<user information edit.png>)
     * ![alt text](<User Settings Validation.png>)
   * E8
-    * <video controls src="settings.mp4" title="settings"></video>
+    * ![alt text](settings.gif)
 * Data Flow Diagram
   * Data flow diagram for user settings component(D8.1,D8.2).
   * ![alt text](<user settings dataflow-diagram.png>)
@@ -192,7 +192,7 @@
   * D9.2 Edit user
     * ![Edit user](https://github.com/TeamCodeCrafterss/CodeCrafters/assets/36734811/8d3af64d-51dc-413e-9852-19a5ff9ee49a)
   * E9
-    * <video controls src="users.mp4" title="users"></video>
+    * ![alt text](users.gif)
 * Data Flow Diagram
   * Data flow diagram for users component(D9.1,D9.2).
   * ![alt text](<users data flow diagram.png>)

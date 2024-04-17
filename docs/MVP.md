@@ -27,19 +27,19 @@ The intellectual merit of this is to provide ourselves with a thorough understan
   * Below snapshot and video represents an admin user creation through a REST API using postman
   * R1/R1.1/R1.2 : REST API with valid request payload
     * ![alt text](<admin user.png>)
-    * <video controls src="admin user creation.mp4" title="admin user"></video>
+    * ![alt text](<admin user creation.gif>)
 
 * Register page
   * R2/R2.1/R2.2/R2.3 : Contains a form with required fields to register a user to the platform
   * Below snapshot and video represents a user registration. All the users who want to access the platform features can register here
     * ![alt text](register.png)
-    * <video controls src="user register.mp4" title="user register"></video>
+    * ![alt text](<user register.gif>)
 
 * Login page
   * R3/R3.1/R3.2 : Contains a form with required fields to login a user into the platform.
   * Below snapshot and video represents a user login. All the registered and approved users can login
     * ![alt text](<login page.png>)
-    * <video controls src="user login.mp4" title="user login"></video>
+    * ![alt text](<user login.gif>)
 
 * Dashboard page
   * R4/R4.1/R4.2/R4.3 : Dashboard module aims to provide users with a graphical representation of key metrics related to employees, contractors, and projects within the organization
@@ -82,11 +82,11 @@ The intellectual merit of this is to provide ourselves with a thorough understan
   * R8/R8.1/R8.2 : Contains logged in user information, an edit option and logout option.
   * Below snapshot and video represents logged in user information and logout feature
     * ![alt text](settings.png)
-    * <video controls src="settings.mp4" title="settings"></video>
+    * ![alt text](settings.gif)
 
 * Users page
   * R9/R9.1/R9.2 : Contains all registered users information in table format and an edit option to update the status and admin privileges by admin users only.
   * Below snapshot and video represents all users information of an organization
     * ![alt text](<users page.png>)
-    * <video controls src="users.mp4" title="users"></video>
+    * ![alt text](users.gif)
 
