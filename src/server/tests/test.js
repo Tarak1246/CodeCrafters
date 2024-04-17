@@ -335,6 +335,74 @@ describe("user login", () => {
 
 });
 
+describe('GET /v2/getUsers', () => {
+  let id,data;
+  it('should return an array of users', (done) => {
+    chai.request(server)
+      .get('/v/getUsers')
+      .set('Authorization', `Bearer ${token}`) 
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(typeof res.body).to.equal('object');
+        expect(Object.keys(res.body).length).to.equal(2);
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(200); 
+        expect(res.body).to.have.property('data'); 
+        data = res.body.data[0];
+        id = res.body.data[0].id
+        done();
+      });
+  });
+  it('should update user privileges', (done) => {
+    chai.request(server)
+      .put('/v2/updateUserPrivileges/'+id)
+      .set('Authorization', `Bearer ${token}`) 
+      .send(data)
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(typeof res.body).to.equal('object');
+        expect(Object.keys(res.body).length).to.equal(2);
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(200); 
+        expect(res.body).to.have.property('data'); 
+        done();
+      });
+  });
+});
+
+describe('settings tab', () => {
+  it('get logged in user data', (done) => {
+    chai.request(server)
+      .get('/v2/getLoggedinUserData/adminUser')
+      .set('Authorization', `Bearer ${token}`) 
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(typeof res.body).to.equal('object');
+        expect(Object.keys(res.body).length).to.equal(2);
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(200); 
+        expect(res.body).to.have.property('data'); 
+        done();
+      });
+  });
+  const requestBody = {"username":"adminUser","email":"test1@gmail.com","firstname":"firstname","lastname":"lastnam"};
+  it('should update user information', (done) => {
+    chai.request(server)
+      .post('/v2/updateUserData')
+      .set('Authorization', `Bearer ${token}`) 
+      .send(requestBody)
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(typeof res.body).to.equal('object');
+        expect(Object.keys(res.body).length).to.equal(2);
+        expect(res.body).to.have.property('status'); 
+        expect(res.body.status).to.equal(200); 
+        expect(res.body).to.have.property('data'); 
+        expect(res.body.data).to.equal('User updated successfully');
+        done();
+      });
+  });
+});
 
 describe('GET /v2/getProjects', () => {
   it('should return an array of projects', (done) => {
