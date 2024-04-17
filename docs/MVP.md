@@ -59,9 +59,9 @@ The intellectual merit of this is to provide ourselves with a thorough understan
     * ![alt text](editproject.png)
     * ![alt text](addproject.png)
   * Below GIF shows how the existing project can be edited.
-    * ![alt text](edit_project.gif)
+    * ![alt text](project_edit-_2_.gif)
   * Below GIF shows how to add a new project.
-    * ![alt text](add_project.gif)
+    * ![alt text](<add_project (2).gif>)
   * R5.3 - Below GIF shows the search of records.
     * ![alt text](search.gif)
   * R5.4 - Below GIF shows how to delete a project.
