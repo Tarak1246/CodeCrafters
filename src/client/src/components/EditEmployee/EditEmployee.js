@@ -23,7 +23,12 @@ const EditEmployee = () => {
   } = useForm({});
 
   useEffect(() => {
-    setFormData(state.data);
+    if (localStorage.getItem("jwtToken")) {
+      setFormData(state.data);
+    } else {
+      localStorage.clear();
+      navigate("/login");
+    } 
   }, [id]);
 
   const onSubmit = async (data) => {

@@ -67,7 +67,12 @@ const Projects = () => {
 
   // Effect hook to fetch data on component mount
   useEffect(() => {
-    fetchData();
+    if (localStorage.getItem("jwtToken")) {
+      fetchData();
+    } else {
+      localStorage.clear();
+      navigate("/login");
+    } 
   }, []);
 
   // Extract table headers from project data

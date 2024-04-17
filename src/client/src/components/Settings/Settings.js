@@ -155,8 +155,13 @@ const Settings = () => {
    * Runs only once when the component mounts (empty dependency array).
    */
   useEffect(() => {
-    fetchExistingEmails();
-    fetchUserDetails();
+    if (localStorage.getItem("jwtToken")) {
+      fetchExistingEmails();
+      fetchUserDetails();
+    } else {
+      localStorage.clear();
+      navigate("/login");
+    }   
   }, []);
   /**
    * Handles form submission for updating user profile information.
@@ -237,7 +242,7 @@ const Settings = () => {
    * and navigates to the login page using the navigate function (likely from react-router-dom).
    */
   const logoutUser = () => {
-    reset();
+    // reset();
     localStorage.clear();
     navigate("/login");
   };

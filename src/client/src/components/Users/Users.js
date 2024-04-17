@@ -78,7 +78,12 @@ const Users = () => {
    * @param {Array<any>} deps - Empty dependency array, ensuring fetchData runs only once on mount
    */
   useEffect(() => {
-    fetchData();
+    if (localStorage.getItem("jwtToken")) {
+      fetchData();
+    } else {
+      localStorage.clear();
+      navigate("/login");
+    } 
   }, []);
   /**
    *  @description Handles changes to the search input.

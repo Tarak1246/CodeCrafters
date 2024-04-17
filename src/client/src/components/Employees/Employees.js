@@ -53,7 +53,7 @@ const Employees = () => {
 
   let tableHeaders = data.length > 0 ? Object.keys(data[0]) : [];
   // alert(tableHeaders)
-  // tableHeaders = tableHeaders.filter(item => !["startDate","endDate"].includes(item));
+  tableHeaders = tableHeaders.filter(item => !["startDate","endDate"].includes(item));
 
   const filteredData = data.filter((item) =>
     Object.values(item).some((value) =>

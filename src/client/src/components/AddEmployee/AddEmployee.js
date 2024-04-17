@@ -19,7 +19,14 @@ const AddEmployee = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (localStorage.getItem("jwtToken")) {
+      
+    } else {
+      localStorage.clear();
+      navigate("/login");
+    } 
+  }, []);
 
   const cancelForm = async (e) => {
     try {

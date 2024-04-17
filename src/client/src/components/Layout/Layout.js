@@ -13,7 +13,7 @@
  * @module React
  * @description The React library for building user interfaces.
  */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 /**
  * @description Imports the Header component from a subdirectory.
  */
@@ -34,11 +34,8 @@ import "./Layout.css";
  * @description Imports the Main component from a subdirectory.
  */
 import Main from "../Main/Main";
-/**
- * @typedef SelectedTab
- * @type {'dashboard' | 'otherTab' | ... }
- * @description Represents the currently selected tab in the application.
- */
+import { useNavigate } from "react-router-dom";
+
 
 /**
  * @function Layout
@@ -47,6 +44,18 @@ import Main from "../Main/Main";
  * @returns {JSX.Element} The layout structure.
  */
 const Layout = ({ children }) => {
+    /**
+   * @type {import('react-router-dom').NavigateFunction} navigate - Function for programmatic navigation
+   */
+    const navigate = useNavigate();
+    // Effect hook to fetch data on component mount
+    useEffect(() => {
+      if (localStorage.getItem("jwtToken")) {
+      } else {
+        localStorage.clear();
+        navigate("/login");
+      } 
+    }, []);
   /**
    * @description Manages the currently selected tab using the useState hook.
    * @type {[SelectedTab, React.Dispatch<React.SetStateAction<SelectedTab>>]}
