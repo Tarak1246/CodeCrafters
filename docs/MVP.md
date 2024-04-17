@@ -24,30 +24,28 @@ The intellectual merit of this is to provide ourselves with a thorough understan
 ### Snapshots
 
 * Admin user creation
-  * Below snapshot represents an admin user creation through a REST API using postman
+  * Below snapshot and video represents an admin user creation through a REST API using postman
+  * R1/R1.1/R1.2 : REST API with valid request payload
     * ![alt text](<admin user.png>)
-
-* Login page
-  * Below snapshot represents a user login. All the registered and approved users can login
-    * ![alt text](<login page.png>)
+    * <video controls src="admin user creation.mp4" title="admin user"></video>
 
 * Register page
-  * Below snapshot represents a user registration. All the users who want to access the platform features can register here
+  * R2/R2.1/R2.2/R2.3 : Contains a form with required fields to register a user to the platform
+  * Below snapshot and video represents a user registration. All the users who want to access the platform features can register here
     * ![alt text](register.png)
+    * <video controls src="user register.mp4" title="user register"></video>
 
-* User register and activation by admin user
-  * ![alt text](Admin.gif)
+* Login page
+  * R3/R3.1/R3.2 : Contains a form with required fields to login a user into the platform.
+  * Below snapshot and video represents a user login. All the registered and approved users can login
+    * ![alt text](<login page.png>)
+    * <video controls src="user login.mp4" title="user login"></video>
 
 * Dashboard page
+  * R4/R4.1/R4.2/R4.3 : Dashboard module aims to provide users with a graphical representation of key metrics related to employees, contractors, and projects within the organization
   * Below snapshot represents graphical representation of key metrics related to employees,contractors, and projects within the organization
     * ![alt text](dashboard-1.png)
     * ![alt text](Dashboard.gif)
-
-* Contracts page
-  * Below snapshot represents contracts information of an organization
-    * ![alt text](<contracts page.png>)
-  * Adding a contract
-    * ![alt text](Contarct.gif)
 
 * Projects page
   * Below is the projects tab page that will look like when viewed. It contains existing project information.
@@ -67,15 +65,28 @@ The intellectual merit of this is to provide ourselves with a thorough understan
   * R5.4 - Below GIF shows how to delete a project.
     * ![alt text](delete.gif)
 
+* Contracts page
+  * R6/R6.1/R6.2/R6.3/R6.4/R6.5/R6.6 : Below is the contracts tab page that will look like when viewed. It contains existing contract information
+  * Below snapshot represents contracts information of an organization
+    * ![alt text](<contracts page.png>)
+  * Adding a contract
+    * ![alt text](Contarct.gif)
+
 * Employees page
+  * R7/R7.1/R7.2/R7.3/R7.4/R7.5/R7.6 : Below is the employees tab page that will look like when viewed. It contains existing employee information
   * Below snapshot represents employees information of an organization
     * ![alt text](<employees page.png>)
     * ![alt text](Employees.gif)
 
-* Users page
-  * Below snapshot represents all users information of an organization
-    * ![alt text](<users page.png>)
-
 * Settings page
-  * Below snapshot represents logged in user information and logout feature
+  * R8/R8.1/R8.2 : Contains logged in user information, an edit option and logout option.
+  * Below snapshot and video represents logged in user information and logout feature
     * ![alt text](settings.png)
+    * <video controls src="settings.mp4" title="settings"></video>
+
+* Users page
+  * R9/R9.1/R9.2 : Contains all registered users information in table format and an edit option to update the status and admin privileges by admin users only.
+  * Below snapshot and video represents all users information of an organization
+    * ![alt text](<users page.png>)
+    * <video controls src="users.mp4" title="users"></video>
+
