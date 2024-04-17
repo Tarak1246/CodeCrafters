@@ -21,7 +21,7 @@ axios.interceptors.request.use(authInterceptor);
 /**
  * @description  Configure the base URL for API requests
  */
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'http://localhost:4001';
 /**
  * @function getUsers
  * @description Fetches a list of users from the API.

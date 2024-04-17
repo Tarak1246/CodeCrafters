@@ -178,7 +178,7 @@
     * When the "Edit" button is clicked, a form containing the most recent contract details will pop up.
     * Users will have the ability to edit and submit modifications to the contract's details.
     * The updated data will be included in the contracts table following a successful submission.
-  * E6.4 The Edit button helps in the modification of the columns data.                                                              
+  * E6.4 The Edit button helps in the modification of the columns data.
 
   * R6.5. Delete Existing Contracts:
     * A "Delete" button or a selection checkbox should be included in each contract row in the table.

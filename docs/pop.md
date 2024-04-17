@@ -19,9 +19,9 @@ The intellectual merit of this is to provide ourselves with a thorough understan
 ## Components
 
 * Component1:
-    1.1 Register Screen
+  * 1.1 Register Screen
         Functionality: Provides with input fields to input username, email, password. Contains the hyperlink to the login page. As soon as the registration is created the data gets created in the database tables with the desired details. The password is encrypted in the database.
-    1.2 Login Screen
+  * 1.2 Login Screen
         Functionality: When the user tries to login, the data gets verified with the back end database and gets authenticated.
 * Component 2: Dashboard
     Functionality: It provides the statistical view of the projects, contracts, employees and their statuses. We have employed the functionality to show case the information in form of pie/donut charts and bar graphs and it presents the real time data, every time user visits the dashboard page the data gets refreshed by authenticating the database and giving updated information.
@@ -35,6 +35,8 @@ The intellectual merit of this is to provide ourselves with a thorough understan
     Functionality: The user settings page will allow users to update personal information. All the changes acts like a query to the database and the tables gets modified accordingly
 * Component 7: Admin user creation
     Functionality: It's an REST API to create an admin user for the application. Created admin user can manipulate the data/project management.
+* Component 8: Users
+    Functionality: The user page will allow to display users privileges and also allow admin privilege users to update privileges except admin role user. All the changes acts like a query to the database and the tables gets modified accordingly.
 
 Developers & Testers: All team members will take both roles and be part of tasks to achieve final outcome. We have come up with this plan as we will gain knowledge on all parts, help each other out and gain a complete overview of SDP.
 

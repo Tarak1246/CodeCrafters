@@ -4,7 +4,7 @@
 
 **Description:**
 
-I want to sign up for a new user account on the platform so that I can access its features and functionalities. I will need to provide a distinct username, email address, and password.
+AS an employee, I want to sign up for a new user account on the platform so that I can access its features and functionalities. I will need to provide a distinct username, email address, and password.
 
 **Acceptance Criteria:**
 
