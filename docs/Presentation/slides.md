@@ -1,10 +1,35 @@
 # Project Tracker - Team CodeCrafters
 
+# Slide 1 - Team Names
+* Project Name and team members name
+
+![alt text](image-10.png)
 ----------------------
 # Slide 2 - Roles
 * Describes the roles taken by the team members in the development of the project tracker web platform.
 
 ![alt text](image-1.png)
+
+----------------------
+# Slide 5 - Technical Requirements
+
+* Frontend:
+* Programming Languages: JavaScript
+* Front-end Framework: React
+* Version Control: GitHub
+* Authentication: Implement secure user authentication like JWT(JSON web token) Authentication
+* Backend:
+* Back-end Framework: Node.js(Express.js), Mocha(unit test framework)
+* Authentication: Implement secure user authentication like JWT(JSON web token) Authentication
+* Database:
+* Database: MongoDB
+* ODM: Mongoose
+* Tools:
+* Postman
+* Visual Studio
+* Studio 3T
+
+![alt text](image-12.png)
 
 ----------------------
 
@@ -14,6 +39,15 @@
 ![alt text](image-2.png)
 
 ----------------------
+
+# Slide 7 - Architecture
+![alt text](image-13.png)
+
+
+------------------------
+# Slide 8- Components
+![alt text](image-14.png)
+------------------------
 
 # Slide 33 - Project Component
 * This slide gives the introduction about the projects tab component in the project tracker and a brief mention of the user stories for the development of this component.
@@ -70,6 +104,54 @@
 ![alt text](image-9.png)
 
 --------------------------
+# Slide 46 - Employee Component
+* Purpose of the Employees component.
+* Ability to modify, delete, and create employee details.
+* Immediate updates to the database.
+* Data synchronization for real-time updates.
+ ![alt text](image-15.png)
+
+--------------------------
+# Slide 47 - Employee Component user story
+* As a user, I want to see a list of all employees in a table format.
+* As a user, I want to search for employees by entering their names in a search box.
+* As a user, I want to add a new employee to the system.
+* As a user, I want to edit the details of an existing employee.
+* As a user, I want to delete an existing employee.
+* As a user, I want the employee table to update in real-time after edit or delete operations.
+
+![alt text](image-16.png)
+
+--------------------------
+# Slide 48 - Employee Component UI
+![alt text](image-17.png)
+
+--------------------------
+# Slide 49 - Employee Component UI
+![alt text](image-18.png)
+
+--------------------------
+# Slide 50 - Code Snippet
+
+![alt text](image-19.png)
+
+--------------------------
+
+# Slide 51 - Evaluation Criteria
+![alt text](image-20.png)
+
+--------------------------
+
+# Slide 59 - Questions?
+![alt text](image-21.png)
+
+---------------------------
+
+# Slide 60 - Thank you
+![alt text](image-22.png)
+
+---------------------------
+
 
 Contributors:
 * Group Member 1: S S Eswara Satyanarayana Aneesh Dangeti (Projects Component).
