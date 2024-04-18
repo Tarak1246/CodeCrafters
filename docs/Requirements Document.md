@@ -142,7 +142,7 @@
     * Update: Updated information will be saved in the edit action.
     * Cancel: Clears the form in the edit/add action.
 
-  * E5.2: Verify that the form for adding/changing project information opens upon clicking the edit or add action icon, allowing users to enter/edit Client, Start Date, End Date, Deadline, Progress, and Status. Ensure save, update, and cancel functionalities work correctly.
+  * E5.2: Verify that the form for adding/changing project information opens upon clicking the edit or add action icon, allowing users to enter/edit Client, Start Date, End Date, Deadline, Progress, and Status. Ensure save, update, and cancel functionalities work correctly. Ensure that the only admin priviliged user is able to add,edit and delete the projects record items.
 
   * R5.3 Search button: A search button is present globally to search for any matching data present in the projects component.
   * E5.3: Ensure the search button allows users to search for projects using keywords, with search results accurately displayed in the table.
