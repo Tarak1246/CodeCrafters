@@ -511,3 +511,4 @@ Contributors:
 * Group Member 1: S S Eswara Satyanarayana Aneesh Dangeti (Projects Component).
 * Group Member 2: Taraka Sai Reddy Seelam (User Register, Admin User Creation, User Login,  Users and Settings Components).
 * Group Member 3: Akshay Reddy Yalla (Employees Component).
+* Group Member 4: Lakshmi Prasanna Yekkaladevi (Dashboard Component)
