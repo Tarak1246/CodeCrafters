@@ -111,10 +111,14 @@
     * ![Edit Project Information](Edit%20Project%20Information.png)
 
   * E5.2 Below shows the edit and add project evaluation and also shows the newly added project. It is working successsfully while cancelling the updates and additions.
+  * Only the admin priviliged user is able to perform the add, edit and delete actions. The action buttons are not working as designed for the normal user.
   * ![alt text](<E5.2 (1) - Edit Tab-1.png>)
   * ![alt text](<E 5.2 (2) - Add-1.png>)
   * ![alt text](<E 5.2 (3) - Adding & Showing Update-1.png>)
   * ![alt text](<E 5.2 (4) - Seeing added project-1.png>)
+
+  * Action buttons disabled for normal user.
+  ![alt text](image-1.png)
 
   * D5.3 Lists the search criteria if there are any matches
     * ![Search](search.jpg)
