@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { updateEmployeeRecord } from "../../services/api";
+import { updateEmployeeRecord,projectDbPull } from "../../services/api";
 
 const EditEmployee = () => {
   toast.configure();
@@ -21,10 +21,20 @@ const EditEmployee = () => {
     control,
     formState: { errors },
   } = useForm({});
-
+  const [projectNames, setProjectNames] = useState([]);
+   // Function to fetch project data from database
+   const fetchData = async () => {
+    try {
+      let response = await projectDbPull(); // Fetch project data from database
+      setProjectNames((response.data).map((item) => item.name));
+    } catch (error) {
+      console.error("error fetching data", error); // Log error if data fetching fails
+    }
+  };
   useEffect(() => {
     if (localStorage.getItem("jwtToken")) {
       setFormData(state.data);
+      fetchData();
     } else {
       localStorage.clear();
       navigate("/login");
@@ -74,7 +84,7 @@ const EditEmployee = () => {
         {Object.keys(formData).map((field) => (
           <div key={field} className="form-group">
             <label htmlFor={field}>{field}</label>
-            {field === "id" || field === "name" || field === "email" || field === "projectname" || field === "location" ? (
+            {field === "id" || field === "name" || field === "email" || field === "location" ? (
               field === "id"  || field === "name" ? (
                 <Controller
                   name={field}
@@ -184,6 +194,35 @@ const EditEmployee = () => {
                                             <option value="Software Engineer">Software Engineer</option>
                                             <option value="Product Manager">Product Manager</option>
                                           
+                                        </select>
+                                    </>
+                                )}
+                                rules={{ required: "status is required." }}
+                            />
+                            ) : field === "projectname" ? (
+                              <Controller
+                                name={field}
+                                control={control}
+                                defaultValue={formData[field]}
+                                render={({ field }) => (
+                                    <>
+                                        <select
+                                            {...field}
+                                            className="custom-select"
+                                            title="project name"
+                                            style={{ width: "233px", float: "right" }}
+                                        >
+                                            <option value="" disabled selected>
+                                                Select Project 
+                                            </option>
+                                            <option value="Bench">
+                                              Bench
+                                            </option>
+                                            {projectNames && projectNames.map((option) => (
+                                              <option key={option} value={option} text={option}>
+                                                {option}
+                                              </option>
+                                            ))}                                          
                                         </select>
                                     </>
                                 )}
